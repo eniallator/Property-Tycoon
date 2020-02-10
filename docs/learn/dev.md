@@ -23,7 +23,6 @@ different capabilities, and composable and form more robust components.
 Each of these components is in itself a program. Programs are just boxes that
 take some input and return some output.
 
-What distinguishes a program from any other is how it evolves at each step of
 execution, until termination.
 
 A program `1` will always return the constant `1`.
