@@ -36,12 +36,60 @@ As well as these turn-specific interactions, the player must be able to select t
 
 These layers are rendered in ascending order, with each subsequent layer being rendered above the other.
 
+Each interactable component in the GUI has a uniqe identifier that it uses when sending raw inputs to the input module. Take the example of rolling the die:
+- The user is prompted to confirm their die roll
+- They click on "Confirm" on the Roll Die menu
+- The GUI component's click event is triggered and it sends a "CLICK, ID" message to the Input module, where ID is the component's identifier, in this case 'RollDie'.
+
+> Since all user interactions in the engine prototype are clicks, the actual event type can be omitted, and the component need only send its ID to the Input module, which will assume a 'CLICK' event.
 
 ### Input
-[WIP]
+The job of the input module is to translate raw inputs from the GUI into commands understandable by the Logic Core. The language defining game commands consists of:
+
+- ROLL
+- BUY
+- PASS
+- BID [AMOUNT]
+- MORTGAGE
+- SELL
+- BUY FREEDOM
+- USE JAIL CARD
+- DECLARE BANKRUPTCY
+
+#### Polling
+Since the GUI will fire off multiple events regardless of whether it makes sense in game, one job of the Input module is to filter redundant inputs and reduce overloading to the Logic Core. If the GUI were to call the engine directly, resultant behavior may be undesirable.
 
 ### Logic Core
-[WIP]
+The central unit of the entire engine. Receives game commands, the previous game state, and outputs the new game state.
 
 ## Game State
-[WIP]
+The core piece of data that each of our components relies on to perform their jobs correctly. The Game State consists of. Each reference to 'Player' is referring to the current ActivePlayer:
+
+- Game Phase: { MAIN-MENU, PAUSE-MENU, PLAYER-MOVE, BUY-PROPERTY, AUCTION, PAY-RENT, PROPERTY-MANAGEMENT, END-GAME }:
+	- MAIN-MENU: Menu for new game, player number, and game-mode selection
+	- PAUSE-MENU: In-game menu with options to exit the game
+	- PLAYER-MOVE: User confirmation -> Plays dice roll animation to get steps and moves player. During this phase if a player is in jail the die does not roll. Rather they are given the option to pay their bail or remain in jail.
+	- BUY-PROPERTY: Player can choose to either buy the property they landed on or pass
+	- AUCTION: Every player makes their bid. Highest bid wins
+	- PAY-RENT: Player must pay the rent to player who owns landed tile. If unable to pay with current cash, players are offered options to mortage or sell their properties / improvements
+	- PROPERTY-MANAGEMENT: Players can mortgage, sell, or improve their properties
+	- END-GAME: Show end game winnning or losing end screen (and credits)
+
+- Active Player: ID of active Player entity
+
+- Players: Collection of Player entities in the game. A Player entity contains:
+	- ID
+	- Cash
+	- Properties owned (by ID)
+	- Special cards held
+	- Position on board (either numeric or 'In Jail')
+
+- Properties: Collection of Properties. Properties contain:
+	- ID
+	- Name
+	- Buy Value
+	- Rent Values (for each improvement)
+	- Improvements built
+	- Mortgage Status
+
+- Special Cards: Two collections containing cards, for 'Opportunity Knocks' and 'Pot Luck' cards respectively
