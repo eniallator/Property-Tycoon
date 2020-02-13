@@ -60,7 +60,7 @@ The job of the input module is to translate raw inputs from the GUI into command
 Since the GUI will fire off multiple events regardless of whether it makes sense in game, one job of the Input module is to filter redundant inputs and reduce overloading to the Logic Core. If the GUI were to call the engine directly, resultant behavior may be undesirable.
 
 ### Logic Core
-The central unit of the entire engine. Receives game commands, the previous game state, and outputs the new game state.
+The central unit of the entire engine. Receives game commands, the previous game state, and outputs the new game state. The Core is essentially just a function mapping game state to game state. It should hold no internal state of its own. Processing some state `S` of the game n times should yield n copies of the same new state.
 
 ## Game State
 The core piece of data that each of our components relies on to perform their jobs correctly. The Game State consists of. Each reference to 'Player' is referring to the current ActivePlayer:
