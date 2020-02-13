@@ -1,4 +1,4 @@
-# Engine Design [DRAFT]
+# Engine Design [DRAFT #1]
 
 The engine will be a data-pipeline, with most pieces of the pipeline transforming some `GameState` data.
 
@@ -65,7 +65,7 @@ The central unit of the entire engine. Receives game commands, the previous game
 ## Game State
 The core piece of data that each of our components relies on to perform their jobs correctly. The Game State consists of. Each reference to 'Player' is referring to the current ActivePlayer:
 
-- Game Phase: { MAIN-MENU, PAUSE-MENU, PLAYER-MOVE, BUY-PROPERTY, AUCTION, PAY-RENT, PROPERTY-MANAGEMENT, END-GAME }:
+- Game Phase:
 	- MAIN-MENU: Menu for new game, player number, and game-mode selection
 	- PAUSE-MENU: In-game menu with options to exit the game
 	- PLAYER-MOVE: User confirmation -> Plays dice roll animation to get steps and moves player. During this phase if a player is in jail the die does not roll. Rather they are given the option to pay their bail or remain in jail.
