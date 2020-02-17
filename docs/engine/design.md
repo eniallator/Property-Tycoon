@@ -11,6 +11,41 @@ The engine will be a data-pipeline, with most pieces of the pipeline transformin
 4. The `Logic Core` takes the `GameState` at current timestep t, and the commands from the `Input` module, and outputs the new state for the next timestep t+1. The new state then gets piped to the `GUI`, and back into the `Logic Core` for the next timestep computation.
 5. The `GUI` recieves the new GameState and renders it to the screen.
 
+Heres some pseudocode to illustrate:
+```js
+import Renderer from './renderer'
+import Input from './input'
+import Core from './core'
+import State form './state'
+
+class Engine {
+	constructor() {
+		// Initialize all modules
+		this.renderer = new Renderer()
+		this.input = new Input()
+		this.core = new Core()
+
+		// Initialize GameState
+		this.gameState = new State()
+	}        
+
+	update() {
+		// Get raw inputs from GUI
+		const rawInputs = this.renderer.readInputs()
+
+		// Translate raw inputs to game commands
+		const commands = this.input.translate(rawInputs)
+
+		// Pipe game commands into core to yield new state
+		const oldState = this.gameState
+		this.gameState = this.core.process(commands, oldState)
+
+		// Render new game state
+		this.renderer.update(this.gameState)
+	}
+}
+```
+
 ## Modules
 Here we will breakdown the functionality of each of the engine's modules, keeping in mind that any one module should not be concerned with any data or processing that another module encapsulates, to mantain modularity.
 
@@ -66,14 +101,14 @@ The central unit of the entire engine. Receives game commands, the previous game
 The core piece of data that each of our components relies on to perform their jobs correctly. The Game State consists of. Each reference to 'Player' is referring to the current ActivePlayer:
 
 - Game Phase:
-	- MAIN-MENU: Menu for new game, player number, and game-mode selection
-	- PAUSE-MENU: In-game menu with options to exit the game
-	- PLAYER-MOVE: User confirmation -> Plays dice roll animation to get steps and moves player. During this phase if a player is in jail the die does not roll. Rather they are given the option to pay their bail or remain in jail.
-	- BUY-PROPERTY: Player can choose to either buy the property they landed on or pass
-	- AUCTION: Every player makes their bid. Highest bid wins
-	- PAY-RENT: Player must pay the rent to player who owns landed tile. If unable to pay with current cash, players are offered options to mortage or sell their properties / improvements
-	- PROPERTY-MANAGEMENT: Players can mortgage, sell, or improve their properties
-	- END-GAME: Show end game winnning or losing end screen (and credits)
+	- _MAIN-MENU_: Menu for new game, player number, and game-mode selection
+	- _PAUSE-MENU_: In-game menu with options to exit the game
+	- _PLAYER-MOVE_: User confirmation -> Plays dice roll animation to get steps and moves player. During this phase if a player is in jail the die does not roll. Rather they are given the option to pay their bail or remain in jail.
+	- _BUY-PROPERTY_: Player can choose to either buy the property they landed on or pass
+	- _AUCTION_: Every player makes their bid. Highest bid wins
+	- _PAY-RENT_: Player must pay the rent to player who owns landed tile. If unable to pay with current cash, players are offered options to mortage or sell their properties / improvements
+	- _PROPERTY-MANAGEMENT_: Players can mortgage, sell, or improve their properties
+	- _END-GAME_: Show end game winnning or losing end screen (and credits)
 
 - Active Player: ID of active Player entity
 
