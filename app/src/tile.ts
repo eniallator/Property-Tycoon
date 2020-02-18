@@ -12,19 +12,29 @@
  */
 interface Tile { position: number }
 
-
-enum CornerType { GO, JAIL, PARKING, GO_TO_JAIL }
-interface Corner { type: CornerType }
 /**
- * CornerTile type. [[Tile]] composition.
- * - `type`: { `GO`, `JAIL`, `PARKING`, `GO_TO_JAIL` }
+ * Corner types. These are the four unique corner tiles on the boeard:
+ */
+enum CornerType { GO, JAIL, PARKING, GO_TO_JAIL }
+
+/**
+ * Corner wrapper
+ * - type: [[CornerType]]
+ */
+interface Corner { type: CornerType }
+
+/**
+ * CornerTile type. [[Corner]] & [[Tile]] composition 
  */
 type CornerTile = Corner & Tile
 
+/**
+ * Tax
+ * - `amount`: Amount of tax to be paid when landing on this tile
+ */
 interface Tax { readonly amount: number }
 /**
- * TaxTile type. [[Tile]] composition.
- * - `amount`: numerical amount of tax to be paid
+ * TaxTile type. [[Tax]] & [[Tile]] composition
  */
 type TaxTile = Tax & Tile
 
@@ -38,13 +48,25 @@ interface Property {
     readonly rentBase: number
 }
 /**
- * PropertyTile type. [[Tile]] composition.
+ * PropertyTile type. [[Property] & [[Tile]] composition.
  */
 type PropertyTile = Property & Tile
 
-enum EstateGroup { BLUE, PURPLE, ORANGE, RED, YELLOW, GREEN, DEEP_BLUE }
 /**
- * 
+ * Estate property groups
+ */
+enum EstateGroup { BLUE, PURPLE, ORANGE, RED, YELLOW, GREEN, DEEP_BLUE }
+
+/**
+ * Estate type. Subtype of [[Property]]
+ * - `group`: Estate property group the estate belongs to
+ * - `rentHouseOne`: Rent with one house
+ * - `rentHouseTwo`: Rent with two houses
+ * - `rentHouseThree`: Rent with three houses
+ * - `rentHouseFour`: Rent with four houses
+ * - `rentHotel`: Rent with hotel
+ * - `improvements`: Encoding range 1-5 of level of improvement currently on the property.
+ * - `mortgageStatus`: Whether the property is currently mortgaged or not
  */
 interface Estate extends Property {
     readonly group: EstateGroup
@@ -57,7 +79,15 @@ interface Estate extends Property {
     improvements: 1 | 2 | 3 | 4 | 5  // Convention - Hotel is represented by "5"
     mortgageStatus: boolean
 }
+
+/**
+ * Utility type. Subtype of [[Property]]
+ */
 interface Utility extends Property { }
+
+/**
+ * Station type. Subtype of [[Property]]
+ */
 interface Station extends Property { }
 
 export { Property, Tile }
