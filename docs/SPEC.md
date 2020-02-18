@@ -80,7 +80,7 @@ Build a 6-player property tycoon game, similar to monopoly, with the option of a
 ### Operation
 Each module in the system can be visualized as a function taking inputs and returning an output. The entire system then is the composition of all these modules.
 
-Here are the following inputs and outputs of each module. Empty input is denoted with _:
+Here are the following inputs and outputs of each module. Empty input is denoted with \_:
 	- Input : GameState -> _ | Command
 	- Logic Core : ( GameState, Command ) -> GameState
 	- Renderer : GameState -> _
