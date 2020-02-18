@@ -60,20 +60,20 @@ enum EstateGroup { BLUE, PURPLE, ORANGE, RED, YELLOW, GREEN, DEEP_BLUE }
 /**
  * Estate type. Subtype of [[Property]]
  * - `group`: Estate property group the estate belongs to
- * - `rentHouseOne`: Rent with one house
- * - `rentHouseTwo`: Rent with two houses
- * - `rentHouseThree`: Rent with three houses
- * - `rentHouseFour`: Rent with four houses
+ * - `rentOne`: Rent with one house
+ * - `rentTwo`: Rent with two houses
+ * - `rentThree`: Rent with three houses
+ * - `rentFour`: Rent with four houses
  * - `rentHotel`: Rent with hotel
  * - `improvements`: Encoding range 1-5 of level of improvement currently on the property.
  * - `mortgageStatus`: Whether the property is currently mortgaged or not
  */
 interface Estate extends Property {
     readonly group: EstateGroup
-    readonly rentHouseOne: number
-    readonly rentHouseTwo: number
-    readonly rentHouseThree: number
-    readonly rentHouseFour: number
+    readonly rentOne: number
+    readonly rentTwo: number
+    readonly rentThree: number
+    readonly rentFour: number
     readonly rentHotel: number
 
     improvements: 1 | 2 | 3 | 4 | 5  // Convention - Hotel is represented by "5"
