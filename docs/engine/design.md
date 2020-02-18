@@ -114,6 +114,7 @@ The core piece of data that each of our components relies on to perform their jo
 
 - Players: Collection of Player entities in the game. A Player entity contains:
 	- ID
+	- Token
 	- Cash
 	- Properties owned (by ID)
 	- Special cards held
