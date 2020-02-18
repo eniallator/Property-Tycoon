@@ -6,7 +6,7 @@
   "repository": "https://github.com/eniallator/Property-Tycoon",
   "scripts": {
     "build": "tsc src/main.ts -outDir dist",
-    "start": "node dist/main.js",
+    "start": "node dist/main.js"
   },
   "author": "DeadPigeon",
   "license": "MIT",
