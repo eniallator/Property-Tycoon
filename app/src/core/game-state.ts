@@ -45,5 +45,9 @@ interface GameState {
     doubleCount: 0 | 1 | 2
 }
 
+// Initialize new game state
+function createGameState(numPlayers: number): GameState {
+    return undefined
+}
 
-export { GameState }
+export { GameState, createGameState }
