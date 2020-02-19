@@ -6,38 +6,44 @@
  * @packageDocumentation
  */
 
+
+// Tile
 /**
  * Tile interface.
- * - `position`: Numerical position on board (in range 1-40)
+ * - `position`: Numerical position on board = [1-40]
  */
 interface Tile { position: number }
 
+
+// Corner Tile
 /**
  * Corner types. These are the four unique corner tiles on the boeard:
  */
 enum CornerType { GO, JAIL, PARKING, GO_TO_JAIL }
-
 /**
  * Corner wrapper
  * - type: [[CornerType]]
  */
 interface Corner { type: CornerType }
-
 /**
- * CornerTile type. [[Corner]] & [[Tile]] composition 
+ * CornerTile type. [[Corner]] and [[Tile]] composition.
  */
 type CornerTile = Corner & Tile
 
+
+// Tax Tile
 /**
  * Tax
  * - `amount`: Amount of tax to be paid when landing on this tile
  */
 interface Tax { readonly amount: number }
 /**
- * TaxTile type. [[Tax]] & [[Tile]] composition
+ * TaxTile type. [[Tax]] and [[Tile]] composition.
  */
 type TaxTile = Tax & Tile
 
+
+// Property Tile
 /**
  * Property interface.
  * - `name`: property name
@@ -52,11 +58,12 @@ interface Property {
  */
 type PropertyTile = Property & Tile
 
+
+// Estate
 /**
  * Estate property groups
  */
 enum EstateGroup { BLUE, PURPLE, ORANGE, RED, YELLOW, GREEN, DEEP_BLUE }
-
 /**
  * Estate type. Subtype of [[Property]]
  * - `group`: Estate property group the estate belongs to
@@ -80,14 +87,19 @@ interface Estate extends Property {
     mortgageStatus: boolean
 }
 
+
+// Utility
 /**
  * Utility type. Subtype of [[Property]]
  */
 interface Utility extends Property { }
 
+
+// Station
 /**
  * Station type. Subtype of [[Property]]
  */
 interface Station extends Property { }
+
 
 export { Property, Tile }

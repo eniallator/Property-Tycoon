@@ -7,4 +7,4 @@
  * @packageDocumentation
  */
 
- import { GameState, Tile, Player } from '.'
+import { GameState, Tile, Player } from '.'
