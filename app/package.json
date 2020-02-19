@@ -1,0 +1,20 @@
+{
+  "name": "property-tycoon",
+  "version": "0.0.1",
+  "description": "Property Tycoon simulation",
+  "main": "index.js",
+  "repository": "https://github.com/eniallator/Property-Tycoon",
+  "scripts": {
+    "build": "tsc src/main.ts -outDir dist",
+    "start": "node dist/main.js"
+  },
+  "author": "DeadPigeon",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^8.0.1",
+    "typescript": "^3.7.5"
+  },
+  "devDependencies": {
+    "typescript-tslint-plugin": "^0.5.5"
+  }
+}
