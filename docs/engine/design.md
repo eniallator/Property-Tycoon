@@ -89,7 +89,7 @@ The job of the input module is to translate raw inputs from the GUI into command
 - SELL
 - BUY FREEDOM
 - USE JAIL CARD
-- DECLARE BANKRUPTCY
+- WITHDRAW
 
 #### Polling
 Since the GUI will fire off multiple events regardless of whether it makes sense in game, one job of the Input module is to filter redundant inputs and reduce overloading to the Logic Core. If the GUI were to call the engine directly, resultant behavior may be undesirable.
