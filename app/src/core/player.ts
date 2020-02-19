@@ -47,13 +47,9 @@ interface Player {
 // Functions for manipulate players
 namespace PlayerUtil {
     // Move player position
-    export function movePlayer(steps: number, player: Player): Player {
+    export function move(steps: number, player: Player): Player {
         const { position } = player
-        const magicNum: number = 40 // TODO: Don't have this as some magic number
-        const pos = position + steps
-        const newPos = pos < 0 ? magicNum - pos : pos % magicNum
-
-        return { position: newPos, ...player }
+        return { position: position + steps, ...player }
     }
 }
 

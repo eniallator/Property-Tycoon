@@ -6,7 +6,7 @@
  * @packageDocumentation
  */
 
-import { Player } from './player'
+import { Player, PlayerUtil } from './player'
 import { Property } from './tile'
 //import { Card } from './card'  // TODO: Does Card need to be in its own file?
 
@@ -53,8 +53,18 @@ namespace StateUtil {
     }
 
     // Move the player
-    function movePlayer(state: State, steps: number): State {
-        return undefined
+    export function movePlayer(state: State, steps: number): State {
+        const { activePlayer } = state
+        let newPos = activePlayer.position + steps
+        let cleanSteps: number
+
+        if ( newPos < 0 ) {
+            cleanSteps = 40 + newPos // TODO: Stop using 40 as a magic number
+        } else {
+            cleanSteps = newPos % 40
+        }
+
+        return { activePlayer: PlayerUtil.move(cleanSteps, activePlayer), ...state  }
     }
 }
 

@@ -4,6 +4,8 @@ import { State, StateUtil } from './state'
 import { Command, CommandType, CommandUtil } from './command'
 
 export { 
-    Tile, Player, State, 
+    Tile, 
+    Player, PlayerUtil,
+    State, StateUtil,
     Command, CommandType, CommandUtil
 }
