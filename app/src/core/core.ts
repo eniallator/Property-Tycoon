@@ -8,10 +8,10 @@
  */
 
 import { 
-    State, 
+    State, StateUtil,
     Command, CommandType, CommandUtil,
     Tile,
-    Player
+    Player, PlayerUtil
 } from '.'
 
 
@@ -26,7 +26,6 @@ class Core {
 
         switch ( type ) {
             case CommandType.ROLL:
-                // Move the player according to the roll
                 Logic.move(cmd.data as CommandUtil.RollData, newState)
                 break;
         }
@@ -37,22 +36,10 @@ class Core {
 
 // State Update Functions
 namespace Logic {
-    export function move(data: CommandUtil.RollData, state: State): void {
+    export function move(data: CommandUtil.RollData, state: State): State {
         const { dice: [ die1, die2 ] } = data
-        const { doubleCount, activePlayer } = state
+        const { activePlayer } = state
 
-
-        // Double rolled
-        if ( die1 == die2 ) {
-
-            // Three doubles sends player to jail
-            if ( doubleCount >= 2 ) {
-                state.doubleCount = 0  // Reset double count
-                activePlayer.inJail = true  // Send player to jail
-            }
-            state.doubleCount += 1
-        } else {
-            // Move player by roll
-        }
+        return StateUtil.movePlayer(state, die1 + die2)
     }
 }
