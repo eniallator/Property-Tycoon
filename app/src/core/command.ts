@@ -24,6 +24,7 @@ interface Command {
 
 type CommandData = CommandUtil.RollData // | ... other command data types
 
+// Utility types
 namespace CommandUtil {
     // Roll die data is the value represented by 2 dice
     type Die = 1 | 2 | 3 | 4 | 5 | 6
