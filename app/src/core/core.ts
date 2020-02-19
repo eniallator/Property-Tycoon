@@ -34,7 +34,7 @@ class Core {
     }
 }
 
-// State Update Functions
+// Game Logic Functions
 namespace Logic {
     export function move(data: CommandUtil.RollData, state: State): State {
         const { dice: [ die1, die2 ] } = data
