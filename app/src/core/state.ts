@@ -47,19 +47,25 @@ interface State {
 
 // Functions for manipulating the game state
 namespace StateUtil {
-    // Initialize new game state
-    function createGameState(numPlayers: number): State {
-        return undefined
+    /**
+     * Creates a new game state. TODO
+     */
+    function createGameState(): State {
+        return undefined // TODO
     }
 
-    // Move the player
+    /**
+     * Moves the current `activePlayer` `steps` steps around the board
+     * @param state Current game state
+     * @param steps Steps to move player
+     */
     export function movePlayer(state: State, steps: number): State {
         const { activePlayer } = state
         let newPos = activePlayer.position + steps
         let cleanSteps: number
 
         if ( newPos < 0 ) {
-            cleanSteps = 40 + newPos // TODO: Stop using 40 as a magic number
+            cleanSteps = 40 + newPos // TODO: Stop using 40 as a magic number. Use number of tiles
         } else {
             cleanSteps = newPos % 40
         }

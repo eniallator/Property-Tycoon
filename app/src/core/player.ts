@@ -44,12 +44,16 @@ interface Player {
     outOfJailCard: string  //TODO: Change to collection?
 }
 
-// Functions for manipulate players
+// Functions for manipulating players
 namespace PlayerUtil {
-    // Move player position
-    export function move(steps: number, player: Player): Player {
+    /**
+     * Moves player position by `n` steps
+     * @param n Number of steps to move
+     * @param player Player whose position will be moved
+     */
+    export function move(n: number, player: Player): Player {
         const { position } = player
-        return { position: position + steps, ...player }
+        return { position: position + n, ...player }
     }
 }
 
