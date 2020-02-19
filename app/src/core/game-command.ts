@@ -7,3 +7,8 @@
  * @packageDocumentation
  */
 
+enum CommandType { ROLL }
+
+ interface GameCommand {
+     type: CommandType
+ }

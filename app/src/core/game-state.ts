@@ -34,6 +34,7 @@ type Card = string  // TODO: Placeholder for now. Will be imported from its own 
  * - `activePlayer`: Current active player
  * - `properties`: TODO
  * - `cards`: TODO
+ * - `doubleCount`: Number of doubles thrown by player
  */
 interface GameState {
     gamePhase: GamePhase
@@ -41,6 +42,7 @@ interface GameState {
     activePlayer: Player
     properties: Array<Property>
     cards: Array<Card>
+    doubleCount: 0 | 1 | 2
 }
 
 
