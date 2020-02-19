@@ -36,7 +36,7 @@ type Card = string  // TODO: Placeholder for now. Will be imported from its own 
  * - `cards`: TODO
  * - `doubleCount`: Number of doubles thrown by player
  */
-interface GameState {
+interface State {
     gamePhase: GamePhase
     players: Array<Player>
     activePlayer: Player
@@ -45,9 +45,17 @@ interface GameState {
     doubleCount: 0 | 1 | 2
 }
 
-// Initialize new game state
-function createGameState(numPlayers: number): GameState {
-    return undefined
+// Functions for manipulating the game state
+namespace StateUtil {
+    // Initialize new game state
+    function createGameState(numPlayers: number): State {
+        return undefined
+    }
+
+    // Move the player
+    function movePlayer(state: State, steps: number): State {
+        return undefined
+    }
 }
 
-export { GameState, createGameState }
+export { State, StateUtil }

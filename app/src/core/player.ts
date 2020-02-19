@@ -44,5 +44,17 @@ interface Player {
     outOfJailCard: string  //TODO: Change to collection?
 }
 
+// Functions for manipulate players
+namespace PlayerUtil {
+    // Move player position
+    export function movePlayer(steps: number, player: Player): Player {
+        const { position } = player
+        const magicNum: number = 40 // TODO: Don't have this as some magic number
+        const pos = position + steps
+        const newPos = pos < 0 ? magicNum - pos : pos % magicNum
 
-export { Player, Token }
+        return { position: newPos, ...player }
+    }
+}
+
+export { Player, Token, PlayerUtil }
