@@ -10,7 +10,6 @@ import { Player } from './player'
 import { Property } from './tile'
 //import { Card } from './card'  // TODO: Does Card need to be in its own file?
 
-
 // Game Phase
 /**
  * Represents current event the game is in:
