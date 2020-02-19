@@ -9,9 +9,9 @@
 
 import { 
     GameState, 
-    RollData, CommandType, GameCommand,
+    GameCommand, CommandType, CmdData,
     Tile,
-    Player 
+    Player
 } from '.'
 
 
@@ -26,7 +26,7 @@ class Core {
 
         switch ( type ) {
             case CommandType.ROLL:
-                Logic.move(cmd.data as RollData, newState)
+                Logic.move(cmd.data as CmdData.RollData, newState)
                 break;
         }
     }
@@ -34,7 +34,7 @@ class Core {
 
 // State Update Functions
 namespace Logic {
-    export function move(data: RollData, state: GameState): void {
+    export function move(data: CmdData.RollData, state: GameState): void {
         const { dice: [ die1, die2 ] } = data
         const { doubleCount } = state
 

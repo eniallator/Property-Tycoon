@@ -19,16 +19,21 @@ enum CommandType { ROLL }
  */
 interface GameCommand {
      type: CommandType
-     data: RollData
+     data: CommandData
  }
 
+type CommandData = CmdData.RollData // | ... other command data types
 
-type Die = 1 | 2 | 3 | 4 | 5 | 6
-interface RollData {
-    dice: [ Die, Die]
+namespace CmdData {
+    // Roll die data is the value represented by 2 dice
+    type Die = 1 | 2 | 3 | 4 | 5 | 6
+    export interface RollData {
+        dice: [ Die, Die ]
+    }
 }
 
  export { 
+     GameCommand,
      CommandType,
-     RollData
+     CmdData
 }
