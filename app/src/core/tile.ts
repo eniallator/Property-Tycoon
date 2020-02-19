@@ -26,7 +26,7 @@ enum CornerType { GO, JAIL, PARKING, GO_TO_JAIL }
  */
 interface Corner { type: CornerType }
 /**
- * CornerTile type. [[Corner]] and [[Tile]] composition.
+ * CornerTile type alias. [[Corner]] and [[Tile]] composition.
  */
 type CornerTile = Corner & Tile
 
@@ -38,7 +38,7 @@ type CornerTile = Corner & Tile
  */
 interface Tax { readonly amount: number }
 /**
- * TaxTile type. [[Tax]] and [[Tile]] composition.
+ * TaxTile type alias. [[Tax]] and [[Tile]] composition.
  */
 type TaxTile = Tax & Tile
 
@@ -49,12 +49,9 @@ type TaxTile = Tax & Tile
  * - `name`: property name
  * - `rentBase`: numerical value of base rent
  */
-interface Property {
-    readonly name: string
-    readonly rentBase: number
-}
+interface Property { readonly name: string }
 /**
- * PropertyTile type. [[Property] & [[Tile]] composition.
+ * PropertyTile type alias. [[Property] & [[Tile]] composition.
  */
 type PropertyTile = Property & Tile
 
@@ -67,39 +64,37 @@ enum EstateGroup { BLUE, PURPLE, ORANGE, RED, YELLOW, GREEN, DEEP_BLUE }
 /**
  * Estate type. Subtype of [[Property]]
  * - `group`: Estate property group the estate belongs to
- * - `rentOne`: Rent with one house
- * - `rentTwo`: Rent with two houses
- * - `rentThree`: Rent with three houses
- * - `rentFour`: Rent with four houses
- * - `rentHotel`: Rent with hotel
- * - `improvements`: Encoding range 1-5 of level of improvement currently on the property.
- * - `mortgageStatus`: Whether the property is currently mortgaged or not
+ * - `rent(tier)`: Function taking improvement tier = [0-5] and returning the corresponding rent
+ * - `improvements`: Encoding range = [0-5] improvement level currently on the property. By convention, 5 is a hotel.
+ * - `isMortgaged`: true if property is mortgaged, false otherwise
  */
 interface Estate extends Property {
     readonly group: EstateGroup
-    readonly rentOne: number
-    readonly rentTwo: number
-    readonly rentThree: number
-    readonly rentFour: number
-    readonly rentHotel: number
-
-    improvements: 1 | 2 | 3 | 4 | 5  // Convention - Hotel is represented by "5"
-    mortgageStatus: boolean
+    readonly rent: (tier: 0 | 1 | 2 | 3 | 4 | 5) => number
+    
+    improvements: 0 | 1 | 2 | 3 | 4 | 5
+    isMortgaged: boolean
 }
 
 
 // Utility
 /**
  * Utility type. Subtype of [[Property]]
+ * - `rent(tier)`: Function taking improvement tier = [1-2] and returning the corresponding rent
  */
-interface Utility extends Property { }
+interface Utility extends Property {
+    readonly rent: (tier: 1 | 2) => number
+}
 
 
 // Station
 /**
  * Station type. Subtype of [[Property]]
+ * - `rent(tier)`: Function taking improvement tier = [1-4] and returning the corresponding rent
  */
-interface Station extends Property { }
+interface Station extends Property {
+    readonly rent: (tier: 1 | 2 | 3 | 4) => number
+}
 
 
 export { Property, Tile }
