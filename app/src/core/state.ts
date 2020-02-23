@@ -40,8 +40,8 @@ type Card = string  // TODO: Placeholder for now. Will be imported from its own 
 interface State {
     gamePhase: GamePhase
     players: Array<Player>
-    activePlayer: Player
-    properties: Array<Property>
+    activePlayer: 1 | 2 | 3 | 4 | 5 | 6
+    properties: Array<Property> // TODO: Make this map of index->tile
     cards: Array<Card>
     doubleCount: 0 | 1 | 2
 }
@@ -61,7 +61,6 @@ namespace StateM {
      * @param state Current game state
      * @param steps 
      */
-
     export function nextTurn(state: State): State {
         return undefined // TODO
     }
@@ -90,4 +89,4 @@ namespace StateM {
     }
 }
 
-export { State, StateM }
+export { State, GamePhase, StateM }
