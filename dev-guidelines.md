@@ -113,5 +113,9 @@ namespace FooM {
     // Functions operating on the types declared above
 }
 ```
-It's important to keep functions and data separate, as this makes [unit testing](./testing.md)
+It's important to keep functions and data separate, as this makes [unit testing](#testing)
 considerably more straightforward.
+
+### Testing
+The project is tested using the [jest](https://jestjs.io/en/) testing library.
+Make sure that each module's functional namespace is tested.
