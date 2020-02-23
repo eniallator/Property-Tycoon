@@ -35,7 +35,7 @@ enum Token { BOOT, SMARTPHONE, GOBLET, HATSTAND, CAT, SPOON }
  * - `outOfJailCard`: TODO
  */
 interface Player {
-    readonly id: 1 | 2 | 3 | 4 | 5 | 6
+    readonly id: 0 | 1 | 2 | 3 | 4 | 5
     readonly token: Token
 
     position: number // 1 - 40 (the position of the tile they're on)
@@ -49,7 +49,7 @@ interface Player {
 // Utility functions and types
 namespace PlayerM {
 
-    export function createPlayer(id: 1 | 2 | 3 | 4 | 5 | 6, token: Token): Player {
+    export function createPlayer(id: 0 | 1 | 2 | 3 | 4 | 5, token: Token): Player {
         return {
             id: id,
             token: token,

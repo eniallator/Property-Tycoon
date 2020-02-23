@@ -37,7 +37,7 @@ enum GamePhase { PLAYER_MOVE }
  */
 interface State {
     gamePhase: GamePhase
-    activePlayer: 1 | 2 | 3 | 4 | 5 | 6
+    activePlayer: 0 | 1 | 2 | 3 | 4 | 5
     players: Array<Player>
     tiles: Array<Tile>
 }
@@ -79,7 +79,11 @@ namespace StateM {
      * @param state Current game state
      */
     export function nextTurn(state: State): State {
-        return undefined // TODO
+        const { activePlayer, players } = state
+        const numPlayers = players.length
+        const updates = { activePlayer: (activePlayer + 1) % numPlayers  }
+
+        return Util.update(state, updates)
     }
     
     /**
