@@ -40,7 +40,7 @@ interface Player {
 
     position: number // 1 - 40 (the position of the tile they're on)
     cash: number
-    properties: Array<Property> // TODO: Change to a Set?
+    properties: Set<Property> // TODO: Change to a Set?
     inJail: boolean
     outOfJailCard: string  //TODO: Change to collection?
 }
