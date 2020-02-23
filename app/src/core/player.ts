@@ -67,8 +67,7 @@ namespace PlayerM {
      * @param player Player whose position will be moved
      */
     export function move(n: number, player: Player): Player {
-        const { position } = player
-        const updates = { position: position + n }
+        const updates = { position: n }
         return Util.update(player, updates)
     }
 }
