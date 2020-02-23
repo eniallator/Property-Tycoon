@@ -6,6 +6,7 @@
   "repository": "https://github.com/eniallator/Property-Tycoon",
   "scripts": {
     "build": "tsc src/main.ts -outDir dist",
+    "test": "jest",
     "start": "node dist/main.js"
   },
   "author": "DeadPigeon",
@@ -15,6 +16,7 @@
     "typescript": "^3.7.5"
   },
   "devDependencies": {
+    "jest": "^25.1.0",
     "typescript-tslint-plugin": "^0.5.5"
   }
 }
