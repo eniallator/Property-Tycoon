@@ -1,12 +1,12 @@
 import { Tile } from './tile'
-import { Player, PlayerM } from './player'
+import { Player, Token, PlayerM } from './player'
 import { State, StateM } from './state'
 import * as Cmd from './command'
 import { Core } from './core'
 
 export { 
     Tile, 
-    Player, PlayerM,
+    Player, Token, PlayerM,
     State, StateM,
     Cmd,
     Core
