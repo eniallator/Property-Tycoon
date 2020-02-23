@@ -37,7 +37,7 @@ enum GamePhase { PLAYER_MOVE }
  */
 interface State {
     gamePhase: GamePhase
-    activePlayer: 0 | 1 | 2 | 3 | 4 | 5
+    activePlayer: 0 | 1 | 2 | 3 | 4 | 5,  
     players: Array<Player>
     tiles: Array<Tile>
 }
@@ -68,7 +68,7 @@ namespace StateM {
 
         return {
             gamePhase: GamePhase.PLAYER_MOVE,
-            activePlayer: 1,
+            activePlayer: 0,
             players: players,
             tiles: tiles
         }
@@ -94,19 +94,21 @@ namespace StateM {
     export function movePlayer(state: State, steps: number): State {
         const { activePlayer, players, tiles } = state
         const currentPlayer = players[activePlayer]
+        const numTiles = tiles.length
 
-        let newPos = currentPlayer.position + steps
-        let actualSteps: number
-
-        const numTiles = new Array(tiles.keys()).length
+        const newPos: number = currentPlayer.position + steps
+        let actualPos: number
 
         if ( newPos < 0 ) {
-            actualSteps = numTiles + newPos         
+            actualPos = numTiles + ( newPos % numTiles)
         } else {
-            actualSteps = newPos % numTiles
+            actualPos = newPos % numTiles
         }
-        
-        const updates = { activePlayer: PlayerM.move(actualSteps, currentPlayer) }
+
+        console.log(`Actual Steps: ${actualPos} Steps: ${steps} Newpos: ${newPos}`)
+        players[activePlayer] = PlayerM.move(actualPos, currentPlayer)
+
+        const updates = { players: players }
 
         return Util.update(state, updates)
     }
