@@ -14,16 +14,16 @@ namespace Util {
      * @param original Original object
      * @param updates Object containing keys with corresponding values to update
      */
-    export function update(original: any, updates: any) {
+    export function update(original: any, updates: Object) {
         let output: any = { ...original }
 
-        for (let key in updates) {
-            output[key] = update[key]
-        }
+        Object.keys(updates).forEach(key => {
+            output[key] = updates[key]
+        })
+        
 
         return output
     }
 }
-
 
 export default Util
