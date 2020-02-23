@@ -87,3 +87,31 @@ import { bar } from './bar'
 
 export { Something, Else }
 ```
+
+### Modules
+A module can be defined as some types and some functions working on those types.
+Here we have interfaces and type aliases, and functions that operate on them. Modules
+must be fully contained within a single file, and structured as shown:
+```
+// Imports
+
+<TYPES AND INTERFACES>
+
+namespace <MODULE_NAME>M {
+    <FUNCTIONS>
+}
+
+// Exports
+```
+One example for a module `Foo`:
+```
+interface FooThings { ... }
+interface FooOtherThings { ... }
+interface SomeOtherFooRelatedThing { ... }
+
+namespace FooM {
+    // Functions operating on the types declared above
+}
+```
+It's important to keep functions and data separate, as this makes [unit testing](./testing.md)
+considerably more straightforward.
