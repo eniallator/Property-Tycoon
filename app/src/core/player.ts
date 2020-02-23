@@ -7,6 +7,7 @@
  */
 
 import { Property } from './tile'
+import Util from '../util'
 
 
 // Token
@@ -55,7 +56,8 @@ namespace PlayerM {
      */
     export function move(n: number, player: Player): Player {
         const { position } = player
-        return { position: position + n, ...player }
+        const updates = { position: position + n }
+        return Util.update(player, updates)
     }
 }
 

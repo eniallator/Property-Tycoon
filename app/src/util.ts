@@ -14,8 +14,8 @@ namespace Util {
      * @param original Original object
      * @param updates Object containing keys with corresponding values to update
      */
-    function update(original: Object, updates: Object) {
-        let output: Object = { ...original }
+    export function update(original: any, updates: any) {
+        let output: any = { ...original }
 
         for (let key in updates) {
             output[key] = update[key]
@@ -24,3 +24,6 @@ namespace Util {
         return output
     }
 }
+
+
+export default Util
