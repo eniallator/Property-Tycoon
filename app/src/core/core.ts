@@ -7,7 +7,6 @@
  * @packageDocumentation
  */
 
-
 import { Tile } from './tile'
 import { State, StateM } from './state'
 import { Player, PlayerM } from './player'
@@ -30,9 +29,9 @@ class Core {
      */
     update(state: State, cmd: Cmd.Command): State {
         const { type, data } = cmd
-        let updates = { }
+        let updates = {}
 
-        switch ( type ) {
+        switch (type) {
             case Cmd.CommandType.ROLL:
                 updates = CoreM.move(cmd.data as Cmd.RollData, state)
                 break;
@@ -52,7 +51,7 @@ namespace CoreM {
      * @param state Current state of the game
      */
     export function move(data: Cmd.RollData, state: State): State {
-        const { dice: [ die1, die2 ] } = data
+        const { dice: [die1, die2] } = data
         const { activePlayer } = state
 
         return StateM.movePlayer(state, die1 + die2)

@@ -4,9 +4,10 @@
  * authors: Michael K.
  */
 
- import { Core } from './core'
+import { Core } from './core'
 
- // Game entry point
+
+// Game entry point
 function main() {
     // Do something
 }

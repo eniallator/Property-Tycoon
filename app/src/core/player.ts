@@ -72,8 +72,8 @@ namespace PlayerM {
     }
 }
 
-export { 
-    Token, 
-    Player, 
-    PlayerM 
+export {
+    Token,
+    Player,
+    PlayerM
 }

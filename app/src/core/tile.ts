@@ -71,7 +71,7 @@ enum EstateGroup { BLUE, PURPLE, ORANGE, RED, YELLOW, GREEN, DEEP_BLUE }
 interface Estate extends Property {
     readonly group: EstateGroup
     readonly rent: (tier: 0 | 1 | 2 | 3 | 4 | 5) => number
-    
+
     improvements: 0 | 1 | 2 | 3 | 4 | 5
     isMortgaged: boolean
 }
@@ -110,7 +110,7 @@ namespace TileM {
     }
 }
 
-export { 
+export {
     Tile, TileM,
     Property
 }

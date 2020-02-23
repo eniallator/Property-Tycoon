@@ -7,10 +7,11 @@
  * @packageDocumentation
  */
 
- /**
-  * Command types:
-  * - `ROLL`: Player has rolled their die
-  */
+
+/**
+ * Command types:
+ * - `ROLL`: Player has rolled their die
+ */
 enum CommandType { ROLL }
 
 /**
@@ -18,9 +19,9 @@ enum CommandType { ROLL }
  * - `type`: Type of command sent
  */
 interface Command {
-     type: CommandType
-     data: CommandData
- }
+    type: CommandType
+    data: CommandData
+}
 
 type CommandData = RollData // | ... other command data types
 
@@ -32,10 +33,10 @@ interface RollData {
 }
 
 
-export { 
-     Command,
-     CommandType,
+export {
+    Command,
+    CommandType,
 
-     // Command Data Types
-     RollData
+    // Command Data Types
+    RollData
 }

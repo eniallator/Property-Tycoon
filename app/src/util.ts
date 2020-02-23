@@ -20,7 +20,7 @@ namespace Util {
         Object.keys(updates).forEach(key => {
             output[key] = updates[key]
         })
-        
+
 
         return output
     }
