@@ -6,8 +6,8 @@
  * @packageDocumentation
  */
 
-import { Player, PlayerM } from './player'
-import { Tile, Property } from './tile'
+import { Player, Token, PlayerM } from './player'
+import { Tile, TileM, Property } from './tile'
 import Util from '../util'
 
 // Game Phase
@@ -37,8 +37,8 @@ enum GamePhase { PLAYER_MOVE }
  */
 interface State {
     gamePhase: GamePhase
-    players: Array<Player>
     activePlayer: 1 | 2 | 3 | 4 | 5 | 6
+    players: Array<Player>
     tiles: Map<number, Tile>
 }
 
@@ -46,16 +46,37 @@ interface State {
 // Module functions
 namespace StateM {
     /**
-     * Creates a new game state. TODO
+     * Creates a new game state.
+     * TODO: 
+     * - Update behaviour from sprint 1
      */
-    export function createGameState(): State {
-        return undefined // TODO
+    export function createGameState(numTiles: number = 40): State {
+        const tiles: Map<number, Tile> = new Map()
+
+        for (let i = 0; i < numTiles; ++i) {
+            tiles.set(i, TileM.createTile(i))
+        }
+
+        const p1: Player = PlayerM.createPlayer(1, Token.BOOT)
+        const p2: Player = PlayerM.createPlayer(2, Token.GOBLET)
+        const p3: Player = PlayerM.createPlayer(3, Token.HATSTAND)
+        const p4: Player = PlayerM.createPlayer(4, Token.SMARTPHONE)
+        const p5: Player = PlayerM.createPlayer(5, Token.SPOON)
+        const p6: Player = PlayerM.createPlayer(6, Token.CAT)
+
+        const players: Array<Player> = [p1, p2, p3, p4, p5, p6]
+
+        return {
+            gamePhase: GamePhase.PLAYER_MOVE,
+            activePlayer: 1,
+            players: players,
+            tiles: tiles
+        }
     }
 
     /**
      * Shifts game to next turn by moving to next player
      * @param state Current game state
-     * @param steps 
      */
     export function nextTurn(state: State): State {
         return undefined // TODO

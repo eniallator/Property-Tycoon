@@ -97,7 +97,20 @@ interface Station extends Property {
 }
 
 
+// Functions
+namespace TileM {
+    /**
+     * Creates a new tle
+     * @param position Tile's position
+     */
+    export function createTile(position: number): Tile {
+        return {
+            position: position
+        }
+    }
+}
+
 export { 
-    Tile,
+    Tile, TileM,
     Property
 }
