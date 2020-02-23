@@ -1,8 +1,36 @@
-// Test Player
+/**
+ * Test Player
+ */
+
 
 const { Player, Token, PlayerM } = require('../dist/core')
 
-// Test player movement
+// Player initialization
+test('Initialize a new player', () => {
+    const id = 0
+    const token = Token.BOOT
+    const p = PlayerM.createPlayer(id, token)
+
+    // Check id = id
+    expect(p.id).toEqual(id)
+
+    // Check Position = 0
+    expect(p.position).toEqual(0)
+
+    // Check Cash = ???
+    // TODO
+
+    // Check no properties owned
+    expect(p.properties).toEqual(new Set())
+
+    // Check not in jail
+    expect(p.inJail).toBeFalsy()
+
+    // Check special cards
+    // TODO
+})
+
+// Player movement
 test('Move player N steps', () => {
     const steps = 3
     const p = PlayerM.createPlayer(0, Token.BOOT)
