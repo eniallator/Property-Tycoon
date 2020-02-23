@@ -39,7 +39,7 @@ interface State {
     gamePhase: GamePhase
     activePlayer: 1 | 2 | 3 | 4 | 5 | 6
     players: Array<Player>
-    tiles: Map<number, Tile>
+    tiles: Array<Tile>
 }
 
 
@@ -51,10 +51,10 @@ namespace StateM {
      * - Update behaviour from sprint 1
      */
     export function createGameState(numTiles: number = 40): State {
-        const tiles: Map<number, Tile> = new Map()
+        const tiles: Array<Tile> = []
 
         for (let i = 0; i < numTiles; ++i) {
-            tiles.set(i, TileM.createTile(i))
+            tiles.push(TileM.createTile(i))
         }
 
         const p1: Player = PlayerM.createPlayer(1, Token.BOOT)
