@@ -44,6 +44,7 @@ class Core {
 
 // Module functions
 namespace CoreM {
+
     /**
      * Moves player on board according to dice rolled
      * @param data Data held by the roll command (value of two dice)
@@ -56,3 +57,6 @@ namespace CoreM {
         return StateM.movePlayer(state, die1 + die2)
     }
 }
+
+
+export { Core }
