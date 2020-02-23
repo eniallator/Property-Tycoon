@@ -8,12 +8,10 @@
  */
 
 
-import { 
-    State, StateUtil,
-    Command, CommandType, CommandUtil,
-    Tile,
-    Player, PlayerUtil
-} from '.'
+import { Tile } from './tile'
+import { State, StateM } from './state'
+import { Player, PlayerM } from './player'
+import * as Cmd from './command'
 
 
 /**
@@ -29,13 +27,13 @@ class Core {
      * @param state Current game state to uodate
      * @param cmd Command to process and update state with respect to
      */
-    update(state: State, cmd: Command): State {
+    update(state: State, cmd: Cmd.Command): State {
         const { type, data } = cmd
         let newState = { ...state }
 
         switch ( type ) {
-            case CommandType.ROLL:
-                Logic.move(cmd.data as CommandUtil.RollData, newState)
+            case Cmd.CommandType.ROLL:
+                CoreM.move(cmd.data as Cmd.RollData, newState)
                 break;
         }
 
@@ -44,17 +42,17 @@ class Core {
 }
 
 
-// Game Logic Functions
-namespace Logic {
+// Module functions
+namespace CoreM {
     /**
      * Moves player on board according to dice rolled
      * @param data Data held by the roll command (value of two dice)
      * @param state Current state of the game
      */
-    export function move(data: CommandUtil.RollData, state: State): State {
+    export function move(data: Cmd.RollData, state: State): State {
         const { dice: [ die1, die2 ] } = data
         const { activePlayer } = state
 
-        return StateUtil.movePlayer(state, die1 + die2)
+        return StateM.movePlayer(state, die1 + die2)
     }
 }

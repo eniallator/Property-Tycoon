@@ -1,11 +1,11 @@
 import { Tile } from './tile'
-import { Player, PlayerUtil } from './player'
-import { State, StateUtil } from './state'
-import { Command, CommandType, CommandUtil } from './command'
+import { Player, PlayerM } from './player'
+import { State, StateM } from './state'
+import * as Cmd from './command'
 
 export { 
     Tile, 
-    Player, PlayerUtil,
-    State, StateUtil,
-    Command, CommandType, CommandUtil
+    Player, PlayerM,
+    State, StateM,
+    Cmd
 }

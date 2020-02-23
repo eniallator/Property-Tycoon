@@ -22,19 +22,20 @@ interface Command {
      data: CommandData
  }
 
-type CommandData = CommandUtil.RollData // | ... other command data types
+type CommandData = RollData // | ... other command data types
 
-// Utility types
-namespace CommandUtil {
-    // Roll die data is the value represented by 2 dice
-    type Die = 1 | 2 | 3 | 4 | 5 | 6
-    export interface RollData {
-        dice: [ Die, Die ]
-    }
+
+// Roll die data is the value represented by 2 dice
+type Die = 1 | 2 | 3 | 4 | 5 | 6
+interface RollData {
+    dice: [Die, Die]
 }
 
- export { 
+
+export { 
      Command,
      CommandType,
-     CommandUtil
+
+     // Command Data Types
+     RollData
 }

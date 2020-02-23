@@ -44,8 +44,10 @@ interface Player {
     outOfJailCard: string  //TODO: Change to collection?
 }
 
-// Functions for manipulating players
-namespace PlayerUtil {
+
+// Utility functions and types
+namespace PlayerM {
+
     /**
      * Moves player position by `n` steps
      * @param n Number of steps to move
@@ -57,4 +59,8 @@ namespace PlayerUtil {
     }
 }
 
-export { Player, Token, PlayerUtil }
+export { 
+    Token, 
+    Player, 
+    PlayerM 
+}

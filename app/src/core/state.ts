@@ -6,7 +6,7 @@
  * @packageDocumentation
  */
 
-import { Player, PlayerUtil } from './player'
+import { Player, PlayerM } from './player'
 import { Property } from './tile'
 //import { Card } from './card'  // TODO: Does Card need to be in its own file?
 
@@ -45,15 +45,26 @@ interface State {
     doubleCount: 0 | 1 | 2
 }
 
-// Functions for manipulating the game state
-namespace StateUtil {
+
+// Module functions
+namespace StateM {
     /**
      * Creates a new game state. TODO
      */
-    function createGameState(): State {
+    export function createGameState(): State {
         return undefined // TODO
     }
 
+    /**
+     * Shifts game to next turn by moving to next player
+     * @param state Current game state
+     * @param steps 
+     */
+
+    export function nextTurn(state: State): State {
+        return undefined // TODO
+    }
+    
     /**
      * Moves the current `activePlayer` `steps` steps around the board
      * @param state Current game state
@@ -70,8 +81,8 @@ namespace StateUtil {
             cleanSteps = newPos % 40
         }
 
-        return { activePlayer: PlayerUtil.move(cleanSteps, activePlayer), ...state  }
+        return { activePlayer: PlayerM.move(cleanSteps, activePlayer), ...state  }
     }
 }
 
-export { State, StateUtil }
+export { State, StateM }

@@ -97,4 +97,7 @@ interface Station extends Property {
 }
 
 
-export { Property, Tile }
+export { 
+    Tile,
+    Property
+}
