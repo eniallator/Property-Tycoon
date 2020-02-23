@@ -12,6 +12,7 @@ import { Tile } from './tile'
 import { State, StateM } from './state'
 import { Player, PlayerM } from './player'
 import * as Cmd from './command'
+import Util from '../util'
 
 
 /**
@@ -29,15 +30,15 @@ class Core {
      */
     update(state: State, cmd: Cmd.Command): State {
         const { type, data } = cmd
-        let newState = { ...state }
+        let updates = { }
 
         switch ( type ) {
             case Cmd.CommandType.ROLL:
-                CoreM.move(cmd.data as Cmd.RollData, newState)
+                updates = CoreM.move(cmd.data as Cmd.RollData, state)
                 break;
         }
 
-        return newState
+        return Util.update(state, updates)
     }
 }
 

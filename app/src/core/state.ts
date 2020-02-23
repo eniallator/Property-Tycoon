@@ -57,12 +57,12 @@ namespace StateM {
             tiles.push(TileM.createTile(i))
         }
 
-        const p1: Player = PlayerM.createPlayer(1, Token.BOOT)
-        const p2: Player = PlayerM.createPlayer(2, Token.GOBLET)
-        const p3: Player = PlayerM.createPlayer(3, Token.HATSTAND)
-        const p4: Player = PlayerM.createPlayer(4, Token.SMARTPHONE)
-        const p5: Player = PlayerM.createPlayer(5, Token.SPOON)
-        const p6: Player = PlayerM.createPlayer(6, Token.CAT)
+        const p1: Player = PlayerM.createPlayer(0, Token.BOOT)
+        const p2: Player = PlayerM.createPlayer(1, Token.GOBLET)
+        const p3: Player = PlayerM.createPlayer(2, Token.HATSTAND)
+        const p4: Player = PlayerM.createPlayer(3, Token.SMARTPHONE)
+        const p5: Player = PlayerM.createPlayer(4, Token.SPOON)
+        const p6: Player = PlayerM.createPlayer(5, Token.CAT)
 
         const players: Array<Player> = [p1, p2, p3, p4, p5, p6]
 
