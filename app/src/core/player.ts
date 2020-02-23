@@ -40,7 +40,7 @@ interface Player {
 
     position: number // 1 - 40 (the position of the tile they're on)
     cash: number
-    properties: Set<Property> // TODO: Change to a Set?
+    properties: Set<Property>
     inJail: boolean
     outOfJailCard: string  //TODO: Change to collection?
 }
@@ -48,6 +48,18 @@ interface Player {
 
 // Utility functions and types
 namespace PlayerM {
+
+    export function createPlayer(id: 1 | 2 | 3 | 4 | 5 | 6, token: Token): Player {
+        return {
+            id: id,
+            token: token,
+            position: 0,
+            cash: 0, // TODO
+            properties: new Set<Property>(),
+            inJail: false,
+            outOfJailCard: '' // TODO
+        }
+    }
 
     /**
      * Moves player position by `n` steps
