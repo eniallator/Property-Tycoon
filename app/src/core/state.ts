@@ -8,6 +8,7 @@
 
 import { Player, PlayerM } from './player'
 import { Property } from './tile'
+import Util from '../util'
 //import { Card } from './card'  // TODO: Does Card need to be in its own file?
 
 // Game Phase
@@ -73,15 +74,19 @@ namespace StateM {
     export function movePlayer(state: State, steps: number): State {
         const { activePlayer } = state
         let newPos = activePlayer.position + steps
-        let cleanSteps: number
+        let actualSteps: number
+
+        const numTiles = 40 // TODO: Stop using 40 as a magic number. Use number of tiles in state
 
         if ( newPos < 0 ) {
-            cleanSteps = 40 + newPos // TODO: Stop using 40 as a magic number. Use number of tiles
+            actualSteps = numTiles + newPos         
         } else {
-            cleanSteps = newPos % 40
+            actualSteps = newPos % numTiles
         }
+        
+        const updates = { activePlayer: PlayerM.move(actualSteps, activePlayer) }
 
-        return { activePlayer: PlayerM.move(cleanSteps, activePlayer), ...state  }
+        return Util.update(state, updates)
     }
 }
 
