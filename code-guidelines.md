@@ -7,7 +7,7 @@
 - Unfinished implementations followed by `// TODO`, e.g. `cards: string  //TODO: Change to collection?`
 
 ## Documentation
-We are using [@Michael to insert name of the thing here]().
+We are using [typedoc](https://typedoc.org/).
 
 The **header** of each file should contain the following:
 ```
