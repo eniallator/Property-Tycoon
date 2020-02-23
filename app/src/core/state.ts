@@ -10,6 +10,7 @@ import { Player, Token, PlayerM } from './player'
 import { Tile, TileM, Property } from './tile'
 import Util from '../util'
 
+
 // Game Phase
 /**
  * Represents current event the game is in:
@@ -37,7 +38,7 @@ enum GamePhase { PLAYER_MOVE }
  */
 interface State {
     gamePhase: GamePhase
-    activePlayer: 0 | 1 | 2 | 3 | 4 | 5,  
+    activePlayer: 0 | 1 | 2 | 3 | 4 | 5,
     players: Array<Player>
     tiles: Array<Tile>
 }
@@ -81,11 +82,11 @@ namespace StateM {
     export function nextTurn(state: State): State {
         const { activePlayer, players } = state
         const numPlayers = players.length
-        const updates = { activePlayer: (activePlayer + 1) % numPlayers  }
+        const updates = { activePlayer: (activePlayer + 1) % numPlayers }
 
         return Util.update(state, updates)
     }
-    
+
     /**
      * Moves the current `activePlayer` `steps` steps around the board
      * @param state Current game state
@@ -99,8 +100,8 @@ namespace StateM {
         const newPos: number = currentPlayer.position + steps
         let actualPos: number
 
-        if ( newPos < 0 ) {
-            actualPos = numTiles + ( newPos % numTiles)
+        if (newPos < 0) {
+            actualPos = numTiles + (newPos % numTiles)
         } else {
             actualPos = newPos % numTiles
         }
