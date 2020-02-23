@@ -22,13 +22,6 @@ test('Initialize the game state', () => {
     // Active Player
     // TODO: Active player is first in collection
 
-    // Properties
+    // Tiles
     // TODO: Initially game has no properties
-
-    // Cards
-    // TODO: ???
-
-    // Double Count
-    // TODO: Double count is 0 initially
-
 })

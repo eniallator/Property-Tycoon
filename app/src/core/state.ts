@@ -7,9 +7,8 @@
  */
 
 import { Player, PlayerM } from './player'
-import { Property } from './tile'
+import { Tile, Property } from './tile'
 import Util from '../util'
-//import { Card } from './card'  // TODO: Does Card need to be in its own file?
 
 // Game Phase
 /**
@@ -24,7 +23,6 @@ import Util from '../util'
  * - `END_GAME`: TODO
  */
 enum GamePhase { PLAYER_MOVE }
-type Card = string  // TODO: Placeholder for now. Will be imported from its own Card file
 
 
 // Game State
@@ -41,9 +39,7 @@ interface State {
     gamePhase: GamePhase
     players: Array<Player>
     activePlayer: 1 | 2 | 3 | 4 | 5 | 6
-    properties: Array<Property> // TODO: Make this map of index->tile
-    cards: Array<Card>
-    doubleCount: 0 | 1 | 2
+    tiles: Map<number, Tile>
 }
 
 
@@ -71,11 +67,13 @@ namespace StateM {
      * @param steps Steps to move player
      */
     export function movePlayer(state: State, steps: number): State {
-        const { activePlayer } = state
-        let newPos = activePlayer.position + steps
+        const { activePlayer, players, tiles } = state
+        const currentPlayer = players[activePlayer]
+
+        let newPos = currentPlayer.position + steps
         let actualSteps: number
 
-        const numTiles = 40 // TODO: Stop using 40 as a magic number. Use number of tiles in state
+        const numTiles = new Array(tiles.keys()).length
 
         if ( newPos < 0 ) {
             actualSteps = numTiles + newPos         
@@ -83,7 +81,7 @@ namespace StateM {
             actualSteps = newPos % numTiles
         }
         
-        const updates = { activePlayer: PlayerM.move(actualSteps, activePlayer) }
+        const updates = { activePlayer: PlayerM.move(actualSteps, currentPlayer) }
 
         return Util.update(state, updates)
     }
