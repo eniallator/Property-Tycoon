@@ -7,28 +7,36 @@
  * @packageDocumentation
  */
 
- /**
-  * Command types:
-  * - `ROLL`: Player has rolled their die
-  */
+
+/**
+ * Command types:
+ * - `ROLL`: Player has rolled their die
+ */
 enum CommandType { ROLL }
 
 /**
  * GameCommands are sent by the Input and processed by Core
  * - `type`: Type of command sent
  */
-interface GameCommand {
-     type: CommandType
-     data: RollData
- }
-
-
-type Die = 1 | 2 | 3 | 4 | 5 | 6
-interface RollData {
-    dice: [ Die, Die]
+interface Command {
+    type: CommandType
+    data: CommandData
 }
 
- export { 
-     CommandType,
-     RollData
+type CommandData = RollData // | ... other command data types
+
+
+// Roll die data is the value represented by 2 dice
+type Die = 1 | 2 | 3 | 4 | 5 | 6
+interface RollData {
+    dice: [Die, Die]
+}
+
+
+export {
+    Command,
+    CommandType,
+
+    // Command Data Types
+    RollData
 }

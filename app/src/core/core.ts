@@ -7,45 +7,56 @@
  * @packageDocumentation
  */
 
-import { 
-    GameState, 
-    RollData, CommandType, GameCommand,
-    Tile,
-    Player 
-} from '.'
+import { Tile } from './tile'
+import { State, StateM } from './state'
+import { Player, PlayerM } from './player'
+import * as Cmd from './command'
+import Util from '../util'
 
 
+/**
+ * Core class. Responsible for mapping [[GameState]] to new GameState given some input commands
+ */
 class Core {
     constructor() {
         // Initialize Core
     }
 
-    update(state: GameState, cmd: GameCommand) {
+    /**
+     * Update the game states with game logic, given some input commands
+     * @param state Current game state to uodate
+     * @param cmd Command to process and update state with respect to
+     */
+    update(state: State, cmd: Cmd.Command): State {
         const { type, data } = cmd
-        let newState = { ...state }
+        let updates = {}
 
-        switch ( type ) {
-            case CommandType.ROLL:
-                Logic.move(cmd.data as RollData, newState)
+        switch (type) {
+            case Cmd.CommandType.ROLL:
+                updates = CoreM.move(cmd.data as Cmd.RollData, state)
                 break;
         }
+
+        return Util.update(state, updates)
     }
 }
 
-// State Update Functions
-namespace Logic {
-    export function move(data: RollData, state: GameState): void {
-        const { dice: [ die1, die2 ] } = data
-        const { doubleCount } = state
 
-        // Double rolled
-        if ( die1 == die2 ) {
-            // Triple double sends player to jail
-            if ( doubleCount >= 2 ) {
-                state.doubleCount = 0  // Reset double count
-                state.activePlayer.inJail = true  // Send player to jail
-            }
-            state.doubleCount += 1
-        }
+// Module functions
+namespace CoreM {
+
+    /**
+     * Moves player on board according to dice rolled
+     * @param data Data held by the roll command (value of two dice)
+     * @param state Current state of the game
+     */
+    export function move(data: Cmd.RollData, state: State): State {
+        const { dice: [die1, die2] } = data
+        const { activePlayer } = state
+
+        return StateM.movePlayer(state, die1 + die2)
     }
 }
+
+
+export { Core }

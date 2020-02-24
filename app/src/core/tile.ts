@@ -71,7 +71,7 @@ enum EstateGroup { BLUE, PURPLE, ORANGE, RED, YELLOW, GREEN, DEEP_BLUE }
 interface Estate extends Property {
     readonly group: EstateGroup
     readonly rent: (tier: 0 | 1 | 2 | 3 | 4 | 5) => number
-    
+
     improvements: 0 | 1 | 2 | 3 | 4 | 5
     isMortgaged: boolean
 }
@@ -97,4 +97,20 @@ interface Station extends Property {
 }
 
 
-export { Property, Tile }
+// Functions
+namespace TileM {
+    /**
+     * Creates a new tle
+     * @param position Tile's position
+     */
+    export function createTile(position: number): Tile {
+        return {
+            position: position
+        }
+    }
+}
+
+export {
+    Tile, TileM,
+    Property
+}
