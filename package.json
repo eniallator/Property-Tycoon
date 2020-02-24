@@ -5,11 +5,11 @@
   "main": "index.js",
   "repository": "https://github.com/eniallator/Property-Tycoon",
   "scripts": {
-    "build": "tsc src/main.ts -outDir dist",
-    "test": "jest",
-    "start": "node dist/main.js"
+    "build": "tsc",
+    "start": "node dist/main.js",
+    "test": "jest"
   },
-  "author": "DeadPigeon",
+  "author": "Scrambld",
   "license": "MIT",
   "dependencies": {
     "electron": "^8.0.1",
