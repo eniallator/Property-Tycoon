@@ -116,6 +116,9 @@ namespace FooM {
 It's important to keep functions and data separate, as this makes [unit testing](#testing)
 considerably more straightforward.
 
+### Mutation
+Don't modify objects in place, and do not manually create new objects. Use the methods provided in the `Util` module to update objects.
+
 ### Testing
 The project is tested using the [jest](https://jestjs.io/en/) testing library.
 Make sure that each module's functional namespace is tested.
