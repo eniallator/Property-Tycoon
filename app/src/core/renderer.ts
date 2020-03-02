@@ -1,8 +1,8 @@
-import { GameState } from "./game-state";
+import { State } from "./state";
 
 class Renderer {
   readInputs() {}
-  draw(gameState: GameState) {}
+  draw(gameState: State) {}
 }
 
 export { Renderer };

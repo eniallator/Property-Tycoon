@@ -5,18 +5,30 @@
   "main": "index.js",
   "repository": "https://github.com/eniallator/Property-Tycoon",
   "scripts": {
-    "build": "tsc",
-    "start": "node dist/main.js",
+    "build-react-scripts": "react-scripts-ts build",
+    "build-webpack": "npx webpack",
+    "start": "node app/dist/main.js",
     "test": "jest"
   },
   "author": "Scrambld",
   "license": "MIT",
   "dependencies": {
     "electron": "^8.0.1",
-    "typescript": "^3.7.5"
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-scripts-ts": "^3.1.0"
   },
   "devDependencies": {
+    "@types/electron": "^1.6.10",
+    "@types/node": "^13.7.4",
+    "@types/react": "^16.9.22",
+    "@types/react-dom": "^16.9.5",
     "jest": "^25.1.0",
-    "typescript-tslint-plugin": "^0.5.5"
+    "source-map-loader": "^0.2.4",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.8.2",
+    "typescript-tslint-plugin": "^0.5.5",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11"
   }
 }
