@@ -1,23 +1,10 @@
 {
-  "include": ["app/src/**/*", "src/main.ts", "src/util.ts"],
-  "compilerOptions": {
-    "module": "commonjs",
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "target": "es6",
-    //"noImplicitAny": true,
-    "moduleResolution": "node",
-    "sourceMap": true,
-    "outDir": "app/dist",
-    "baseUrl": ".",
-    "paths": {
-      "*": ["node_modules/*"]
-    },
-    "plugins": [
-      {
-        "name": "typescript-tslint-plugin",
-        "suppressionWhileTypeErrorsPresent": true
-      }
-    ]
-  }
+    "compilerOptions": {
+        "plugins": [
+            { 
+                "name": "typescript-tslint-plugin",
+                "suppressionWhileTypeErrorsPresent": true,
+            }
+        ]
+    }
 }
