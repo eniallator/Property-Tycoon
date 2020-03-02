@@ -5,9 +5,10 @@
   "main": "index.js",
   "repository": "https://github.com/eniallator/Property-Tycoon",
   "scripts": {
+    "build-ts": "tsc",
     "build-react-scripts": "react-scripts-ts build",
     "build-webpack": "npx webpack",
-    "start": "node app/dist/main.js",
+    "start": "node dist/main.js",
     "test": "jest"
   },
   "author": "Scrambld",
