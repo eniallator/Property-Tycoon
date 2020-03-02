@@ -1,11 +1,11 @@
 {
-  "include": ["app/src/**/*"],
+  "include": ["app/src/**/*", "src/main.ts", "src/util.ts"],
   "compilerOptions": {
     "module": "commonjs",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "target": "es6",
-    "noImplicitAny": true,
+    //"noImplicitAny": true,
     "moduleResolution": "node",
     "sourceMap": true,
     "outDir": "app/dist",

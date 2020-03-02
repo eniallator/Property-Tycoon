@@ -1,6 +1,13 @@
 import { Tile } from './tile'
-import { Player } from './player'
-import { GameState } from './game-state'
-import { GameCommand, RollData, CommandType } from './game-command'
+import { Player, Token, PlayerM } from './player'
+import { State, GamePhase, StateM } from './state'
+import * as Cmd from './command'
+import { Core } from './core'
 
-export { Tile, Player, GameState, CommandType, GameCommand, RollData }
+export { 
+    Tile, 
+    Player, Token, PlayerM,
+    State, GamePhase, StateM,
+    Cmd,
+    Core
+}

@@ -7,7 +7,7 @@
 - Unfinished implementations followed by `// TODO`, e.g. `cards: string  //TODO: Change to collection?`
 
 ## Documentation
-We are using [@Michael to insert name of the thing here]().
+We are using [typedoc](https://typedoc.org/).
 
 The **header** of each file should contain the following:
 ```
@@ -87,3 +87,38 @@ import { bar } from './bar'
 
 export { Something, Else }
 ```
+
+### Modules
+A module can be defined as some types and some functions working on those types.
+Here we have interfaces and type aliases, and functions that operate on them. Modules
+must be fully contained within a single file, and structured as shown:
+```
+// Imports
+
+<TYPES AND INTERFACES>
+
+namespace <MODULE_NAME>M {
+    <FUNCTIONS>
+}
+
+// Exports
+```
+One example for a module `Foo`:
+```
+interface FooThings { ... }
+interface FooOtherThings { ... }
+interface SomeOtherFooRelatedThing { ... }
+
+namespace FooM {
+    // Functions operating on the types declared above
+}
+```
+It's important to keep functions and data separate, as this makes [unit testing](#testing)
+considerably more straightforward.
+
+### Mutation
+Don't modify objects in place, and do not manually create new objects. Use the methods provided in the `Util` module to update objects.
+
+### Testing
+The project is tested using the [jest](https://jestjs.io/en/) testing library.
+Make sure that each module's functional namespace is tested.

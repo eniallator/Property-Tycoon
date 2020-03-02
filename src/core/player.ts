@@ -7,6 +7,7 @@
  */
 
 import { Property } from './tile'
+import Util from '../util'
 
 
 // Token
@@ -34,15 +35,45 @@ enum Token { BOOT, SMARTPHONE, GOBLET, HATSTAND, CAT, SPOON }
  * - `outOfJailCard`: TODO
  */
 interface Player {
-    readonly id: 1 | 2 | 3 | 4 | 5 | 6
+    readonly id: 0 | 1 | 2 | 3 | 4 | 5
     readonly token: Token
 
     position: number // 1 - 40 (the position of the tile they're on)
     cash: number
-    properties: Array<Property> // TODO: Change to a Set?
+    properties: Set<Property>
     inJail: boolean
     outOfJailCard: string  //TODO: Change to collection?
 }
 
 
-export { Player, Token }
+// Utility functions and types
+namespace PlayerM {
+
+    export function createPlayer(id: 0 | 1 | 2 | 3 | 4 | 5, token: Token): Player {
+        return {
+            id: id,
+            token: token,
+            position: 0,
+            cash: 0, // TODO
+            properties: new Set<Property>(),
+            inJail: false,
+            outOfJailCard: '' // TODO
+        }
+    }
+
+    /**
+     * Moves player position by `n` steps
+     * @param n Number of steps to move
+     * @param player Player whose position will be moved
+     */
+    export function move(n: number, player: Player): Player {
+        const updates = { position: n }
+        return Util.update(player, updates)
+    }
+}
+
+export {
+    Token,
+    Player,
+    PlayerM
+}
