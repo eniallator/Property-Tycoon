@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/main.js",
-    "test": "jest",
+    "test": "jest"
   },
   "author": "Scrambld",
   "license": "MIT",
