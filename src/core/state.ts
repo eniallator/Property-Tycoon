@@ -106,7 +106,6 @@ namespace StateM {
             actualPos = newPos % numTiles
         }
 
-        console.log(`Actual Steps: ${actualPos} Steps: ${steps} Newpos: ${newPos}`)
         players[activePlayer] = PlayerM.move(actualPos, currentPlayer)
 
         const updates = { players: players }
