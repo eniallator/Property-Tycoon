@@ -5,23 +5,21 @@
   "main": "index.js",
   "repository": "https://github.com/eniallator/Property-Tycoon",
   "scripts": {
-    "build-ts": "tsc",
-    "build-react-scripts": "react-scripts-ts build",
-    "build-webpack": "npx webpack",
-    "start": "node dist/main.js",
+    "build": "npm run build-webpack && npm run post-build",
+    "build-webpack": "webpack",
+    "post-build": "cpy src/main.js dist && cpy src/index.html dist",
+    "start": "electron dist/main.js",
     "test": "jest"
   },
   "author": "Scrambld",
   "license": "MIT",
   "dependencies": {
+    "cpy-cli": "^3.1.0",
     "electron": "^8.0.1",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-scripts-ts": "^3.1.0"
+    "react-dom": "^16.12.0"
   },
   "devDependencies": {
-    "@types/electron": "^1.6.10",
-    "@types/node": "^13.7.4",
     "@types/react": "^16.9.22",
     "@types/react-dom": "^16.9.5",
     "jest": "^25.1.0",
