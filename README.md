@@ -1,2 +1,2 @@
 # Property-Tycoon
-Submission for the property tycoon coursework
+Submission for the property tycoon coursework.
