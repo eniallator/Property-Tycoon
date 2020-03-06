@@ -1,7 +1,6 @@
 # Property-Tycoon
 Submission for the property tycoon coursework
 
-
 # Building
 1. `yarn install`
 2. `yarn run build`
