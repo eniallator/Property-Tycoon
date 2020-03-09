@@ -20,28 +20,21 @@ import State form './state'
 
 class Engine {
 	constructor() {
-		// Initialize all modules
-		this.renderer = new Renderer()
-		this.input = new Input()
-		this.core = new Core()
-
-		// Initialize GameState
-		this.gameState = new State()
-	}        
+		this.io = new IO()
+		this.core = new Core(this.io)
+		this.renderer = new Renderer(this.io)
+	}
 
 	update() {
-		// Get raw inputs from GUI
-		const rawInputs = this.renderer.readInputs()
+		// IO gets the first given command. What happens when no command was given?
+		const command = this.io.getCommand()
+		// Remember the current game state
+		const currentState = this.io.getState()
 
-		// Translate raw inputs to game commands
-		const commands = this.input.translate(rawInputs)
-
-		// Pipe game commands into core to yield new state
-		const oldState = this.gameState
-		this.gameState = this.core.process(commands, oldState)
-
+		// Pipe game command into core to yield a new game state
+		const newState = this.core.run(command)
 		// Render new game state
-		this.renderer.update(this.gameState)
+		this.renderer.update(newState)
 	}
 }
 ```

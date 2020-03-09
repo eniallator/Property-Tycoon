@@ -7,10 +7,8 @@
  * @packageDocumentation
  */
 
-import { Tile } from './tile'
-import { State, StateM } from './state'
-import { Player, PlayerM } from './player'
-import * as Cmd from './command'
+import { State, StateM } from '../game_data/state'
+import * as Cmd from '../game_data/command'
 import Util from '../util'
 
 
@@ -18,9 +16,7 @@ import Util from '../util'
  * Core class. Responsible for mapping [[GameState]] to new GameState given some input commands
  */
 class Core {
-    constructor() {
-        // Initialize Core
-    }
+    constructor() { }
 
     /**
      * Update the game states with game logic, given some input commands
