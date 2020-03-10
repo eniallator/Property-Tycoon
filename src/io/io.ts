@@ -6,8 +6,8 @@
  * @packageDocumentation
  */
 
-import { State } from "../game_data/state"
-import { Command } from "../game_data/command"
+import { State, StateM } from "../game_data/state"
+import { Command, CommandType, RollData } from "../game_data/command"
 
 
 /**
@@ -16,7 +16,15 @@ import { Command } from "../game_data/command"
 class IO {
     command: Command
     state: State
-    constructor() { }
+    constructor() {
+        this.command = {
+            type: CommandType.ROLL,
+            data: {
+                dice: [1, 1]
+            }
+        }
+        this.state = StateM.createGameState()
+    }
 
     getCommand() {
         return this.command

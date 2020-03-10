@@ -1,14 +1,6 @@
-import React, { Fragment } from "react";
-import ReactDOM from "react-dom";
+import { Engine } from "./engine/engine"
 
-class MainMenu extends React.Component {
-  render() {
-    return (
-      <div>
-        <button>Play Game</button>
-      </div>
-    );
-  }
+window.onload = () => {
+    const vroom: Engine = new Engine()
+    requestAnimationFrame(() => vroom.update())
 }
-
-ReactDOM.render(<MainMenu />, document.getElementById("root") as HTMLElement);
