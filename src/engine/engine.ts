@@ -37,3 +37,5 @@ class Engine {
         this.renderer.update(newState)
     }
 }
+
+export { Engine }
