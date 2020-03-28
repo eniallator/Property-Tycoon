@@ -1,16 +1,17 @@
 import React, { Fragment, Component } from "react"
 import ReactDOM from "react-dom"
 import { TileProps } from "../tile"
+// import { Estate }  from "../../game_data/tile"
 
 import "../monopoly.scss"
 
-type PropertyTileProps = TileProps & {
+type EstateTileProps = TileProps & {
     color: string,
     name: string,
     price: number
 }
 
-class PropertyTile extends Component<PropertyTileProps> {
+class EstateTile extends Component<EstateTileProps> {
     render() {
         return (
             <div className="space property">
@@ -24,4 +25,4 @@ class PropertyTile extends Component<PropertyTileProps> {
     }
 }
 
-export { PropertyTile }
+export { EstateTile }

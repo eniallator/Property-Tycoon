@@ -1,15 +1,27 @@
+/**
+ * Main game board component
+ * 
+ * authors: Niall C.C
+ * @packageDocumentation
+ */
+
+
 import React, { Fragment, Component } from "react"
 import ReactDOM from "react-dom"
 
-import { PropertyTile } from "./tile_types/property"
-import { OpportunityTile } from "./tile_types/opportunity"
-import { PotLuckTile } from "./tile_types/pot_luck"
+import { EstateTile } from "./tile_types/estate"
 import { StationTile } from "./tile_types/station"
+import { CardTile, CardType } from "./tile_types/card"
 import { TaxTile, TaxType } from "./tile_types/tax"
 import { UtilityTile, UtilityType } from "./tile_types/utility"
 
 import "./monopoly.scss"
 
+
+/**
+ * Board props:
+ * - `playerPos`: The current position of the player
+ */
 type BoardProps = {
     playerPos: number
 }
@@ -30,7 +42,7 @@ class Board extends Component<BoardProps> {
     }
 
     render () {
-        const baseBoard: any = (
+        const centerComponents: any = (
             <div className="center">
                 <div className="pot-luck-deck">
                     <h2 className="label">Pot Luck</h2>
@@ -45,9 +57,10 @@ class Board extends Component<BoardProps> {
         )
         const tiles: Array<any> = []
         for (let i: number = 0; i < 36; i++) {
+            // TODO: Replace with loaded board data
             if (i === 1) {
                 tiles.push(
-                    <PotLuckTile hasPlayer={ false }></PotLuckTile>
+                    <CardTile hasPlayer={ false } cardType={ CardType.PotLuck }></CardTile>
                 )
             } else if (i === 3) {
                 tiles.push(
@@ -55,7 +68,7 @@ class Board extends Component<BoardProps> {
                 )
             } else if (i === 6) {
                 tiles.push(
-                    <OpportunityTile hasPlayer={ false }></OpportunityTile>
+                    <CardTile hasPlayer={ false } cardType={ CardType.Opportunity }></CardTile>
                 )
             } else if (i === 10) {
                 tiles.push(
@@ -75,14 +88,14 @@ class Board extends Component<BoardProps> {
                 )
             } else {
                 tiles.push(
-                    <PropertyTile hasPlayer={ false } name={ "tile-" + i } price={ 200 } color={ this.getColor(i) }></PropertyTile>
+                    <EstateTile hasPlayer={ false } name={ "tile-" + i } price={ 200 } color={ this.getColor(i) }></EstateTile>
                 )
             }
         }
 
         return (
             <div className="board">
-                { baseBoard }
+                { centerComponents }
                 <div className="space corner go">
                     <div className="container">
                         <div className="instructions">Collect £200.00 salary as you pass</div>
@@ -134,5 +147,6 @@ class Board extends Component<BoardProps> {
         )
     }
 }
+
 
 export { Board }
