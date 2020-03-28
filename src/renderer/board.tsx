@@ -1,6 +1,11 @@
 import React, { Fragment, Component } from "react"
 import ReactDOM from "react-dom"
-import { Tile } from "./tile"
+
+import { PropertyTile } from "./tile_types/property"
+import { OpportunityTile } from "./tile_types/opportunity"
+import { PotLuckTile } from "./tile_types/pot_luck"
+import { StationTile } from "./tile_types/station"
+
 import "./monopoly.scss"
 
 type BoardProps = {
@@ -22,29 +27,17 @@ class Board extends Component<BoardProps> {
                 </div>
             </div>
         )
-        const bottomTiles: Array<any> = []
-        for (let i: number = 10; i >= 2; i--) {
-            bottomTiles.push(
-                <Tile name={ "tile-" + i } price="200" hasPlayer={ false } color="brown" type="property"></Tile>
-            )
-        }
-        const leftTiles: Array<any> = []
-        for (let i: number = 20; i >= 12; i--) {
-            leftTiles.push(
-                <Tile name={ "tile-" + i } price="200" hasPlayer={ false } color="light-blue" type="property"></Tile>
-            )
-        }
-        const topTiles: Array<any> = []
-        for (let i: number = 22; i <= 30; i++) {
-            topTiles.push(
-                <Tile name={ "tile-" + i } price="200" hasPlayer={ false } color="red" type="property"></Tile>
-            )
-        }
-        const rightTiles: Array<any> = []
-        for (let i: number = 32; i <= 40; i++) {
-            rightTiles.push(
-                <Tile name={ "tile-" + i } price="200" hasPlayer={ false } color="green" type="property"></Tile>
-            )
+        const tiles: Array<any> = []
+        for (let i: number = 0; i < 36; i++) {
+            if (i % 9 === 4) {
+                tiles.push(
+                    <StationTile hasPlayer={ false } name="Brighton Station" price="200"></StationTile>
+                )
+            } else {
+                tiles.push(
+                    <PropertyTile hasPlayer={ false } name={ "tile-" + i } price="200" color="brown"></PropertyTile>
+                )
+            }
         }
 
         return (
@@ -57,7 +50,7 @@ class Board extends Component<BoardProps> {
                     </div>
                     <div className="arrow fa fa-long-arrow-left"></div>
                 </div>
-                { bottomTiles }
+                { tiles.slice(0, 9).reverse() }
                 <div className="space corner jail">
                     <div className="just">Just</div>
                     <div className="drawing">
@@ -75,7 +68,7 @@ class Board extends Component<BoardProps> {
                     <div className="visiting">Visiting</div>
                 </div>
                 <div className="row vertical-row left-row">
-                    { leftTiles }
+                    { tiles.slice(9, 18).reverse() }
                 </div>
                 <div className="space corner free-parking">
                     <div className="container">
@@ -85,7 +78,7 @@ class Board extends Component<BoardProps> {
                     </div>
                 </div>
                 <div className="row horizontal-row top-row">
-                    { topTiles }
+                    { tiles.slice(18, 27) }
                 </div>
                 <div className="space corner go-to-jail">
                     <div className="container">
@@ -95,7 +88,7 @@ class Board extends Component<BoardProps> {
                     </div>
                 </div>
                 <div className="row vertical-row right-row">
-                    { rightTiles }
+                    { tiles.slice(27, 36) }
                 </div>
             </div>
         )
