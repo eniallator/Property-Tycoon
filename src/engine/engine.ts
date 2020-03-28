@@ -29,7 +29,7 @@ class Engine {
         this.core = new Core()
 
         this.io.logInfo(
-            LogSource.CORE,
+            LogSource.RENDERER,
             "Initializing Renderer"
         )
         this.renderer = new Renderer(this.io)
