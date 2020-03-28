@@ -6,7 +6,7 @@
  * @packageDocumentation
  */
 
-import { IO } from '../io/io'
+import { IO, LogSource } from '../io/io'
 import { Core } from '../core/core'
 import { Renderer } from '../renderer/renderer'
 
@@ -21,7 +21,17 @@ class Engine {
     renderer: Renderer
     constructor() {
         this.io = new IO()
+
+        this.io.logInfo(
+            LogSource.CORE,
+            "Initializing Logic Core"
+        )
         this.core = new Core()
+
+        this.io.logInfo(
+            LogSource.CORE,
+            "Initializing Renderer"
+        )
         this.renderer = new Renderer(this.io)
     }
 

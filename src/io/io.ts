@@ -32,6 +32,7 @@ class IO {
      * @param logCmd Game command log flag - Default false
      */
     constructor(logSys: boolean = true, logCmd: boolean = true) { 
+        // Not used for now
         this.logCmd = logCmd
         this.logSys = logSys
 
@@ -128,9 +129,6 @@ class IO {
         const log: SysLog = { source: src, level: lvl, msg: msg }
         this.sysLogs.unshift(log)
     }
-
-    private logGameMsg() {}
-
 }
 
 type Msg = string
