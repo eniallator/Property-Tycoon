@@ -15,6 +15,18 @@
 interface Tile { position: number }
 
 
+// Chance Tile
+/**
+ * Chance
+ * - `type`: 0 for Opportunity Knock, 1 for Pot Luck
+ */
+interface Chance { readonly type: 0 | 1 }
+/**
+ * Chance types. These can be Opportunity Knock or Pot Luck
+ */
+type ChanceTile = Chance & Tile
+
+
 // Corner Tile
 /**
  * Corner types. These are the four unique corner tiles on the board
@@ -78,7 +90,10 @@ interface Estate extends Property {
     improvements: 0 | 1 | 2 | 3 | 4 | 5
     isMortgaged: boolean
 }
-
+/**
+ * EstateTile type alias. [[Estate] & [[Tile]] composition.
+ */
+type EstateTile = Estate & Tile
 
 // Utility
 /**
@@ -88,7 +103,10 @@ interface Estate extends Property {
 interface Utility extends Property {
     readonly rent: (tier: 1 | 2) => number
 }
-
+/**
+ * UtilityTile type alias. [[Utility] & [[Tile]] composition.
+ */
+type UtilityTile = Utility & Tile
 
 // Station
 /**
@@ -98,6 +116,11 @@ interface Utility extends Property {
 interface Station extends Property {
     readonly rent: (tier: 1 | 2 | 3 | 4) => number
 }
+/**
+ * StationTile type alias. [[Station] & [[Tile]] composition.
+ */
+type StationTile = Station & Tile
+
 
 
 // Functions
