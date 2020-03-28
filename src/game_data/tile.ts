@@ -156,5 +156,7 @@ namespace TileM {
 
 export {
     Tile, TileM,
-    Property
+    Property,
+    CornerType,
+    EstateGroup
 }
