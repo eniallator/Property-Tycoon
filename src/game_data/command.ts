@@ -32,6 +32,8 @@ interface RollData {
     dice: [Die, Die]
 }
 
+// ------------
+
 namespace CommandM {
     export function renderCommand(cmd: Command) {
         const { type, data } = cmd

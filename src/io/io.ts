@@ -39,7 +39,6 @@ class IO {
         }
         this.state = StateM.createGameState()
 
-
         this.logCmd = logCmd
         this.logSys = logSys
 
@@ -136,9 +135,6 @@ class IO {
         const log: SysLog = { source: src, level: lvl, msg: msg }
         this.sysLogs.unshift(log)
     }
-
-    private logGameMsg() {}
-
 }
 
 type Msg = string
