@@ -19,6 +19,7 @@ class Engine {
     io: IO
     core: Core
     renderer: Renderer
+
     constructor() {
         this.io = new IO()
         this.core = new Core()

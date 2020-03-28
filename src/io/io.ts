@@ -16,6 +16,7 @@ import { Command, CommandType, RollData } from "../game_data/command"
 class IO {
     command: Command
     state: State
+<<<<<<< HEAD
     constructor() {
         this.command = {
             type: CommandType.ROLL,
@@ -25,7 +26,13 @@ class IO {
         }
         this.state = StateM.createGameState()
     }
+=======
 
+    constructor() { }
+>>>>>>> ecfb035... System logging functionality
+
+
+    // MESSAGE PASSING
     /**
      * Read Game Command from IO Bus
      */
@@ -55,7 +62,57 @@ class IO {
     sendState(state: State) {
         this.state = state
     }
+
+    
+    // LOGGING
+    // -- SYSTEM LOGS
+    /**
+     * Log system message
+     * @param sys Subsystem making the log
+     * @param lvl Log level
+     * @param msg Message content
+     */
+    logMsg(sys: SysType, lvl: LogLevel, msg: Msg) { /* .. */ }
+
+    /**
+     * Log info-level system message
+     * @param sys Subsystem making the log
+     * @param msg Message content
+     */
+    logInfo(sys: SysType, msg: Msg) { 
+        this.logMsg(sys, LogLevel.INFO, msg) 
+    }
+
+    /**
+     * Log WARNING-level system message
+     * @param sys Subsystem making the log
+     * @param msg Message content
+     */
+    logWarning(sys: SysType, msg: Msg) { 
+        this.logMsg(sys, LogLevel.WARNING, msg) 
+    }
+
+    /**
+     * Log ERROR-level system message
+     * @param sys Subsystem making the log
+     * @param msg Message content
+     */
+    logError(sys: SysType, msg: Msg) { 
+        this.logMsg(sys, LogLevel.ERROR, msg) 
+    }
 }
 
+type Msg = string
 
-export { IO }
+/**
+ * Priority level of log messages
+ */
+enum LogLevel { INFO, WARNING, ERROR }
+
+/**
+ * Type of system making calls to the logger
+ */
+enum SysType { CORE, RENDERER, ENGINE, IO }
+
+
+export { IO, SysType }
