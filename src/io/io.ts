@@ -11,7 +11,8 @@ import { Command, CommandM, CommandType, RollData } from "../game_data/command"
 
 
 /**
- * TODO
+ * IO Bus
+ * Responsible for both transmitting messages back and forth between engine modules, and logging both game and srctem messages
  */
 class IO {
     command: Command
@@ -157,7 +158,6 @@ interface SysLog {
     level: LogLevel,
     msg: Msg
 }
-
 
 // Helper Functions
 function renderSysLog(log: SysLog): string {
