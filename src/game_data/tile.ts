@@ -47,7 +47,7 @@ type TaxTile = Tax & Tile
 /**
  * Property interface.
  * - `name`: property name
- * - `rentBase`: numerical value of base rent
+ * - `price`: property price
  */
 interface Property {
     readonly name: string
