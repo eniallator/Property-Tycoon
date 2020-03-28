@@ -6,7 +6,7 @@
  * @packageDocumentation
  */
 
-import { State } from "../game_data/state"
+ import { State } from "../game_data/state"
 import { Command, CommandM, CommandType } from "../game_data/command"
 
 
