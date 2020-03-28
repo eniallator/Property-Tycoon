@@ -37,3 +37,10 @@ class Engine {
         this.renderer.update(newState)
     }
 }
+
+// Run the engine
+const engine = new Engine()
+
+// Run at FPS
+const tickRate = 3 // In milliseconds
+setInterval(() => engine.update(), tickRate)

@@ -8,16 +8,24 @@
 
 import { State } from "../game_data/state"
 import { Command } from "../game_data/command"
+import fs from 'fs'
 
 
 /**
- * TODO
+ * IO Bus
+ * Responsible for both transmitting messages back and forth between engine modules, and logging both game and srctem messages
  */
 class IO {
     command: Command
     state: State
 
-    constructor() { }
+    // Logs
+    sysLogs: Array<SysLog>
+    gameLogs: Array<Log>
+
+    constructor() { 
+        fs.writeFileSync('./log', 'TEST')
+    }
 
 
     // MESSAGE PASSING
@@ -25,6 +33,7 @@ class IO {
      * Read Game Command from IO Bus
      */
     getCommand() {
+        console.log("Fetching Command")
         return this.command
     }
 
@@ -55,39 +64,44 @@ class IO {
     // LOGGING
     // -- SYSTEM LOGS
     /**
-     * Log system message
-     * @param sys Subsystem making the log
-     * @param lvl Log level
-     * @param msg Message content
-     */
-    logMsg(sys: SysType, lvl: LogLevel, msg: Msg) { /* .. */ }
-
-    /**
      * Log info-level system message
-     * @param sys Subsystem making the log
+     * @param src Source of log
      * @param msg Message content
      */
-    logInfo(sys: SysType, msg: Msg) { 
-        this.logMsg(sys, LogLevel.INFO, msg) 
+    logInfo(src: LogSource, msg: Msg) { 
+        this.logMsg(src, LogLevel.INFO, msg) 
     }
 
     /**
      * Log WARNING-level system message
-     * @param sys Subsystem making the log
+     * @param src Source of log
      * @param msg Message content
+     * 
      */
-    logWarning(sys: SysType, msg: Msg) { 
-        this.logMsg(sys, LogLevel.WARNING, msg) 
+    logWarning(src: LogSource, msg: Msg) { 
+        this.logMsg(src, LogLevel.WARNING, msg) 
     }
 
     /**
      * Log ERROR-level system message
-     * @param sys Subsystem making the log
+     * @param src Source of log
      * @param msg Message content
      */
-    logError(sys: SysType, msg: Msg) { 
-        this.logMsg(sys, LogLevel.ERROR, msg) 
+    logError(src: LogSource, msg: Msg) { 
+        this.logMsg(src, LogLevel.ERROR, msg) 
     }
+
+    /**
+     * Log system message - Helper
+     * @param src Source of log
+     * @param lvl Log level
+     * @param msg Message content
+     */
+    private logMsg(src: LogSource, lvl: LogLevel, msg: Msg) {  
+        const log: SysLog = { source: src, level: lvl, msg: msg }
+        this.sysLogs.unshift(log)
+    }
+
 }
 
 type Msg = string
@@ -98,9 +112,18 @@ type Msg = string
 enum LogLevel { INFO, WARNING, ERROR }
 
 /**
- * Type of system making calls to the logger
+ * Type of srctem making calls to the logger
  */
-enum SysType { CORE, RENDERER, ENGINE, IO }
+enum LogSource { CORE, RENDERER, ENGINE, IO, GAME }
+
+interface Log {
+    source: LogSource,
+    msg: Msg
+}
+
+interface SysLog extends Log {
+    level: LogLevel
+}
 
 
-export { IO, SysType }
+export { IO, LogSource }
