@@ -17,12 +17,16 @@ interface Tile { position: number }
 
 // Chance Tile
 /**
- * Chance
- * - `type`: 0 for Opportunity Knock, 1 for Pot Luck
+ * Chance types
  */
-interface Chance { readonly type: 0 | 1 }
+enum ChanceType { OPPORTUNITY_KNOCK, POT_LUCK }
 /**
- * Chance types. These can be Opportunity Knock or Pot Luck
+ * Chance wrapper
+ * - type: [[ChanceType]]
+ */
+interface Chance { type: ChanceType }
+/**
+ * ChanceTile type alias. [[Chance]] and [[Tile]] composition.
  */
 type ChanceTile = Chance & Tile
 
@@ -158,5 +162,6 @@ export {
     Tile, TileM,
     Property,
     CornerType,
+    ChanceType,
     EstateGroup
 }

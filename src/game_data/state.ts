@@ -8,7 +8,7 @@
 
 import { Player, Token, PlayerM } from './player'
 import { Tile, TileM, Property } from './tile'
-import { ImporterM } from '../engine/importer'
+import { ImporterM } from './importer'
 import Util from '../util'
 
 
