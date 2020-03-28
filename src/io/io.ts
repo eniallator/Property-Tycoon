@@ -16,7 +16,6 @@ import { Command, CommandType, RollData } from "../game_data/command"
 class IO {
     command: Command
     state: State
-<<<<<<< HEAD
     constructor() {
         this.command = {
             type: CommandType.ROLL,
@@ -26,10 +25,6 @@ class IO {
         }
         this.state = StateM.createGameState()
     }
-=======
-
-    constructor() { }
->>>>>>> ecfb035... System logging functionality
 
 
     // MESSAGE PASSING

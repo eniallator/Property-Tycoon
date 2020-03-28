@@ -3,10 +3,14 @@ const path = require("path");
 module.exports = {
   mode: "production",
   context: path.join(__dirname),
-  output: {
+  entry: {
+    engine: './src/engine/engine.ts',
+    gui: './src/index.tsx'
+  },
+  /*output: {
     path: path.join(__dirname, "dist"),
     filename: "bundle.js"
-  },
+  },*/
 
   // Enable sourcemaps for debugging webpack's output.
   devtool: "source-map",
@@ -40,6 +44,7 @@ module.exports = {
   // assume a corresponding global variable exists and use that instead.
   // This is important because it allows us to avoid bundling all of our
   // dependencies, which allows browsers to cache those libraries between builds.
+  target: "node",
   externals: {
     react: "React",
     "react-dom": "ReactDOM"

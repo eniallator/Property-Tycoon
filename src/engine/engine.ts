@@ -39,4 +39,11 @@ class Engine {
     }
 }
 
+// Run the engine
+const engine = new Engine()
+
+// Run at FPS
+const tickRate = 3 // In milliseconds
+setInterval(() => engine.update(), tickRate)
+
 export { Engine }
