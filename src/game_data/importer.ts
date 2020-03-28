@@ -6,7 +6,7 @@
  * @packageDocumentation
  */
 
-import { Tile, TileM, CornerType, EstateGroup } from '../game_data/tile'
+import { Tile, TileM, CornerType, ChanceType, EstateGroup } from './tile'
 import * as fs from 'fs';
 
 
@@ -16,9 +16,9 @@ const filePathCardData = 'data/setup/PropertyTycoonCardData.csv';
 
 // corner tiles [1: GO, 11: JAIL, 21: PARKING, 31: GO_TO_JAIL]
 const taxTilePositions = [5, 39]
-const potTilePositions = [3, 18, 34]
 const utilityTilePositions = [13, 29]
 const stationTilePositions = [6, 16, 26, 36]
+const potTilePositions = [3, 18, 34]
 const opportunityTilePositions = [8, 23, 37]
 const estateTilePositions = [2, 4, 7, 9, 10, 12, 14, 15, 17, 19, 20, 22, 24, 25, 27, 28, 30, 32, 33, 35, 38, 40]
 
@@ -61,12 +61,12 @@ namespace ImporterM {
 
             // Opportunity tiles
             else if (opportunityTilePositions.includes(tileData['Position'])) {
-                tiles.push(TileM.createChanceTile(tileData['Position'], 0))
+                tiles.push(TileM.createChanceTile(tileData['Position'], ChanceType.OPPORTUNITY_KNOCK))
             }
 
             // Pot tiles
             else if (potTilePositions.includes(tileData['Position'])) {
-                tiles.push(TileM.createChanceTile(tileData['Position'], 1))
+                tiles.push(TileM.createChanceTile(tileData['Position'], ChanceType.POT_LUCK))
             }
 
             // Estate tiles
