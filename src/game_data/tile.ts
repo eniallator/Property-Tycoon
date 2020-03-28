@@ -63,7 +63,7 @@ type PropertyTile = Property & Tile
 /**
  * Estate property groups
  */
-enum EstateGroup { BLUE, PURPLE, ORANGE, RED, YELLOW, GREEN, DEEP_BLUE }
+enum EstateGroup { BROWN, BLUE, PURPLE, ORANGE, RED, YELLOW, GREEN, DEEP_BLUE }
 /**
  * Estate type. Subtype of [[Property]]
  * - `group`: Estate property group the estate belongs to
