@@ -49,7 +49,10 @@ type TaxTile = Tax & Tile
  * - `name`: property name
  * - `rentBase`: numerical value of base rent
  */
-interface Property { readonly name: string }
+interface Property {
+    readonly name: string
+    readonly price: number
+}
 /**
  * PropertyTile type alias. [[Property] & [[Tile]] composition.
  */
