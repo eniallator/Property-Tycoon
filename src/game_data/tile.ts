@@ -125,14 +125,32 @@ type StationTile = Station & Tile
 
 // Functions
 namespace TileM {
-    /**
-     * Creates a new tle
-     * @param position Tile's position
-     */
-    export function createTile(position: number): Tile {
-        return {
-            position: position
-        }
+    export function createChanceTile(position: number, type: 0 | 1): ChanceTile {
+        return { position: position, type: type }
+    }
+
+    export function createCornerTile(position: number, type: CornerType): CornerTile {
+        return { position: position, type: type }
+    }
+
+    export function createTaxTile(position: number, amount: number): TaxTile {
+        return { position: position, amount: amount }
+    }
+
+    export function createPropertyTile(position: number, name: string, price: number): PropertyTile {
+        return { position: position, name: name, price: price }
+    }
+
+    export function createEstateTile(position: number, name: string, price: number, group: EstateGroup, rents: Array<number>, improvement: 0 | 1 | 2 | 3 | 4 | 5, isMortgaged: boolean): EstateTile {
+        return { position: position, name: name, price: price, group: group, rent: (tier) => rents[tier], improvements: improvement, isMortgaged: false }
+    }
+
+    export function createUtilityTile(position: number, name: string, price: number, rent: 1 | 2): UtilityTile {
+        return { position: position, name: name, price: price, rent: (tier) => rent[tier] }
+    }
+
+    export function createStationTile(position: number, name: string, price: number, rent: 1 | 2 | 3 | 4): StationTile {
+        return { position: position, name: name, price: price, rent: (tier) => rent[tier] }
     }
 }
 
