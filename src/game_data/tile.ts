@@ -17,7 +17,7 @@ interface Tile { position: number }
 
 // Corner Tile
 /**
- * Corner types. These are the four unique corner tiles on the boeard:
+ * Corner types. These are the four unique corner tiles on the board
  */
 enum CornerType { GO, JAIL, PARKING, GO_TO_JAIL }
 /**
