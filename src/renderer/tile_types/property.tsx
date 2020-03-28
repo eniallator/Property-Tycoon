@@ -5,9 +5,9 @@ import { TileProps } from "../tile"
 import "../monopoly.scss"
 
 type PropertyTileProps = TileProps & {
-    color: String,
-    name: String,
-    price: String
+    color: string,
+    name: string,
+    price: number
 }
 
 class PropertyTile extends Component<PropertyTileProps> {

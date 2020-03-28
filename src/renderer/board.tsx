@@ -5,6 +5,8 @@ import { PropertyTile } from "./tile_types/property"
 import { OpportunityTile } from "./tile_types/opportunity"
 import { PotLuckTile } from "./tile_types/pot_luck"
 import { StationTile } from "./tile_types/station"
+import { TaxTile, TaxType } from "./tile_types/tax"
+import { UtilityTile, UtilityType } from "./tile_types/utility"
 
 import "./monopoly.scss"
 
@@ -13,6 +15,20 @@ type BoardProps = {
 }
 
 class Board extends Component<BoardProps> {
+    getColor (tilePosition: number): string {
+        const colorOrder: Array<string> = [
+            "brown",
+            "light-blue",
+            "purple",
+            "orange",
+            "red",
+            "yellow",
+            "green",
+            "dark-blue"
+        ]
+        return colorOrder[Math.floor(tilePosition / 4.5)]
+    }
+
     render () {
         const baseBoard: any = (
             <div className="center">
@@ -29,13 +45,37 @@ class Board extends Component<BoardProps> {
         )
         const tiles: Array<any> = []
         for (let i: number = 0; i < 36; i++) {
-            if (i % 9 === 4) {
+            if (i === 1) {
                 tiles.push(
-                    <StationTile hasPlayer={ false } name="Brighton Station" price="200"></StationTile>
+                    <PotLuckTile hasPlayer={ false }></PotLuckTile>
+                )
+            } else if (i === 3) {
+                tiles.push(
+                    <TaxTile hasPlayer={ false } taxType={TaxType.Income} name="Income Tax" fee={ 200 }></TaxTile>
+                )
+            } else if (i === 6) {
+                tiles.push(
+                    <OpportunityTile hasPlayer={ false }></OpportunityTile>
+                )
+            } else if (i === 10) {
+                tiles.push(
+                    <UtilityTile hasPlayer={ false } name="Tesla Power Co" price={ 150 } utilityType={ UtilityType.Electric }></UtilityTile>
+                )
+            } else if (i === 25) {
+                tiles.push(
+                    <UtilityTile hasPlayer={ false } name="Edison Water" price={ 150 } utilityType={ UtilityType.Water }></UtilityTile>
+                )
+            } else if (i === 34) {
+                tiles.push(
+                    <TaxTile hasPlayer={ false } taxType={TaxType.Luxury} name="Super Tax" fee={ 200 }></TaxTile>
+                )
+            } else if (i % 9 === 4) {
+                tiles.push(
+                    <StationTile hasPlayer={ false } name="Brighton Station" price={ 200 }></StationTile>
                 )
             } else {
                 tiles.push(
-                    <PropertyTile hasPlayer={ false } name={ "tile-" + i } price="200" color="brown"></PropertyTile>
+                    <PropertyTile hasPlayer={ false } name={ "tile-" + i } price={ 200 } color={ this.getColor(i) }></PropertyTile>
                 )
             }
         }

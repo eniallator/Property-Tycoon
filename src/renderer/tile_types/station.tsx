@@ -5,8 +5,8 @@ import { TileProps } from "../tile"
 import "../monopoly.scss"
 
 type StationTileProps = TileProps & {
-    name: String,
-    price: String
+    name: string,
+    price: number
 }
 
 class StationTile extends Component<StationTileProps> {
