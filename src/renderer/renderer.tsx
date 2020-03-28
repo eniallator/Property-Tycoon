@@ -6,24 +6,22 @@
  * @packageDocumentation
  */
 
-import React, { Fragment } from "react";
-import ReactDOM from "react-dom";
-import { IO } from '../io/io';
-import { State } from "../game_data/state";
-import { Board } from "./board";
-import { Roll } from "./roll";
+import React, { Fragment } from "react"
+import ReactDOM from "react-dom"
+import { IO } from '../io/io'
+import { State } from "../game_data/state"
+import { GameGUI } from "./game_gui"
 
 
 class Renderer {
-    io:IO 
+    io:IO
+
     constructor(io: IO) {
-        this.io = io; 
-        
+        this.io = io
     }
 
     update(state: State) {
-        ReactDOM.render(<Fragment><Board playerPos={0} /> <Roll/></Fragment>, document.getElementById("root") as HTMLElement)
-        
+        ReactDOM.render(<GameGUI></GameGUI>, document.getElementById("root") as HTMLElement)
     }
 }
 
