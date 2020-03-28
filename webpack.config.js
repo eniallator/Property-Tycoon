@@ -4,16 +4,34 @@ module.exports = {
   mode: "production",
   context: path.join(__dirname),
   entry: {
-    engine: './src/engine/engine.ts',
-    gui: './src/index.tsx'
-  },
-  // Removed since it's too general. We need to build the engine and gui separately for both
-  // testing and organizational purposes
-  /*output: {
-    path: path.join(__dirname, "dist"),
-    filename: "bundle.js"
-  },*/
+    'game-data': [
+      'command.ts',
+      'player.ts',
+      'state.ts',
+      'tile.ts'
+    ].map(file => `./src/game_data/${file}`),
 
+    core: {
+      import: './src/core/core.ts',
+      dependOn: 'game-data'
+    },
+
+    renderer: {
+      import: './src/renderer/renderer.tsx',
+      dependOn: 'game-data'
+    },
+
+    engine: {
+      import: './src/engine/engine.ts',
+      dependOn: [ 'core', 'renderer' ]
+    }
+  },
+
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].bundle.js'
+  },
+  
   // Enable sourcemaps for debugging webpack's output.
   devtool: "source-map",
 
@@ -46,7 +64,7 @@ module.exports = {
   // assume a corresponding global variable exists and use that instead.
   // This is important because it allows us to avoid bundling all of our
   // dependencies, which allows browsers to cache those libraries between builds.
-  target: "node",
+  //target: "node",
   externals: {
     react: "React",
     "react-dom": "ReactDOM"
