@@ -7,8 +7,7 @@
  */
 
 import { State } from "../game_data/state"
-import { Command } from "../game_data/command"
-import fs from 'fs'
+import { Command, CommandM, CommandType } from "../game_data/command"
 
 
 /**
@@ -20,11 +19,29 @@ class IO {
     state: State
 
     // Logs
-    sysLogs: Array<SysLog>
-    gameLogs: Array<Log>
+    // Config
+    logCmd: boolean
+    logSys: boolean
 
-    constructor() { 
-        fs.writeFileSync('./log', 'TEST')
+    sysLogs: Array<SysLog>
+    cmdLogs: Array<Command>
+
+    /**
+     * Initialize IO module
+     * @param logSys System log flag - Default true
+     * @param logCmd Game command log flag - Default false
+     */
+    constructor(logSys: boolean = true, logCmd: boolean = true) { 
+        this.logCmd = logCmd
+        this.logSys = logSys
+
+        this.sysLogs = []
+        this.cmdLogs = []
+
+        this.logInfo(
+            LogSource.IO,
+            "Initializing IO Subsystem"
+        )
     }
 
 
@@ -33,7 +50,6 @@ class IO {
      * Read Game Command from IO Bus
      */
     getCommand() {
-        console.log("Fetching Command")
         return this.command
     }
 
@@ -42,6 +58,7 @@ class IO {
      * @param command 
      */
     sendCommand(command: Command) {
+        this.cmdLogs.push(command)
         this.command = command
     }
 
@@ -62,6 +79,20 @@ class IO {
 
     
     // LOGGING
+    writeSysLogs() {
+        while (this.sysLogs.length > 0) {
+            const log: SysLog = this.sysLogs.pop()
+            console.log(renderSysLog(log))
+        }
+    }
+
+    writeCmdLogs() {
+        while (this.cmdLogs.length > 0) {
+            const cmd: Command = this.cmdLogs.pop()
+            console.log(`CMD :: ${CommandM.renderCommand(cmd)}`)
+        }
+    }
+
     // -- SYSTEM LOGS
     /**
      * Log info-level system message
@@ -69,7 +100,7 @@ class IO {
      * @param msg Message content
      */
     logInfo(src: LogSource, msg: Msg) { 
-        this.logMsg(src, LogLevel.INFO, msg) 
+        this.logSysMsg(src, LogLevel.INFO, msg) 
     }
 
     /**
@@ -79,7 +110,7 @@ class IO {
      * 
      */
     logWarning(src: LogSource, msg: Msg) { 
-        this.logMsg(src, LogLevel.WARNING, msg) 
+        this.logSysMsg(src, LogLevel.WARNING, msg) 
     }
 
     /**
@@ -88,19 +119,17 @@ class IO {
      * @param msg Message content
      */
     logError(src: LogSource, msg: Msg) { 
-        this.logMsg(src, LogLevel.ERROR, msg) 
+        this.logSysMsg(src, LogLevel.ERROR, msg) 
     }
 
-    /**
-     * Log system message - Helper
-     * @param src Source of log
-     * @param lvl Log level
-     * @param msg Message content
-     */
-    private logMsg(src: LogSource, lvl: LogLevel, msg: Msg) {  
+    // Logging Helpers
+    // Log System Message
+    private logSysMsg(src: LogSource, lvl: LogLevel, msg: Msg) {  
         const log: SysLog = { source: src, level: lvl, msg: msg }
         this.sysLogs.unshift(log)
     }
+
+    private logGameMsg() {}
 
 }
 
@@ -112,18 +141,28 @@ type Msg = string
 enum LogLevel { INFO, WARNING, ERROR }
 
 /**
- * Type of srctem making calls to the logger
+ * Type of system making calls to the logger
  */
 enum LogSource { CORE, RENDERER, ENGINE, IO, GAME }
 
-interface Log {
+/**
+ * System Log
+ */
+interface SysLog {
     source: LogSource,
+    level: LogLevel,
     msg: Msg
 }
 
-interface SysLog extends Log {
-    level: LogLevel
-}
 
+// Helper Functions
+function renderSysLog(log: SysLog): string {
+    const { source, level, msg } = log
+
+    const levelStr: string = LogLevel[level]
+    const sourceStr: string = LogSource[source]
+
+    return `${levelStr} :: ${sourceStr}\n\t${msg}`
+}
 
 export { IO, LogSource }

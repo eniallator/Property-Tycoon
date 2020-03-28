@@ -33,6 +33,11 @@ class Engine {
 
         // Pipe game command into core to yield a new game state
         const newState = this.core.update(state, command)
+
+        // Write any logs produced
+        this.io.writeSysLogs()
+        this.io.writeCmdLogs()
+
         // Render new game state
         this.renderer.update(newState)
     }
