@@ -7,6 +7,8 @@ module.exports = {
     engine: './src/engine/engine.ts',
     gui: './src/index.tsx'
   },
+  // Removed since it's too general. We need to build the engine and gui separately for both
+  // testing and organizational purposes
   /*output: {
     path: path.join(__dirname, "dist"),
     filename: "bundle.js"
