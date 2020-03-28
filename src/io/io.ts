@@ -18,22 +18,32 @@ class IO {
     state: State
     constructor() { }
 
+    /**
+     * Read Game Command from IO Bus
+     */
     getCommand() {
         return this.command
     }
 
     /**
-     * 
+     * Push Game Command onto IO Bus
      * @param command 
      */
     sendCommand(command: Command) {
         this.command = command
     }
 
+    /**
+     * Read Game State from IO Bus
+     */
     getState() {
         return this.state
     }
 
+    /**
+     * Push Game State onto IO Bus
+     * @param state Game State
+     */
     sendState(state: State) {
         this.state = state
     }
