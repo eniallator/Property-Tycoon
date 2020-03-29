@@ -29,7 +29,7 @@ class IO {
     /**
      * Initialize IO module
      * @param logSys System log flag - Default true
-     * @param logCmd Game command log flag - Default false
+     * @param logCmd Game command log flag - Default true
      */
     constructor(logSys: boolean = true, logCmd: boolean = true) { 
         this.command = {
