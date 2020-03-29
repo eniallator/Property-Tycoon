@@ -8,6 +8,10 @@
 
 import React, { Fragment, Component } from "react"
 import ReactDOM from "react-dom"
+import { Tile } from "./tile"
+import { Token,Player,PlayerM } from "../game_data/player";
+import {PlayerGUI} from "../renderer/player";
+
 
 import { EstateTile } from "./tile_types/estate"
 import { StationTile } from "./tile_types/station"
@@ -143,9 +147,24 @@ class Board extends Component<BoardProps> {
                 <div className="row vertical-row right-row">
                     { tiles.slice(27, 36) }
                 </div>
+    {/* render () {
+        const tileArray: Array<any> = []
+        const playerArray: Array<any> = [<PlayerGUI token={Token.BOOT}></PlayerGUI>]
+
+
+        for (let i: number = 0; i < 40; i++) {
+            tileArray.push(
+                <Tile hasPlayer={false} playerArray ={playerArray} ></Tile>
+            )
+        }
+
+        return (
+            <div>
+                {(tileArray 
+                )} */}
             </div>
-        )
-    }
+        ) 
+    } 
 }
 
 

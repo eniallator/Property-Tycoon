@@ -9,22 +9,32 @@ import React, { Fragment, Component } from "react";
 import ReactDOM from "react-dom";
 import {PlayerGUI} from "../renderer/player";
 
-
-type TileProps = {
-    playerArray: Array<PlayerGUI> 
-}
-
-class Tile extends Component<TileProps, {}> {
-    constructor(props: TileProps) {
-        super(props)
-    }
-
 /**
  * Tile props:
  * - `hasPlayer`: If the tile has a player or not
  */
 type TileProps = {
-    hasPlayer: boolean
+    playerArray: Array<PlayerGUI> ;
+    hasPlayer?: boolean;
+}
+
+class Tile extends Component<TileProps, {}> {
+
+    
+
+    constructor(props: TileProps) {
+        super(props)
+    }
+
+    render() {
+        this.props.hasPlayer
+        return (
+            <div style={{width: 20, height: 20, border: "1px solid"}}>
+                {this.props.playerArray}
+
+            </div>
+        )
+    }
 }
 
 export { TileProps }
