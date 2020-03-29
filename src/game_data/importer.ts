@@ -91,7 +91,9 @@ namespace ImporterM {
                 tiles.push(TileM.createEstateTile(tileData['Position'], tileData['Space/property'], tileData['Cost'], group, rents, 0, false))
             }
 
-            // All tiles should be processed by the above. TODO: Raise error if the line below is reached
+            // All tiles should be processed by the above.
+            // TODO: Raise proper error if the line below is reached
+            // TODO: Use the logger once it becomes available
             else console.log('WARNING [importer]: Tile' + tileData + 'was not initialised properly')
         }
 
