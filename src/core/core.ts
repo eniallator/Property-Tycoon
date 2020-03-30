@@ -23,7 +23,12 @@ class Core {
      * @param state Current game state to uodate
      * @param cmd Command to process and update state with respect to
      */
-    update(state: State, cmd: Cmd.Command): State {
+    update(state: State, cmd?: Cmd.Command): State {
+        if (!cmd) {
+            // If in arcade mode, increment timer
+            return state
+        }
+
         const { type, data } = cmd
         let updates = {}
 

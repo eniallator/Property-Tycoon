@@ -32,10 +32,30 @@ interface RollData {
     dice: [Die, Die]
 }
 
+// ------------
+
+namespace CommandM {
+    export function renderCommand(cmd: Command) {
+        const { type, data } = cmd
+
+        const typeStr: string = CommandType[type]
+        let dataStr: string
+
+        switch (type) {
+            case CommandType.ROLL:
+                dataStr = data.dice.toString()
+                break;
+        }
+
+        return `${typeStr} : ${dataStr}`
+        
+    }
+}
 
 export {
     Command,
     CommandType,
+    CommandM,
 
     // Command Data Types
     RollData

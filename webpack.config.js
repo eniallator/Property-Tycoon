@@ -3,11 +3,35 @@ const path = require("path");
 module.exports = {
   mode: "production",
   context: path.join(__dirname),
-  output: {
-    path: path.join(__dirname, "dist"),
-    filename: "bundle.js"
+  entry: {
+    'game-data': [
+      'command.ts',
+      'player.ts',
+      'state.ts',
+      'tile.ts'
+    ].map(file => `./src/game_data/${file}`),
+
+    core: {
+      import: './src/core/core.ts',
+      dependOn: 'game-data'
+    },
+
+    renderer: {
+      import: './src/renderer/renderer.tsx',
+      dependOn: 'game-data'
+    },
+
+    engine: {
+      import: './src/engine/engine.ts',
+      dependOn: [ 'core', 'renderer' ]
+    }
   },
 
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].bundle.js'
+  },
+  
   // Enable sourcemaps for debugging webpack's output.
   devtool: "source-map",
 

@@ -6,7 +6,7 @@
  * @packageDocumentation
  */
 
-import { IO } from '../io/io'
+import { IO, LogSource } from '../io/io'
 import { Core } from '../core/core'
 import { Renderer } from '../renderer/renderer'
 
@@ -19,9 +19,20 @@ class Engine {
     io: IO
     core: Core
     renderer: Renderer
+
     constructor() {
         this.io = new IO()
+
+        this.io.logInfo(
+            LogSource.CORE,
+            "Initializing Logic Core Subsystem"
+        )
         this.core = new Core()
+
+        this.io.logInfo(
+            LogSource.RENDERER,
+            "Initializing Renderer Subsystem"
+        )
         this.renderer = new Renderer(this.io)
     }
 
@@ -33,9 +44,19 @@ class Engine {
 
         // Pipe game command into core to yield a new game state
         const newState = this.core.update(state, command)
+
+        // Write any logs produced
+        this.io.writeSysLogs()
+        this.io.writeCmdLogs()
+
         // Render new game state
         this.renderer.update(newState)
     }
 }
 
-export { Engine }
+// Run the engine
+const engine = new Engine()
+
+// Run at FPS
+const tickRate = 30 // In milliseconds
+setInterval(() => engine.update(), tickRate)
