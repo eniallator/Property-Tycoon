@@ -32,7 +32,7 @@
     "tslint": "^6.0.0",
     "typescript": "^3.8.2",
     "typescript-tslint-plugin": "^0.5.5",
-    "webpack": "^4.41.6",
+    "webpack": "5.0.0-beta.14",
     "webpack-cli": "^3.3.11"
   }
 }
