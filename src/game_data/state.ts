@@ -8,6 +8,7 @@
 
 import { Player, Token, PlayerM } from './player'
 import { Tile, TileM, Property } from './tile'
+import { ImporterM } from './importer'
 import Util from '../util'
 
 
@@ -52,11 +53,7 @@ namespace StateM {
      * - Update behaviour from sprint 1
      */
     export function createGameState(numTiles: number = 40): State {
-        const tiles: Array<Tile> = []
-
-        for (let i = 0; i < numTiles; ++i) {
-            tiles.push(TileM.createTile(i))
-        }
+        const tiles: Array<Tile> = ImporterM.getTiles()
 
         const p1: Player = PlayerM.createPlayer(0, Token.BOOT)
         const p2: Player = PlayerM.createPlayer(1, Token.GOBLET)
