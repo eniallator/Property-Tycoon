@@ -1,23 +1,17 @@
-import React, { Fragment, Component } from "react";
-import ReactDOM from "react-dom";
+/**
+ * Base tile component
+ * 
+ * authors: Niall C.C
+ * @packageDocumentation
+ */
 
+
+/**
+ * Tile props:
+ * - `hasPlayer`: If the tile has a player or not
+ */
 type TileProps = {
-    hasPlayer?: boolean
+    hasPlayer: boolean
 }
 
-class Tile extends Component<TileProps, {}> {
-    constructor(props: TileProps) {
-        super(props)
-    }
-
-    render() {
-        this.props.hasPlayer
-        return (
-            <div style={{width: 20, height: 20, border: "1px solid"}}>
-
-            </div>
-        )
-    }
-}
-
-export { Tile }
+export { TileProps }
