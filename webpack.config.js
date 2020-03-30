@@ -80,5 +80,5 @@ module.exports = {
     "react-dom": "ReactDOM"
   },
 
-  target: "node"
+  target: "electron-renderer"
 };
