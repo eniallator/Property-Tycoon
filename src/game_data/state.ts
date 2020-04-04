@@ -69,7 +69,8 @@ namespace StateM {
             gamePhase: GamePhase.PLAYER_MOVE,
             activePlayer: 0,
             players: players,
-            tiles: tiles
+            tiles: tiles,
+            doubleCount: 0
         }
     }
 
@@ -80,7 +81,10 @@ namespace StateM {
     export function nextTurn(state: State): State {
         const { activePlayer, players } = state
         const numPlayers = players.length
-        const updates = { activePlayer: (activePlayer + 1) % numPlayers }
+        const updates = { 
+            activePlayer: (activePlayer + 1) % numPlayers,
+            diceCount: 0
+         }
 
         return Util.update(state, updates)
     }
