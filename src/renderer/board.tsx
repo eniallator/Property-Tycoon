@@ -143,11 +143,11 @@ class Board extends Component<IOProps> {
                 </div>
                 { tiles[20] }
                 <div className="row horizontal-row top-row">
-                    { tiles.slice(21, 30).reverse() }
+                    { tiles.slice(21, 30) }
                 </div>
                 { tiles[30] }
                 <div className="row vertical-row right-row">
-                    { tiles.slice(31, 40).reverse() }
+                    { tiles.slice(31, 40) }
                 </div>
             </div>
         ) 
