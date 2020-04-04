@@ -26,7 +26,6 @@ class Tile extends Component<TileProps, {}> {
     constructor(props: TileProps) {
         super(props)
         
-        this.props.playerArray.push(<PlayerGUI token = {Token.BOOT} id = {0} ></PlayerGUI>)
     }
 
     render() {
