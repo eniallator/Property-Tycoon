@@ -8,16 +8,26 @@
 
 import React, { Fragment, Component } from "react"
 import ReactDOM from "react-dom"
-import { Tile } from "./tile"
 import { Token,Player,PlayerM } from "../game_data/player";
 import {PlayerGUI} from "../renderer/player";
 
+import {
+    StationTile,
+    EstateTile,
+    UtilityTile,
+    TaxTile,
+    CornerTile,
+    ChanceTile,
+    TileM
+} from "../game_data/tile"
+import { ReceiveProps } from './props'
 
-import { EstateTile } from "./tile_types/estate"
-import { StationTile } from "./tile_types/station"
-import { CardTile, CardType } from "./tile_types/card"
-import { TaxTile, TaxType } from "./tile_types/tax"
-import { UtilityTile, UtilityType } from "./tile_types/utility"
+import { EstateTileComponent } from "./tile_types/estate"
+import { StationTileComponent } from "./tile_types/station"
+import { ChanceTileComponent } from "./tile_types/chance"
+import { TaxTileComponent, TaxType } from "./tile_types/tax"
+import { UtilityTileComponent, UtilityType } from "./tile_types/utility"
+import { CornerTileComponent } from "./tile_types/corner"
 
 import "./monopoly.scss"
 import { IOProps } from "../io/io";
@@ -27,7 +37,7 @@ import { IOProps } from "../io/io";
  * Board props:
  * - `playerPos`: The current position of the player
  */
-type BoardProps = {
+type BoardProps = ReceiveProps & {
     playerPos: number
     playerArray?: Array<any>;
 }
@@ -68,39 +78,56 @@ class Board extends Component<IOProps> {
             </div>
         )
         const tiles: Array<any> = []
-        for (let i: number = 0; i < 36; i++) {
-            // TODO: Replace with loaded board data
-            if (i === 1) {
+
+        for (let i in this.props.state.tiles) {
+            const tile = this.props.state.tiles[i]
+            if (TileM.isEstate(tile)) {
+                const estate: EstateTile = tile
                 tiles.push(
-                    <CardTile hasPlayer={ false } cardType={ CardType.PotLuck }></CardTile>
+                    <EstateTileComponent
+                        name={ estate.name }
+                        price={ estate.price }
+                        group={ estate.group }
+                    ></EstateTileComponent>
                 )
-            } else if (i === 3) {
+            } else if (TileM.isCorner(tile)) {
+                const corner: CornerTile = tile
                 tiles.push(
-                    <TaxTile hasPlayer={ false } taxType={TaxType.Income} name="Income Tax" fee={ 200 }></TaxTile>
+                    <CornerTileComponent
+                        cornerType={ corner.cornerType }
+                    ></CornerTileComponent>
                 )
-            } else if (i === 6) {
+            } else if (TileM.isChance(tile)) {
+                const chance: ChanceTile = tile
                 tiles.push(
-                    <CardTile hasPlayer={ false } cardType={ CardType.Opportunity }></CardTile>
+                    <ChanceTileComponent
+                        chanceType={ chance.chanceType }
+                    ></ChanceTileComponent>
                 )
-            } else if (i === 10) {
+            } else if (TileM.isTax(tile)) {
+                const tax: TaxTile = tile
                 tiles.push(
-                    <UtilityTile hasPlayer={ false } name="Tesla Power Co" price={ 150 } utilityType={ UtilityType.Electric }></UtilityTile>
+                    <TaxTileComponent
+                        taxType={ +i < 20 ? TaxType.Income : TaxType.Luxury }
+                        fee={ tax.amount }
+                    ></TaxTileComponent>
                 )
-            } else if (i === 25) {
+            } else if (TileM.isStation(tile)) {
+                const station: StationTile = tile
                 tiles.push(
-                    <UtilityTile hasPlayer={ false } name="Edison Water" price={ 150 } utilityType={ UtilityType.Water }></UtilityTile>
+                    <StationTileComponent
+                        name={ station.name }
+                        price={ station.price }
+                    ></StationTileComponent>
                 )
-            } else if (i === 34) {
+            } else if (TileM.isUtility(tile)) {
+                const utility: UtilityTile = tile
                 tiles.push(
-                    <TaxTile hasPlayer={ false } taxType={TaxType.Luxury} name="Super Tax" fee={ 200 }></TaxTile>
-                )
-            } else if (i % 9 === 4) {
-                tiles.push(
-                    <StationTile hasPlayer={ false } name="Brighton Station" price={ 200 }></StationTile>
-                )
-            } else {
-                tiles.push(
-                    <EstateTile hasPlayer={ false } name={ "tile-" + i } price={ 200 } color={ this.getColor(i) }></EstateTile>
+                    <UtilityTileComponent
+                        name={ utility.name }
+                        price={ utility.price }
+                        utilityType={ +i < 20 ? UtilityType.Electric : UtilityType.Water }
+                    ></UtilityTileComponent>
                 )
             }
         }
@@ -108,68 +135,20 @@ class Board extends Component<IOProps> {
         return (
             <div className="board">
                 { centerComponents }
-                <div className="space corner go">
-                    <div className="container">
-                        <div className="instructions">Collect £200.00 salary as you pass</div>
-                        <div className="go-word">go</div>
-                    </div>
-                    <div className="arrow fa fa-long-arrow-left"></div>
-                </div>
-                { tiles.slice(0, 9).reverse() }
-                <div className="space corner jail">
-                    <div className="just">Just</div>
-                    <div className="drawing">
-                        <div className="container">
-                            <div className="name">In</div>
-                            <div className="window">
-                                <div className="bar"></div>
-                                <div className="bar"></div>
-                                <div className="bar"></div>
-                                <i className="person fa fa-frown-o"></i>
-                            </div>
-                            <div className="name">Jail</div>
-                        </div>
-                    </div>
-                    <div className="visiting">Visiting</div>
-                </div>
+                { tiles[0] }
+                { tiles.slice(1, 10).reverse() }
+                { tiles[10] }
                 <div className="row vertical-row left-row">
-                    { tiles.slice(9, 18).reverse() }
+                    { tiles.slice(11, 20).reverse() }
                 </div>
-                <div className="space corner free-parking">
-                    <div className="container">
-                        <div className="name">Free</div>
-                        <i className="drawing fa fa-car"></i>
-                        <div className="name">Parking</div>
-                    </div>
-                </div>
+                { tiles[20] }
                 <div className="row horizontal-row top-row">
-                    { tiles.slice(18, 27) }
+                    { tiles.slice(21, 30).reverse() }
                 </div>
-                <div className="space corner go-to-jail">
-                    <div className="container">
-                        <div className="name">Go To</div>
-                        <i className="drawing fa fa-gavel"></i>
-                        <div className="name">Jail</div>
-                    </div>
-                </div>
+                { tiles[30] }
                 <div className="row vertical-row right-row">
-                    { tiles.slice(27, 36) }
+                    { tiles.slice(31, 40).reverse() }
                 </div>
-    {/* render () {
-        const tileArray: Array<any> = []
-        const playerArray: Array<any> = [<PlayerGUI token={Token.BOOT}></PlayerGUI>]
-
-
-        for (let i: number = 0; i < 40; i++) {
-            tileArray.push(
-                <Tile hasPlayer={false} playerArray ={playerArray} ></Tile>
-            )
-        }
-
-        return (
-            <div>
-                {(tileArray 
-                )} */}
             </div>
         ) 
     } 

@@ -9,35 +9,25 @@
 import React, { Fragment, Component } from "react"
 import ReactDOM from "react-dom"
 import { TileProps } from "../tile"
-import { Tile }  from "../../game_data/tile"
+import { Tile, ChanceType }  from "../../game_data/tile"
 
 import "../monopoly.scss"
 
 
-/**
- * Possible different types of card tiles:
- * - `PotLuck`
- * - `Opportunity`
- */
-enum CardType {
-    PotLuck,
-    Opportunity
-}
-
-interface CardTypeConfig {
+interface ChanceTypeConfig {
     class: string,
     name: string,
     icon: string
 }
 
-// The default config interface for card types
-const CardConfig: Record<CardType, CardTypeConfig> = {
-    [CardType.PotLuck]: {
+// The default config interface for chance types
+const chanceConfig: Record<ChanceType, ChanceTypeConfig> = {
+    [ChanceType.POT_LUCK]: {
         class: "potluck",
         name: "Pot Luck",
         icon: "fa-cube"
     },
-    [CardType.Opportunity]: {
+    [ChanceType.OPPORTUNITY_KNOCK]: {
         class: "opportunity",
         name: "Opportunity Knocks",
         icon: "fa-question"
@@ -45,13 +35,13 @@ const CardConfig: Record<CardType, CardTypeConfig> = {
 }
 
 
-type CardProps = TileProps & {
-    cardType: CardType
+type ChanceTileProps = TileProps & {
+    chanceType: ChanceType
 }
 
-class CardTile extends Component<CardProps> {
+class ChanceTileComponent extends Component<ChanceTileProps> {
     render() {
-        const cfg: CardTypeConfig = CardConfig[this.props.cardType]
+        const cfg: ChanceTypeConfig = chanceConfig[this.props.chanceType]
         return (
             <div className={ `space ${ cfg.class }`}>
                 <div className="container">
@@ -65,4 +55,4 @@ class CardTile extends Component<CardProps> {
 }
 
 
-export { CardTile, CardType }
+export { ChanceTileComponent }

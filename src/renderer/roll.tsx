@@ -10,12 +10,9 @@ import React, { Fragment, Component,MouseEvent } from "react";
 import ReactDOM from "react-dom";
 import { IO } from '../io/io';
 import { RollData,Command, CommandType } from "../game_data/command";
+import { SendProps } from "./props"
 
-type IOProps = {
-    io: IO
-  }
-
-class Roll extends Component<IOProps>{
+class Roll extends Component<SendProps>{
     handleClick(event: MouseEvent) {
         const n1 = Math.floor(Math.random() * 6) + 1
         const n2 = Math.floor(Math.random() * 6) + 1
