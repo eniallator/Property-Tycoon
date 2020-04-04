@@ -203,6 +203,30 @@ namespace TileM {
             rent: (tier) => rent[tier] }
     }
 
+    // Useful type guards for distinguishing tiles
+    export function isChance(t: Tile): t is ChanceTile {
+        return t.tileType == TileType.CHANCE
+    }
+
+    export function isCorner(t: Tile): t is CornerTile {
+        return t.tileType == TileType.CORNER
+    }
+
+    export function isTax(t: Tile): t is TaxTile {
+        return t.tileType == TileType.TAX
+    }
+
+    export function isEstate(t: Tile): t is EstateTile {
+        return t.tileType == TileType.ESTATE
+    }
+
+    export function isUtility(t: Tile): t is UtilityTile {
+        return t.tileType == TileType.UTILITY
+    }
+
+    export function isStation(t: Tile): t is StationTile {
+        return t.tileType == TileType.STATION
+    }
 }
 
 export {
@@ -218,8 +242,9 @@ export {
 
     // Concrete Tiles
     StationTile,
-    EstateTile,
     UtilityTile,
+    EstateTile,
     TaxTile,
-    CornerTile
+    CornerTile,
+    ChanceTile
 }
