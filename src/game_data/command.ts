@@ -35,6 +35,8 @@ interface RollData {
 // ------------
 
 namespace CommandM {
+
+    // TODO: @alexandru says: Document what this function does
     export function renderCommand(cmd: Command) {
         const { type, data } = cmd
 

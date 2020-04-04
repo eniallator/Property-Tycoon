@@ -50,7 +50,7 @@ namespace StateM {
     /**
      * Creates a new game state.
      * TODO: 
-     * - Update behaviour from sprint 1
+     * - Update behaviour from sprint 1. TODO: @alexandru says: IS THIS STILL TODO? @michael
      */
     export function createGameState(numTiles: number = 40): State {
         const tiles: Array<Tile> = ImporterM.getTiles()
