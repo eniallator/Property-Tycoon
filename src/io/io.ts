@@ -7,7 +7,7 @@
  */
 
 import { State, StateM } from "../game_data/state"
-import { Command, CommandM, CommandType, RollData } from "../game_data/command"
+import { Command, CommandM, CommandType } from "../game_data/command"
 
 /**
  * IO Bus
@@ -15,7 +15,7 @@ import { Command, CommandM, CommandType, RollData } from "../game_data/command"
  * modules, and logging both game and srctem messages
  */
 class IO {
-    command: Command
+    command: Command<any>
     state: State
 
     // Logs
@@ -24,7 +24,7 @@ class IO {
     logSys: boolean
 
     sysLogs: Array<SysLog>
-    cmdLogs: Array<Command>
+    cmdLogs: Array<Command<any>>
 
     /**
      * Initialize IO module
@@ -49,17 +49,17 @@ class IO {
 
     // MESSAGE PASSING
     /**
-     * Read Game Command from IO Bus
+     * Read Game Command<any> from IO Bus
      */
     getCommand() {
         return this.command
     }
 
     /**
-     * Push Game Command onto IO Bus
+     * Push Game Command<any> onto IO Bus
      * @param command 
      */
-    sendCommand(command: Command) {
+    sendCommand(command: Command<any>) {
         this.cmdLogs.push(command)
         this.command = command
     }
@@ -90,7 +90,7 @@ class IO {
 
     writeCmdLogs() {
         while (this.cmdLogs.length > 0) {
-            const cmd: Command = this.cmdLogs.pop()
+            const cmd: Command<any> = this.cmdLogs.pop()
             console.log(`CMD :: ${CommandM.renderCommand(cmd)}`)
         }
     }

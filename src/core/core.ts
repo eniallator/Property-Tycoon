@@ -23,12 +23,7 @@ class Core {
      * @param state Current game state to uodate
      * @param cmd Command to process and update state with respect to
      */
-    update(state: State, cmd?: Cmd.Command): State {
-        if (!cmd) {
-            // If in arcade mode, increment timer
-            return state
-        }
-
+    update(state: State, cmd?: Cmd.Command<any>): State {
         const { type, data } = cmd
         let updates = {}
 
@@ -45,9 +40,9 @@ class Core {
             case Cmd.CommandType.END_GAME:
                 updates = CoreM.endGame(state)
                 break;
-            case Cmd.CommandType.ROLL:
-                updates = CoreM.move(cmd.data as Cmd.RollData, state)
-                break;
+           // case Cmd.CommandType.ROLL:
+               // updates = CoreM.move(cmd.data as Cmd.RollData, state)
+            //    break;
         }
 
         return Util.update(state, updates)
@@ -93,12 +88,7 @@ namespace CoreM {
      * @param data Data held by the roll command (value of two dice)
      * @param state Current state of the game
      */
-    export function move(data: Cmd.RollData, state: State): State {
-        const { dice: [die1, die2] } = data
-        const { activePlayer } = state
-
-        return StateM.movePlayer(state, die1 + die2)
-    }
+    // export function move(data: Cmd.MovePlayerCmd, state: State): State { }
 }
 
 

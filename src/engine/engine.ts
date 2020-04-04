@@ -38,14 +38,16 @@ class Engine {
         const state = this.io.getState()
 
         // Pipe game command into core to yield a new game state
-        const newState = this.core.update(state, command)
+        let newState = state
+        if (command)
+            newState = this.core.update(state, command)
 
+        // Update renderer with responses
+        this.renderer.update(newState)
+        
         // Write any logs produced
         this.io.writeSysLogs()
         this.io.writeCmdLogs()
-
-        // Render new game state
-        this.renderer.update(newState)
     }
 }
 

@@ -45,9 +45,10 @@ enum GamePhase {
  */
 interface State {
     gamePhase: GamePhase
-    activePlayer?: 0 | 1 | 2 | 3 | 4 | 5,
-    players?: Array<Player>
-    tiles?: Array<Tile>
+    activePlayer: 0 | 1 | 2 | 3 | 4 | 5,
+    players: Array<Player>
+    tiles: Array<Tile>
+    doubleCount: number
 }
 
 
@@ -57,7 +58,13 @@ namespace StateM {
      * Creates the initial (main menu) game state.
      */
     export function initialiseGameState(): State {
-        return { gamePhase: GamePhase.MAIN_MENU }
+        return { 
+            gamePhase: GamePhase.MAIN_MENU,
+            activePlayer: 0,
+            players: [],
+            tiles: [],
+            doubleCount: 0
+        }
     }
 
     /**
@@ -129,7 +136,8 @@ namespace StateM {
             gamePhase: GamePhase.PLAYER_MOVE,
             activePlayer: 0,
             players: players,
-            tiles: tiles
+            tiles: tiles,
+            doubleCount: 0
         }
     }
 
