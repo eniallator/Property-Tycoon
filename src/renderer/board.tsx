@@ -30,19 +30,17 @@ import { UtilityTileComponent, UtilityType } from "./tile_types/utility"
 import { CornerTileComponent } from "./tile_types/corner"
 
 import "./monopoly.scss"
-import { IOProps } from "../io/io";
 
 
 /**
  * Board props:
- * - `playerPos`: The current position of the player
+ * - `playerArray`: The array of players currently playing
  */
 type BoardProps = ReceiveProps & {
-    playerPos: number
-    playerArray?: Array<any>;
+    playerArray?: Array<any>
 }
 
-class Board extends Component<IOProps> {
+class Board extends Component<BoardProps> {
     getColor (tilePosition: number): string {
         const colorOrder: Array<string> = [
             "brown",

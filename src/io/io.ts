@@ -169,4 +169,4 @@ function renderSysLog(log: SysLog): string {
 }
 
 
-export { IO, IOProps, LogSource}
+export { IO, LogSource}
