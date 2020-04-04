@@ -20,6 +20,7 @@ interface Tile {
 enum TileType {
     CHANCE,
     CORNER,
+    TAX,
     ESTATE,
     STATION,
     UTILITY
@@ -35,7 +36,7 @@ enum ChanceType { OPPORTUNITY_KNOCK, POT_LUCK }
  * Chance wrapper
  * - type: [[ChanceType]]
  */
-interface Chance { type: ChanceType }
+interface Chance { chanceType: ChanceType }
 /**
  * ChanceTile type alias. [[Chance]] and [[Tile]] composition.
  */
@@ -51,7 +52,7 @@ enum CornerType { GO, JAIL, PARKING, GO_TO_JAIL }
  * Corner wrapper
  * - type: [[CornerType]]
  */
-interface Corner { type: CornerType }
+interface Corner { cornerType: CornerType }
 /**
  * CornerTile type alias. [[Corner]] and [[Tile]] composition.
  */
@@ -82,8 +83,9 @@ interface Property {
 }
 /**
  * PropertyTile type alias. [[Property] & [[Tile]] composition.
+ * This type is redundant
  */
-type PropertyTile = Property & Tile
+// type PropertyTile = Property & Tile
 
 
 // Estate
@@ -140,43 +142,81 @@ type StationTile = Station & Tile
 
 // Functions
 namespace TileM {
-    export function createChanceTile(position: number, type: 0 | 1): ChanceTile {
-        return { position: position, type: type }
+    export function createChanceTile(position: number, type: ChanceType): ChanceTile {
+        return { 
+            position: position,
+            tileType: TileType.CHANCE,
+            chanceType: type
+        }
     }
 
     export function createCornerTile(position: number, type: CornerType): CornerTile {
-        return { position: position, type: type }
+        return { 
+            position: position,
+            tileType: TileType.CORNER,
+            cornerType: type 
+        }
     }
 
     export function createTaxTile(position: number, amount: number): TaxTile {
-        return { position: position, amount: amount }
+        return { 
+            position: position,
+            tileType: TileType.TAX,
+            amount: amount
+        }
     }
 
-    export function createPropertyTile(position: number, name: string, price: number): PropertyTile {
-        return { position: position, name: name, price: price }
-    }
+    // export function createPropertyTile(position: number, name: string, price: number): PropertyTile { // Redundant Function
+    //    return { position: position, name: name, price: price }
+    // }
 
     export function createEstateTile(position: number, name: string, price: number, group: EstateGroup, rents: Array<number>, improvement: 0 | 1 | 2 | 3 | 4 | 5, isMortgaged: boolean): EstateTile {
-        return { position: position, name: name, price: price, group: group, rent: (tier) => rents[tier], improvements: improvement, isMortgaged: false }
+        return { 
+            position: position,
+            tileType: TileType.ESTATE,
+            name: name, 
+            price: price, 
+            group: group, 
+            rent: (tier) => rents[tier], 
+            improvements: improvement, 
+            isMortgaged: false 
+        }
     }
 
     export function createUtilityTile(position: number, name: string, price: number, rent: 1 | 2): UtilityTile {
-        return { position: position, name: name, price: price, rent: (tier) => rent[tier] }
+        return { 
+            position: position,
+            tileType: TileType.UTILITY,
+
+            name: name, 
+            price: price, 
+            rent: (tier) => rent[tier] }
     }
 
     export function createStationTile(position: number, name: string, price: number, rent: 1 | 2 | 3 | 4): StationTile {
-        return { position: position, name: name, price: price, rent: (tier) => rent[tier] }
+        return { 
+            position: position,
+            tileType: TileType.STATION,
+
+            name: name, 
+            price: price, 
+            rent: (tier) => rent[tier] }
     }
 
-    // Distinguishing between tiles
 }
 
 export {
-    Tile, TileM,
+    // General
+    Tile, TileType,
+    TileM,
     Property,
+
+    // Enums
     CornerType,
     ChanceType,
     EstateGroup,
+
+    // Concrete Tiles
     StationTile,
     EstateTile,
     UtilityTile,
