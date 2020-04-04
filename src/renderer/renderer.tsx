@@ -21,7 +21,9 @@ class Renderer {
     }
 
     update(state: State) {
-        ReactDOM.render(<GameGUI></GameGUI>, document.getElementById("root") as HTMLElement)
+        ReactDOM.render(<GameGUI io = {this.io}></GameGUI>, document.getElementById("root") as HTMLElement)
+        //ReactDOM.render(<Fragment><Board playerPos={0}/> <Roll io={this.io}></Roll> /></Fragment>, document.getElementById("root") as HTMLElement)
+        
     }
 }
 
