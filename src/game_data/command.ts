@@ -11,16 +11,27 @@
 /**
  * Command types:
  * - `ROLL`: Player has rolled their die
+ * - `START_GAME`: User starts a new game
+ * - `PAUSE_GAME`: Player pauses the current game
+ * - `UNPAUSE_GAME`: Player unpauses the current game
+ * - `END_GAME`: Player (or Core?) ends the current game
  */
-enum CommandType { ROLL }
+enum CommandType {
+    ROLL,
+    START_GAME,
+    PAUSE_GAME,
+    UNPAUSE_GAME,
+    END_GAME
+}
 
 /**
  * GameCommands are sent by the Input and processed by Core
  * - `type`: Type of command sent
+ * - `data`: TODO: Document this field. Was made optional when working on the Main Menu by @alexandru and @niall
  */
 interface Command {
     type: CommandType
-    data: CommandData
+    data?: CommandData
 }
 
 type CommandData = RollData // | ... other command data types
@@ -44,6 +55,14 @@ namespace CommandM {
         let dataStr: string
 
         switch (type) {
+            case CommandType.START_GAME:
+                break;
+            case CommandType.PAUSE_GAME:
+                break;
+            case CommandType.UNPAUSE_GAME:
+                break;
+            case CommandType.END_GAME:
+                break;
             case CommandType.ROLL:
                 dataStr = data.dice.toString()
                 break;

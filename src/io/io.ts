@@ -38,7 +38,7 @@ class IO {
                 dice: [1, 1]
             }
         }
-        this.state = StateM.createGameState()
+        this.state = StateM.initialiseGameState()
 
         this.logCmd = logCmd
         this.logSys = logSys

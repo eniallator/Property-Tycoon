@@ -33,6 +33,18 @@ class Core {
         let updates = {}
 
         switch (type) {
+            case Cmd.CommandType.START_GAME:
+                updates = CoreM.startGame()
+                break;
+            case Cmd.CommandType.PAUSE_GAME:
+                updates = CoreM.pauseGame(state)
+                break;
+            case Cmd.CommandType.UNPAUSE_GAME:
+                updates = CoreM.unpauseGame(state)
+                break;
+            case Cmd.CommandType.END_GAME:
+                updates = CoreM.endGame(state)
+                break;
             case Cmd.CommandType.ROLL:
                 updates = CoreM.move(cmd.data as Cmd.RollData, state)
                 break;
@@ -45,6 +57,36 @@ class Core {
 
 // Module functions
 namespace CoreM {
+    /**
+     * Starts a new game. (initialises all required data)
+     */
+    export function startGame(): State {
+        return StateM.createNewGameState()
+    }
+
+    /**
+     * Pauses the game
+     * @param state Current state of the game
+     */
+    export function pauseGame(state: State): State {
+        return StateM.pauseGame(state)
+    }
+
+    /**
+     * Unpauses the game
+     * @param state Current state of the game
+     */
+    export function unpauseGame(state: State): State {
+        return StateM.unpauseGame(state)
+    }
+
+    /**
+     * Ends the game
+     * @param state Current state of the game
+     */
+    export function endGame(state: State): State {
+        return StateM.endGame(state)
+    }
 
     /**
      * Moves player on board according to dice rolled
