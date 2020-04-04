@@ -106,6 +106,7 @@ class Board extends Component<IOProps> {
                 )
             } else if (TileM.isTax(tile)) {
                 const tax: TaxTile = tile
+                // Income tax type appears before halfway point whereas luxury appears after
                 tiles.push(
                     <TaxTileComponent
                         taxType={ +i < 20 ? TaxType.Income : TaxType.Luxury }
@@ -122,6 +123,7 @@ class Board extends Component<IOProps> {
                 )
             } else if (TileM.isUtility(tile)) {
                 const utility: UtilityTile = tile
+                // Electric utility type appears before halfway point whereas water appears after
                 tiles.push(
                     <UtilityTileComponent
                         name={ utility.name }
