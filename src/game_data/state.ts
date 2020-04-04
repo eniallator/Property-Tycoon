@@ -42,6 +42,7 @@ interface State {
     activePlayer: 0 | 1 | 2 | 3 | 4 | 5,
     players: Array<Player>
     tiles: Array<Tile>
+    doubleCount: number
 }
 
 
