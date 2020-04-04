@@ -4,12 +4,12 @@ import { TileProps } from "../tile"
 
 import "../monopoly.scss"
 
-type StationTileProps = TileProps & {
+type StationTileComponentProps = TileProps & {
     name: string,
     price: number
 }
 
-class StationTile extends Component<StationTileProps> {
+class StationTileComponent extends Component<StationTileComponentProps> {
     render() {
         return (
 			<div className="space railroad">
@@ -23,4 +23,4 @@ class StationTile extends Component<StationTileProps> {
     }
 }
 
-export { StationTile }
+export { StationTileComponent }

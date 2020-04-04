@@ -15,8 +15,8 @@ import { Token } from "../game_data/player";
  * - `hasPlayer`: If the tile has a player or not
  */
 type TileProps = {
-    playerArray?: Array<any> ;
-    hasPlayer?: boolean;
+    playerArray?: Array<any>
+    hasPlayer?: boolean
 }
 
 class Tile extends Component<TileProps, {}> {

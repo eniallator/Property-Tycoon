@@ -24,6 +24,7 @@ enum TaxType {
 }
 
 interface TaxTypeConfig {
+    name: string,
     class: string,
     icon: string
 }
@@ -31,10 +32,12 @@ interface TaxTypeConfig {
 // The default config interface for tax types
 const TaxConfig: Record<TaxType, TaxTypeConfig> = {
     [TaxType.Income]: {
+        name: "Income Tax",
         class: "income",
         icon: "diamond"
     },
     [TaxType.Luxury]: {
+        name: "Super Tax",
         class: "luxury",
         icon: "drawing fa fa-diamond"
     }
@@ -46,19 +49,18 @@ const TaxConfig: Record<TaxType, TaxTypeConfig> = {
  * - `fee`: Amount charged for landing on tile
  * - `taxType`: Type of tax
  */
-type TaxTileProps = TileProps & {
-    name: string,
+type TaxTileComponentProps = TileProps & {
     fee: number,
     taxType: TaxType
 }
 
-class TaxTile extends Component<TaxTileProps> {
+class TaxTileComponent extends Component<TaxTileComponentProps> {
     render() {
         const cfg: TaxTypeConfig = TaxConfig[this.props.taxType]
         return (
             <div className={ `space fee ${ cfg.class }-tax` }>
                 <div className="container">
-                    <div className="name">{ this.props.name }</div>
+                    <div className="name">{ cfg.name }</div>
                     <div className={ cfg.icon }></div>
                     <div className="instructions">Pay £{ this.props.fee }</div>
                 </div>
@@ -68,4 +70,4 @@ class TaxTile extends Component<TaxTileProps> {
 }
 
 
-export { TaxTile, TaxType }
+export { TaxTileComponent, TaxType }

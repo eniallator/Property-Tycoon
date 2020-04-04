@@ -11,14 +11,15 @@ import ReactDOM from "react-dom"
 import { Board } from "./board"
 import "./monopoly.scss"
 import { Roll } from "./roll"
-import { IO,IOProps } from '../io/io';
+
+import { SendReceiveProps } from './props'
 
 
-class GameGUI extends Component<IOProps> {
+class GameGUI extends Component<SendReceiveProps> {
     render() {
         return (
             <div className="table">
-                <Board io={this.props.io}></Board>
+                <Board state={ this.props.state }></Board>
                 <Roll io={this.props.io} > </Roll>
             </div>
         )

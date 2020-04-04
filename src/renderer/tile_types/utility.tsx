@@ -46,13 +46,13 @@ const UtilityConfig: Record<UtilityType, UtilityTypeConfig> = {
  * - `price`: Price of the utility
  * - `utilityType`: Type of utility
  */
-type UtilityTileProps = TileProps & {
+type UtilityTileComponentProps = TileProps & {
     name: string,
     price: number,
     utilityType: UtilityType
 }
 
-class UtilityTile extends Component<UtilityTileProps> {
+class UtilityTileComponent extends Component<UtilityTileComponentProps> {
     render() {
         const cfg: UtilityTypeConfig = UtilityConfig[this.props.utilityType]
         return (
@@ -67,4 +67,4 @@ class UtilityTile extends Component<UtilityTileProps> {
     }
 }
 
-export { UtilityTile, UtilityType }
+export { UtilityTileComponent, UtilityType }
