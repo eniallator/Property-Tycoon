@@ -503,3 +503,12 @@ h1, h2, h3, h4, h5, h6 {
 	position: relative;
 	top: 5px;
 }
+
+.player { 
+	width: 5px;
+	height:5px;
+	background: black; 
+	position: absolute; 
+	z-index: 200;
+
+}

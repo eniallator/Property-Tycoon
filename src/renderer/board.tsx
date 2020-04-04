@@ -20,6 +20,7 @@ import { TaxTile, TaxType } from "./tile_types/tax"
 import { UtilityTile, UtilityType } from "./tile_types/utility"
 
 import "./monopoly.scss"
+import { IOProps } from "../io/io";
 
 
 /**
@@ -28,9 +29,10 @@ import "./monopoly.scss"
  */
 type BoardProps = {
     playerPos: number
+    playerArray?: Array<any>;
 }
 
-class Board extends Component<BoardProps> {
+class Board extends Component<IOProps> {
     getColor (tilePosition: number): string {
         const colorOrder: Array<string> = [
             "brown",
@@ -44,6 +46,12 @@ class Board extends Component<BoardProps> {
         ]
         return colorOrder[Math.floor(tilePosition / 4.5)]
     }
+
+   // movePlayer(playerID: number, places:number){
+        // Take in a player ID then essentially move the player into the new position on a tile, by the places
+        // call render again in order to re-render the tokens on the board
+
+    //}
 
     render () {
         const centerComponents: any = (

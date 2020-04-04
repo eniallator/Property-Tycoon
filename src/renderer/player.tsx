@@ -11,17 +11,19 @@ import ReactDOM from "react-dom";
 import { IO } from '../io/io';
 import { Token,Player,PlayerM } from "../game_data/player";
 
+import "./monopoly.scss"
 
 type playerProps = {
+    id?: 0|1|2|3|4|5;
     token?: Token
 }
 const tokenToUrlMap: Record<Token, string> = {
-    [Token.BOOT]: "https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-image-512.png",
-    [Token.CAT] : " https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-image-512.png",
-    [Token.GOBLET]: "https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-image-512.png",
-    [Token.HATSTAND]:"https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-image-512.png",
-    [Token.SMARTPHONE]:"https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-image-512.png",
-    [Token.SPOON]:"https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-image-512.png"
+    [Token.BOOT]: 'player',
+    [Token.CAT] : 'player',
+    [Token.GOBLET]: 'player',
+    [Token.HATSTAND]:'player',
+    [Token.SMARTPHONE]:'player',
+    [Token.SPOON]:'player'
   }
 
 class PlayerGUI extends Component<playerProps>{
@@ -35,7 +37,7 @@ class PlayerGUI extends Component<playerProps>{
 
     render() {
         return (
-          <img src={ tokenToUrlMap[this.props.token] } />
+          <div className={ tokenToUrlMap[this.props.token] } />
         )
       }
 

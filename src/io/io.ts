@@ -9,7 +9,9 @@
 import { State, StateM } from "../game_data/state"
 import { Command, CommandM, CommandType, RollData } from "../game_data/command"
 
-
+type IOProps = {
+    io: IO
+  }
 /**
  * IO Bus
  * Responsible for both transmitting messages back and forth between engine modules, and logging both game and srctem messages
@@ -169,4 +171,5 @@ function renderSysLog(log: SysLog): string {
     return `${levelStr} :: ${sourceStr}\n\t${msg}`
 }
 
-export { IO, LogSource }
+
+export { IO, IOProps, LogSource}
