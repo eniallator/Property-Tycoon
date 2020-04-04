@@ -9,8 +9,9 @@
 import React, { Fragment } from "react"
 import ReactDOM from "react-dom"
 import { IO } from '../io/io'
-import { State } from "../game_data/state"
+import { State, GamePhase } from "../game_data/state"
 import { GameGUI } from "./game_gui"
+import { MainMenuGUI } from "./main_menu_gui"
 
 
 class Renderer {
@@ -21,7 +22,15 @@ class Renderer {
     }
 
     update(state: State) {
-        ReactDOM.render(<GameGUI io={ this.io } state={ state } ></GameGUI>, document.getElementById("root") as HTMLElement)
+        let baseEl: any
+        switch (state.gamePhase) {
+            case GamePhase.MAIN_MENU:
+                baseEl = <MainMenuGUI io={ this.io } state={ state }></MainMenuGUI>
+                break
+            default:
+                baseEl = <GameGUI io={ this.io } state={ state }></GameGUI>
+        }
+        ReactDOM.render(baseEl, document.getElementById("root") as HTMLElement)
     }
 }
 
