@@ -60,6 +60,7 @@ class TaxTileComponent extends Component<TaxTileComponentProps> {
         return (
             <div className={ `space fee ${ cfg.class }-tax` }>
                 <div className="container">
+                {this.props.playerArray}
                     <div className="name">{ cfg.name }</div>
                     <div className={ cfg.icon }></div>
                     <div className="instructions">Pay £{ this.props.fee }</div>

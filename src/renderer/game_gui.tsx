@@ -21,12 +21,12 @@ import { SendReceiveProps } from './props'
 class GameGUI extends Component<SendReceiveProps> {
     render() {
 
-        const playerArray: Array<any> = this.props.state.players.map(
-            (player: Player) => <PlayerGUI player={ player }></PlayerGUI>
-        )
+      //  const playerArray: Array<any> = this.props.state.players.map(
+          //  (player: Player) => <PlayerGUI player={ player }></PlayerGUI>
+      //  )
         return (
             <div className="table">
-                <Board state={ this.props.state } playerArray = {playerArray}></Board>
+                <Board state={ this.props.state }></Board>
                 <Roll io={this.props.io} > </Roll>
             </div>
         )

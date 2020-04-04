@@ -14,6 +14,8 @@ class StationTileComponent extends Component<StationTileComponentProps> {
         return (
 			<div className="space railroad">
 				<div className="container">
+				{this.props.playerArray}
+
 					<div className="name">{ this.props.name }</div>
 					<i className="drawing fa fa-subway"></i>
 					<div className="price">Price £{ this.props.price }</div>

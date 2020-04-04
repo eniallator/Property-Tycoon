@@ -10,9 +10,14 @@ import React, { Fragment, Component,MouseEvent } from "react";
 import ReactDOM from "react-dom";
 import { IO } from '../io/io';
 import { RollData,Command, CommandType } from "../game_data/command";
-import { SendProps } from "./props"
+import "./monopoly.scss"
 
-class Roll extends Component<SendProps>{
+
+type IOProps = {
+    io: IO
+  }
+
+class Roll extends Component<IOProps>{
     handleClick(event: MouseEvent) {
         const n1 = Math.floor(Math.random() * 6) + 1
         const n2 = Math.floor(Math.random() * 6) + 1
@@ -29,7 +34,7 @@ class Roll extends Component<SendProps>{
       }
       
       render() {
-        return <Fragment><button onClick={this.handleClick}> Roll Dice
+        return <Fragment><button onClick={this.handleClick} className ="rd"> Roll Dice
         </button> <div> num here</div> </Fragment>
         
       }
