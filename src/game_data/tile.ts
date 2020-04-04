@@ -12,7 +12,18 @@
  * Tile interface.
  * - `position`: Numerical position on board = [1-40]
  */
-interface Tile { position: number }
+interface Tile { 
+    position: number,
+    tileType: TileType
+ }
+
+enum TileType {
+    CHANCE,
+    CORNER,
+    ESTATE,
+    STATION,
+    UTILITY
+}
 
 
 // Chance Tile
@@ -156,6 +167,8 @@ namespace TileM {
     export function createStationTile(position: number, name: string, price: number, rent: 1 | 2 | 3 | 4): StationTile {
         return { position: position, name: name, price: price, rent: (tier) => rent[tier] }
     }
+
+    // Distinguishing between tiles
 }
 
 export {
@@ -163,5 +176,10 @@ export {
     Property,
     CornerType,
     ChanceType,
-    EstateGroup
+    EstateGroup,
+    StationTile,
+    EstateTile,
+    UtilityTile,
+    TaxTile,
+    CornerTile
 }
