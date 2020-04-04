@@ -32,6 +32,7 @@ class IO {
      * @param logCmd Game command log flag - Default true
      */
     constructor(logSys: boolean = true, logCmd: boolean = true) { 
+        // TODO: @alexandru says: Why is this command hardcoded here? Can I remove it?
         this.command = {
             type: CommandType.ROLL,
             data: {
