@@ -31,8 +31,6 @@ class MainMenuGUI extends Component<SendReceiveProps> {
     render() {
         return (
             <div className="wrapper">
-                <button onClick={ this.startGame }>Play</button>
-                <button onClick={ this.exit }>Exit</button>
                 <div className="main">
                     <div className="menu">
                         <h1>Property Tycoon</h1>
