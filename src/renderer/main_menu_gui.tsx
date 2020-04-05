@@ -12,6 +12,8 @@ import "./monopoly.scss"
 import { SendReceiveProps } from "./props"
 import { CommandType } from "../game_data/command"
 
+import "./menu.css"
+
 
 class MainMenuGUI extends Component<SendReceiveProps> {
     startGame(evt: MouseEvent) {
@@ -28,9 +30,23 @@ class MainMenuGUI extends Component<SendReceiveProps> {
 
     render() {
         return (
-            <div className="table">
-                <button onClick={ this.startGame.bind(this) }>Play</button>
-                <button onClick={ this.exit.bind(this) }>Exit</button>
+            <div className="wrapper">
+                <button onClick={ this.startGame }>Play</button>
+                <button onClick={ this.exit }>Exit</button>
+                <div className="main">
+                    <div className="menu">
+                        <h1>Property Tycoon</h1>
+                        <ul>
+                        <li><a className="button play" onClick={ this.startGame.bind(this) }>Start Game</a></li><br/>
+                        <li><a className="button credits">Credits</a></li><br/>
+                        <li><a className="button exit" onClick={ this.exit.bind(this) }>Exit</a></li><br/>
+                        </ul>
+                    </div>
+                </div>
+                <canvas id="canvas" width="800" height="480">
+                    <p>Your browser does not support the required functionality to play Property Tycoon!</p>
+                    <p>Please ensure your browser is updated or use <a href="www.google.com/chrome">Google Chrome</a> to play.</p>
+                </canvas>
             </div>
         )
     }
