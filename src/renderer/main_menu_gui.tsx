@@ -21,14 +21,16 @@ class MainMenuGUI extends Component<SendReceiveProps> {
     }
 
     exit(evt: MouseEvent) {
-        //TODO: Add functionality here
+        this.props.io.sendCommand({
+            type: CommandType.END_GAME
+        })
     }
 
     render() {
         return (
             <div className="table">
-                <button onClick={ this.startGame }>Play</button>
-                <button onClick={ this.exit }>Exit</button>
+                <button onClick={ this.startGame.bind(this) }>Play</button>
+                <button onClick={ this.exit.bind(this) }>Exit</button>
             </div>
         )
     }
