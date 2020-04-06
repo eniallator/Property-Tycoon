@@ -12,7 +12,7 @@ import { IO } from '../io/io'
 import { State, GamePhase } from "../game_data/state"
 import { GameGUI } from "./game_gui"
 import { MainMenuGUI } from "./main_menu_gui"
-
+import { remote } from "electron"
 
 class Renderer {
     io: IO
@@ -26,6 +26,9 @@ class Renderer {
         switch (state.gamePhase) {
             case GamePhase.MAIN_MENU:
                 baseEl = <MainMenuGUI io={this.io} state={state}></MainMenuGUI>
+                break
+            case GamePhase.END_GAME:
+                remote.app.quit()
                 break
             default:
                 baseEl = <GameGUI io={this.io} state={state}></GameGUI>
