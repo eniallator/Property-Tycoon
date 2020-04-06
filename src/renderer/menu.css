@@ -1,0 +1,60 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+  }
+  html{
+      position: relative;
+      top: 20;
+      left: 150;
+      height: 170;
+      width: 550;
+      
+  }
+  .main {
+    height: 60%;
+    overflow: auto;
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background-image: url('money-BG.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .wrapper{
+      margin-right: auto;
+      margin-left: auto;
+      max-width: 480px;
+  }
+
+  ul{
+      list-style-type: none;
+  }
+
+
+    h1 {
+    color: whitesmoke;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    text-align: center;
+  }
+  .button {
+    display: block;
+    position: relative;
+    width: 150px;
+    margin: auto;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #AA2666;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    background-color: #FB1886;
+    background-image: -webkit-linear-gradient(bottom, #FB1886 0%, #B30D5D 100%);
+    background-image:         linear-gradient(to bottom, #FB1886 0%, #B30D5D 100%);
+    
+    border-radius: 5px;
+  }
+  .button:hover {
+    background-color: #B30D5D;
+    background-image: -webkit-linear-gradient(bottom, #B30D5D 0%, #FB1886 100%);
+    background-image:         linear-gradient(to bottom, #B30D5D 0%, #FB1886 100%);
+  }

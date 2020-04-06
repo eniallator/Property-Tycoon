@@ -16,43 +16,104 @@ import Util from '../util'
 /**
  * Represents current event the game is in:
  * - `PLAYER_MOVE`: A player is moving around the board
- * - `MAIN_MENU`: TODO 
- * - `PAUSE_MENU`: TODO
+ * - `MAIN_MENU`: Main menu 
+ * - `PAUSE_MENU`: Game is paused
+ * - `END_GAME`: Game ended
  * - `BUY_PROPERTY`: TODO
  * - `AUCTION`: TODO
  * - `PAY_RENT`: TODO
  * - `PROPERTY_MANAGEMENT`: TODO
- * - `END_GAME`: TODO
  */
-enum GamePhase { PLAYER_MOVE }
+enum GamePhase {
+    PLAYER_MOVE,
+    MAIN_MENU,
+    PAUSE_MENU,
+    END_GAME
+}
 
 
 // Game State
 /**
  * GameState
  * - `gamePhase`: Current phase the game is in
- * - `players`: Collection of players in the game
- * - `activePlayer`: Current active player
+ * - `players`: Collection of players in the game. Optional (no players before a game starts)
+ * - `activePlayer`: Current active player. Optional (no active players before a game starts)
+ * - `tiles`: Collection of tiles. Optional (no tiles before a game starts)
  * - `properties`: TODO
  * - `cards`: TODO
  * - `doubleCount`: Number of doubles thrown by player
  */
 interface State {
     gamePhase: GamePhase
-    activePlayer: 0 | 1 | 2 | 3 | 4 | 5,
-    players: Array<Player>
-    tiles: Array<Tile>
+    activePlayer?: 0 | 1 | 2 | 3 | 4 | 5,
+    players?: Array<Player>
+    tiles?: Array<Tile>
 }
 
 
 // Module functions
 namespace StateM {
     /**
+     * Creates the initial (main menu) game state.
+     */
+    export function initialiseGameState(): State {
+        return { gamePhase: GamePhase.MAIN_MENU }
+    }
+
+    /**
+     * Changes the game phase of the current game state (e.g. to pause the game).
+     * - `state`: Current game state
+     */
+    export function pauseGame(state: State): State {
+        // // Only allow game to be unpaused from certain game phases
+        // if (state.gamePhase == GamePhase.PLAYER_MOVE) {
+        const updates = { gamePhase: GamePhase.PAUSE_MENU }
+        return Util.update(state, updates)
+        // }
+        // else {
+        //     io.logError("")
+        //     return state
+        // }
+    }
+
+    /**
+     * Changes the game phase of the current game state (e.g. to pause the game).
+     * - `state`: Game state before pausing the game
+     */
+    export function unpauseGame(state: State): State {
+        // // Only allow game to be unpaused from certain game phases
+        // if (state.gamePhase == GamePhase.PAUSE_MENU) {
+        const updates = { gamePhase: GamePhase.PLAYER_MOVE }
+        return Util.update(state, updates)
+        // }
+        // else {
+        //     io.logError("")
+        //     return state
+        // }
+    }
+
+    /**
+     * Changes the game phase of the current game state (e.g. to pause the game).
+     * - `state`: Current game state
+     */
+    export function endGame(state: State): State {
+        // // Only allow game to be unpaused from certain game phases
+        // if (state.gamePhase == GamePhase.PAUSE_MENU || state.gamePhase == GamePhase.PLAYER_MOVE) {
+        const updates = { gamePhase: GamePhase.END_GAME }
+        return Util.update(state, updates)
+        // }
+        // else {
+        //     io.logError("")
+        //     return state
+        // }
+    }
+
+    /**
      * Creates a new game state.
      * TODO: 
-     * - Update behaviour from sprint 1
+     * - Update behaviour from sprint 1. TODO: @alexandru says: IS THIS STILL TODO? @michael
      */
-    export function createGameState(numTiles: number = 40): State {
+    export function createNewGameState(numTiles: number = 40): State {
         const tiles: Array<Tile> = ImporterM.getTiles()
 
         const p1: Player = PlayerM.createPlayer(0, Token.BOOT)
