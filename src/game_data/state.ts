@@ -99,7 +99,7 @@ namespace StateM {
     export function endGame(state: State): State {
         // // Only allow game to be unpaused from certain game phases
         // if (state.gamePhase == GamePhase.PAUSE_MENU || state.gamePhase == GamePhase.PLAYER_MOVE) {
-        const updates = { gamePhase: GamePhase.PLAYER_MOVE }
+        const updates = { gamePhase: GamePhase.END_GAME }
         return Util.update(state, updates)
         // }
         // else {
