@@ -67,15 +67,15 @@ namespace StateM {
     export function pauseGame(state: State): State {
         // // Only allow game to be unpaused from certain game phases
         // if (state.gamePhase == GamePhase.PLAYER_MOVE) {
-            const updates = { gamePhase: GamePhase.PAUSE_MENU }
-            return Util.update(state, updates)
+        const updates = { gamePhase: GamePhase.PAUSE_MENU }
+        return Util.update(state, updates)
         // }
         // else {
         //     io.logError("")
         //     return state
         // }
     }
-    
+
     /**
      * Changes the game phase of the current game state (e.g. to pause the game).
      * - `state`: Game state before pausing the game
@@ -83,15 +83,15 @@ namespace StateM {
     export function unpauseGame(state: State): State {
         // // Only allow game to be unpaused from certain game phases
         // if (state.gamePhase == GamePhase.PAUSE_MENU) {
-            const updates = { gamePhase: GamePhase.PLAYER_MOVE }
-            return Util.update(state, updates)
+        const updates = { gamePhase: GamePhase.PLAYER_MOVE }
+        return Util.update(state, updates)
         // }
         // else {
         //     io.logError("")
         //     return state
         // }
     }
-    
+
     /**
      * Changes the game phase of the current game state (e.g. to pause the game).
      * - `state`: Current game state
@@ -99,8 +99,8 @@ namespace StateM {
     export function endGame(state: State): State {
         // // Only allow game to be unpaused from certain game phases
         // if (state.gamePhase == GamePhase.PAUSE_MENU || state.gamePhase == GamePhase.PLAYER_MOVE) {
-            const updates = { gamePhase: GamePhase.PLAYER_MOVE }
-            return Util.update(state, updates)
+        const updates = { gamePhase: GamePhase.END_GAME }
+        return Util.update(state, updates)
         // }
         // else {
         //     io.logError("")

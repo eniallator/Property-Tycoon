@@ -12,8 +12,8 @@ import { Renderer } from '../renderer/renderer'
 
 
 /**
- * 
- * TODO
+ * Engine
+ * Responsible for keeping the game pipeline running.
  */
 class Engine {
     io: IO
@@ -23,22 +23,17 @@ class Engine {
     constructor() {
         this.io = new IO()
 
-        this.io.logInfo(
-            LogSource.CORE,
-            "Initializing Logic Core Subsystem"
-        )
+        this.io.logInfo(LogSource.CORE, "Initializing Logic Core Subsystem")
         this.core = new Core()
 
-        this.io.logInfo(
-            LogSource.RENDERER,
-            "Initializing Renderer Subsystem"
-        )
+        this.io.logInfo(LogSource.RENDERER, "Initializing Renderer Subsystem")
         this.renderer = new Renderer(this.io)
     }
 
     update() {
         // IO gets the first given command. What happens when no command was given?
         const command = this.io.getCommand()
+
         // Remember the current game state
         const state = this.io.getState()
 

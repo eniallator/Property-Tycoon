@@ -11,7 +11,8 @@ import { Command, CommandM, CommandType, RollData } from "../game_data/command"
 
 /**
  * IO Bus
- * Responsible for both transmitting messages back and forth between engine modules, and logging both game and srctem messages
+ * Responsible for both transmitting messages back and forth between engine 
+ * modules, and logging both game and srctem messages
  */
 class IO {
     command: Command
@@ -30,7 +31,7 @@ class IO {
      * @param logSys System log flag - Default true
      * @param logCmd Game command log flag - Default true
      */
-    constructor(logSys: boolean = true, logCmd: boolean = true) { 
+    constructor(logSys: boolean = true, logCmd: boolean = true) {
         this.state = StateM.initialiseGameState()
 
         this.logCmd = logCmd
@@ -78,7 +79,7 @@ class IO {
         this.state = state
     }
 
-    
+
     // LOGGING
     writeSysLogs() {
         while (this.sysLogs.length > 0) {
@@ -94,6 +95,7 @@ class IO {
         }
     }
 
+
     // -- SYSTEM LOGS
     /**
      * Log system message
@@ -101,8 +103,8 @@ class IO {
      * @param lvl Log level
      * @param msg Message content
      */
-    logInfo(src: LogSource, msg: Msg) { 
-        this.logSysMsg(src, LogLevel.INFO, msg) 
+    logInfo(src: LogSource, msg: Msg) {
+        this.logSysMsg(src, LogLevel.INFO, msg)
     }
 
     /**
@@ -110,8 +112,8 @@ class IO {
      * @param sys Subsystem making the log
      * @param msg Message content
      */
-    logWarning(src: LogSource, msg: Msg) { 
-        this.logSysMsg(src, LogLevel.WARNING, msg) 
+    logWarning(src: LogSource, msg: Msg) {
+        this.logSysMsg(src, LogLevel.WARNING, msg)
     }
 
     /**
@@ -119,13 +121,13 @@ class IO {
      * @param sys Subsystem making the log
      * @param msg Message content
      */
-    logError(src: LogSource, msg: Msg) { 
-        this.logSysMsg(src, LogLevel.ERROR, msg) 
+    logError(src: LogSource, msg: Msg) {
+        this.logSysMsg(src, LogLevel.ERROR, msg)
     }
 
     // Logging Helpers
     // Log System Message
-    private logSysMsg(src: LogSource, lvl: LogLevel, msg: Msg) {  
+    private logSysMsg(src: LogSource, lvl: LogLevel, msg: Msg) {
         const log: SysLog = { source: src, level: lvl, msg: msg }
         this.sysLogs.unshift(log)
     }
@@ -163,4 +165,4 @@ function renderSysLog(log: SysLog): string {
 }
 
 
-export { IO, LogSource}
+export { IO, LogSource }
