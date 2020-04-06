@@ -15,7 +15,7 @@ import { MainMenuGUI } from "./main_menu_gui"
 
 
 class Renderer {
-    io:IO
+    io: IO
 
     constructor(io: IO) {
         this.io = io
@@ -25,10 +25,10 @@ class Renderer {
         let baseEl: any
         switch (state.gamePhase) {
             case GamePhase.MAIN_MENU:
-                baseEl = <MainMenuGUI io={ this.io } state={ state }></MainMenuGUI>
+                baseEl = <MainMenuGUI io={this.io} state={state}></MainMenuGUI>
                 break
             default:
-                baseEl = <GameGUI io={ this.io } state={ state }></GameGUI>
+                baseEl = <GameGUI io={this.io} state={state}></GameGUI>
         }
         ReactDOM.render(baseEl, document.getElementById("root") as HTMLElement)
     }
