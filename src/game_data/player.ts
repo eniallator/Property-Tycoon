@@ -29,6 +29,7 @@ enum Token { BOOT, SMARTPHONE, GOBLET, HATSTAND, CAT, SPOON }
  * - `id`: numerical id = [1-6], unique
  * - `token`: [[Token]] representing player, unique
  * - `position`: [[Tile]] position currently on = [1-40]
+ * - `isAgent`: true if player is AI Agent, false otherwise
  * - `cash`: numerical current cash value held by player
  * - `properties`: collection of owned properties
  * - `inJail`: true if player is in jail, false othwewise.
@@ -37,6 +38,7 @@ enum Token { BOOT, SMARTPHONE, GOBLET, HATSTAND, CAT, SPOON }
 interface Player {
     readonly id: 0 | 1 | 2 | 3 | 4 | 5
     readonly token: Token
+    readonly isAgent: boolean
 
     position: number // 1 - 40 (the position of the tile they're on)
     cash: number
@@ -49,10 +51,11 @@ interface Player {
 // Utility functions and types
 namespace PlayerM {
 
-    export function createPlayer(id: 0 | 1 | 2 | 3 | 4 | 5, token: Token): Player {
+    export function createPlayer(id: 0 | 1 | 2 | 3 | 4 | 5, isAgent: boolean, token: Token): Player {
         return {
             id: id,
             token: token,
+            isAgent: isAgent,
             position: 0,
             cash: 0, // TODO
             properties: new Set<Property>(),
