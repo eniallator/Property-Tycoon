@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>RollData | property-tycoon</title>
+	<title>MovePlayerData | property-tycoon</title>
 	<meta name="description" content="Documentation for property-tycoon">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -59,21 +59,28 @@
 					<a href="../modules/_game_data_command_.html">&quot;game_data/command&quot;</a>
 				</li>
 				<li>
-					<a href="_game_data_command_.rolldata.html">RollData</a>
+					<a href="_game_data_command_.moveplayerdata.html">MovePlayerData</a>
 				</li>
 			</ul>
-			<h1>Interface RollData</h1>
+			<h1>Interface MovePlayerData</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Data required to move a player</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">RollData</span>
+						<span class="target">MovePlayerData</span>
 					</li>
 				</ul>
 			</section>
@@ -84,7 +91,7 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_game_data_command_.rolldata.html#dice" class="tsd-kind-icon">dice</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_game_data_command_.moveplayerdata.html#steps" class="tsd-kind-icon">steps</a></li>
 							</ul>
 						</section>
 					</div>
@@ -93,12 +100,12 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="dice" class="tsd-anchor"></a>
-					<h3>dice</h3>
-					<div class="tsd-signature tsd-kind-icon">dice<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><a href="../modules/_game_data_command_.html#die" class="tsd-signature-type">Die</a><span class="tsd-signature-symbol">, </span><a href="../modules/_game_data_command_.html#die" class="tsd-signature-type">Die</a><span class="tsd-signature-symbol">]</span></div>
+					<a name="steps" class="tsd-anchor"></a>
+					<h3>steps</h3>
+					<div class="tsd-signature tsd-kind-icon">steps<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/2b9ffe8/src/game_data/command.ts#L32">src/game_data/command.ts:32</a></li>
+							<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/game_data/command.ts#L90">src/game_data/command.ts:90</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -177,25 +184,67 @@
 						<a href="../enums/_game_data_command_.commandtype.html" class="tsd-kind-icon">Command<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="_game_data_command_.buydata.html" class="tsd-kind-icon">Buy<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="_game_data_command_.command.html" class="tsd-kind-icon">Command</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="_game_data_command_.improvedata.html" class="tsd-kind-icon">Improve<wbr>Data</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-module">
-						<a href="_game_data_command_.rolldata.html" class="tsd-kind-icon">Roll<wbr>Data</a>
+						<a href="_game_data_command_.moveplayerdata.html" class="tsd-kind-icon">Move<wbr>Player<wbr>Data</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_game_data_command_.rolldata.html#dice" class="tsd-kind-icon">dice</a>
+								<a href="_game_data_command_.moveplayerdata.html#steps" class="tsd-kind-icon">steps</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported">
-						<a href="../modules/_game_data_command_.html#commanddata" class="tsd-kind-icon">Command<wbr>Data</a>
+					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
+						<a href="_game_data_command_.playerconfig.html" class="tsd-kind-icon">Player<wbr>Config</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="_game_data_command_.startgamedata.html" class="tsd-kind-icon">Start<wbr>Game<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_game_data_command_.html#bailcmd" class="tsd-kind-icon">Bail<wbr>Cmd</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_game_data_command_.html#buycmd" class="tsd-kind-icon">Buy<wbr>Cmd</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_game_data_command_.html#endgamecmd" class="tsd-kind-icon">End<wbr>Game<wbr>Cmd</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_game_data_command_.html#improvecmd" class="tsd-kind-icon">Improve<wbr>Cmd</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_game_data_command_.html#moveplayercmd" class="tsd-kind-icon">Move<wbr>Player<wbr>Cmd</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_game_data_command_.html#nextturncmd" class="tsd-kind-icon">Next<wbr>Turn<wbr>Cmd</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported">
-						<a href="../modules/_game_data_command_.html#die" class="tsd-kind-icon">Die</a>
+						<a href="../modules/_game_data_command_.html#nullarycmd" class="tsd-kind-icon">Nullary<wbr>Cmd</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_game_data_command_.html#passcmd" class="tsd-kind-icon">Pass<wbr>Cmd</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_game_data_command_.html#passdata" class="tsd-kind-icon">Pass<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_game_data_command_.html#pausecmd" class="tsd-kind-icon">Pause<wbr>Cmd</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_game_data_command_.html#startgamecmd" class="tsd-kind-icon">Start<wbr>Game<wbr>Cmd</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_game_data_command_.html#unpausecmd" class="tsd-kind-icon">Unpause<wbr>Cmd</a>
 					</li>
 				</ul>
 			</nav>
@@ -215,6 +264,7 @@
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
 				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
 			</ul>
 			<ul class="tsd-legend">

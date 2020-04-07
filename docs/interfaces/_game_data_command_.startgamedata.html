@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>LogLevel | property-tycoon</title>
+	<title>StartGameData | property-tycoon</title>
 	<meta name="description" content="Documentation for property-tycoon">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,13 +56,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_io_io_.html">&quot;io/io&quot;</a>
+					<a href="../modules/_game_data_command_.html">&quot;game_data/command&quot;</a>
 				</li>
 				<li>
-					<a href="_io_io_.loglevel.html">LogLevel</a>
+					<a href="_game_data_command_.startgamedata.html">StartGameData</a>
 				</li>
 			</ul>
-			<h1>Enumeration LogLevel</h1>
+			<h1>Interface StartGameData</h1>
 		</div>
 	</div>
 </header>
@@ -72,54 +72,40 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Priority level of log messages</p>
+						<p>Data required to start a new game</p>
 					</div>
 				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">StartGameData</span>
+					</li>
+				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section tsd-is-not-exported">
-							<h3>Enumeration members</h3>
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum tsd-is-not-exported"><a href="_io_io_.loglevel.html#error" class="tsd-kind-icon">ERROR</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum tsd-is-not-exported"><a href="_io_io_.loglevel.html#info" class="tsd-kind-icon">INFO</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum tsd-is-not-exported"><a href="_io_io_.loglevel.html#warning" class="tsd-kind-icon">WARNING</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_game_data_command_.startgamedata.html#playerconfig" class="tsd-kind-icon">player<wbr>Config</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
-				<h2>Enumeration members</h2>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum tsd-is-not-exported">
-					<a name="error" class="tsd-anchor"></a>
-					<h3>ERROR</h3>
-					<div class="tsd-signature tsd-kind-icon">ERROR<span class="tsd-signature-symbol">:</span></div>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="playerconfig" class="tsd-anchor"></a>
+					<h3>player<wbr>Config</h3>
+					<div class="tsd-signature tsd-kind-icon">player<wbr>Config<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="_game_data_command_.playerconfig.html" class="tsd-signature-type">PlayerConfig</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/io/io.ts#L138">src/io/io.ts:138</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum tsd-is-not-exported">
-					<a name="info" class="tsd-anchor"></a>
-					<h3>INFO</h3>
-					<div class="tsd-signature tsd-kind-icon">INFO<span class="tsd-signature-symbol">:</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/io/io.ts#L138">src/io/io.ts:138</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum tsd-is-not-exported">
-					<a name="warning" class="tsd-anchor"></a>
-					<h3>WARNING</h3>
-					<div class="tsd-signature tsd-kind-icon">WARNING<span class="tsd-signature-symbol">:</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/io/io.ts#L138">src/io/io.ts:138</a></li>
+							<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/game_data/command.ts#L79">src/game_data/command.ts:79</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -137,8 +123,13 @@
 					<li class=" tsd-kind-module">
 						<a href="../modules/_engine_engine_.html">&quot;engine/engine&quot;</a>
 					</li>
-					<li class=" tsd-kind-module">
+					<li class="current tsd-kind-module">
 						<a href="../modules/_game_data_command_.html">&quot;game_<wbr>data/command&quot;</a>
+						<ul>
+							<li class=" tsd-kind-namespace tsd-parent-kind-module">
+								<a href="../modules/_game_data_command_.commandm.html">CommandM</a>
+							</li>
+						</ul>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_game_data_importer_.html">&quot;game_<wbr>data/importer&quot;</a>
@@ -152,7 +143,7 @@
 					<li class=" tsd-kind-module">
 						<a href="../modules/_game_data_tile_.html">&quot;game_<wbr>data/tile&quot;</a>
 					</li>
-					<li class="current tsd-kind-module">
+					<li class=" tsd-kind-module">
 						<a href="../modules/_io_io_.html">&quot;io/io&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -189,38 +180,71 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-enum tsd-parent-kind-module">
+						<a href="../enums/_game_data_command_.commandtype.html" class="tsd-kind-icon">Command<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="_game_data_command_.buydata.html" class="tsd-kind-icon">Buy<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="_game_data_command_.command.html" class="tsd-kind-icon">Command</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="_game_data_command_.improvedata.html" class="tsd-kind-icon">Improve<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="_game_data_command_.moveplayerdata.html" class="tsd-kind-icon">Move<wbr>Player<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
+						<a href="_game_data_command_.playerconfig.html" class="tsd-kind-icon">Player<wbr>Config</a>
+					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-enum tsd-parent-kind-module tsd-is-not-exported">
-						<a href="_io_io_.loglevel.html" class="tsd-kind-icon">Log<wbr>Level</a>
+					<li class="current tsd-kind-interface tsd-parent-kind-module">
+						<a href="_game_data_command_.startgamedata.html" class="tsd-kind-icon">Start<wbr>Game<wbr>Data</a>
 						<ul>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum tsd-is-not-exported">
-								<a href="_io_io_.loglevel.html#error" class="tsd-kind-icon">ERROR</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum tsd-is-not-exported">
-								<a href="_io_io_.loglevel.html#info" class="tsd-kind-icon">INFO</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum tsd-is-not-exported">
-								<a href="_io_io_.loglevel.html#warning" class="tsd-kind-icon">WARNING</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_game_data_command_.startgamedata.html#playerconfig" class="tsd-kind-icon">player<wbr>Config</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-enum tsd-parent-kind-module">
-						<a href="_io_io_.logsource.html" class="tsd-kind-icon">Log<wbr>Source</a>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_game_data_command_.html#bailcmd" class="tsd-kind-icon">Bail<wbr>Cmd</a>
 					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="../classes/_io_io_.io.html" class="tsd-kind-icon">IO</a>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_game_data_command_.html#buycmd" class="tsd-kind-icon">Buy<wbr>Cmd</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
-						<a href="../interfaces/_io_io_.syslog.html" class="tsd-kind-icon">Sys<wbr>Log</a>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_game_data_command_.html#endgamecmd" class="tsd-kind-icon">End<wbr>Game<wbr>Cmd</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_game_data_command_.html#improvecmd" class="tsd-kind-icon">Improve<wbr>Cmd</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_game_data_command_.html#moveplayercmd" class="tsd-kind-icon">Move<wbr>Player<wbr>Cmd</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_game_data_command_.html#nextturncmd" class="tsd-kind-icon">Next<wbr>Turn<wbr>Cmd</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported">
-						<a href="../modules/_io_io_.html#msg" class="tsd-kind-icon">Msg</a>
+						<a href="../modules/_game_data_command_.html#nullarycmd" class="tsd-kind-icon">Nullary<wbr>Cmd</a>
 					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
-						<a href="../modules/_io_io_.html#rendersyslog" class="tsd-kind-icon">render<wbr>Sys<wbr>Log</a>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_game_data_command_.html#passcmd" class="tsd-kind-icon">Pass<wbr>Cmd</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_game_data_command_.html#passdata" class="tsd-kind-icon">Pass<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_game_data_command_.html#pausecmd" class="tsd-kind-icon">Pause<wbr>Cmd</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_game_data_command_.html#startgamecmd" class="tsd-kind-icon">Start<wbr>Game<wbr>Cmd</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_game_data_command_.html#unpausecmd" class="tsd-kind-icon">Unpause<wbr>Cmd</a>
 					</li>
 				</ul>
 			</nav>
@@ -241,6 +265,7 @@
 			<ul class="tsd-legend">
 				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
 				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>

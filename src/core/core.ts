@@ -24,10 +24,19 @@ class Core {
      * @param cmd Command to process and update state with respect to
      */
     update(state: State, cmd?: Cmd.Command<any>): State {
+<<<<<<< HEAD
+=======
+        if (!cmd) {
+            // If in arcade mode, increment timer
+            return state
+        }
+
+>>>>>>> fed3105... Fleshed out new Command API
         const { type, data } = cmd
         let updates = {}
 
         switch (type) {
+<<<<<<< HEAD
             case Cmd.CommandType.START_GAME:
                 updates = CoreM.startGame()
                 break;
@@ -36,6 +45,10 @@ class Core {
                 break;
             case Cmd.CommandType.UNPAUSE_GAME:
                 updates = CoreM.unpauseGame(state)
+=======
+            case Cmd.CommandType.MOVE_PLAYER:
+                updates = CoreM.move(cmd.data as Cmd.MovePlayerData, state)
+>>>>>>> fed3105... Fleshed out new Command API
                 break;
             case Cmd.CommandType.END_GAME:
                 updates = CoreM.endGame(state)
@@ -63,6 +76,7 @@ namespace CoreM {
      * Pauses the game
      * @param state Current state of the game
      */
+<<<<<<< HEAD
     export function pauseGame(state: State): State {
         return StateM.pauseGame(state)
     }
@@ -81,6 +95,13 @@ namespace CoreM {
      */
     export function endGame(state: State): State {
         return StateM.endGame(state)
+=======
+    export function move(data: Cmd.MovePlayerData, state: State): State {
+        const { steps } = data
+        const { activePlayer } = state
+
+        return StateM.movePlayer(state, steps)
+>>>>>>> fed3105... Fleshed out new Command API
     }
 
     /**

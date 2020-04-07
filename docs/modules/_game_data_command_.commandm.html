@@ -69,6 +69,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Utility functions from the <a href="../interfaces/_game_data_command_.command.html">Command</a> module</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
@@ -76,7 +83,16 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="_game_data_command_.commandm.html#rendercommand" class="tsd-kind-icon">render<wbr>Command</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="_game_data_command_.commandm.html#bail" class="tsd-kind-icon">bail</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="_game_data_command_.commandm.html#buy" class="tsd-kind-icon">buy</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="_game_data_command_.commandm.html#endgame" class="tsd-kind-icon">end<wbr>Game</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="_game_data_command_.commandm.html#improve" class="tsd-kind-icon">improve</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="_game_data_command_.commandm.html#moveplayer" class="tsd-kind-icon">move<wbr>Player</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="_game_data_command_.commandm.html#nextturn" class="tsd-kind-icon">next<wbr>Turn</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="_game_data_command_.commandm.html#pass" class="tsd-kind-icon">pass</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="_game_data_command_.commandm.html#pausegame" class="tsd-kind-icon">pause<wbr>Game</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="_game_data_command_.commandm.html#startgame" class="tsd-kind-icon">start<wbr>Game</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="_game_data_command_.commandm.html#unpausegame" class="tsd-kind-icon">unpause<wbr>Game</a></li>
 							</ul>
 						</section>
 					</div>
@@ -85,25 +101,275 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
-					<a name="rendercommand" class="tsd-anchor"></a>
-					<h3>render<wbr>Command</h3>
+					<a name="bail" class="tsd-anchor"></a>
+					<h3>bail</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
-						<li class="tsd-signature tsd-kind-icon">render<wbr>Command<span class="tsd-signature-symbol">(</span>cmd<span class="tsd-signature-symbol">: </span><a href="../interfaces/_game_data_command_.command.html" class="tsd-signature-type">Command</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">bail<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_game_data_command_.html#bailcmd" class="tsd-signature-type">BailCmd</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/2b9ffe8/src/game_data/command.ts#L38">src/game_data/command.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/game_data/command.ts#L190">src/game_data/command.ts:190</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Bail self out of jail</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="_game_data_command_.html#bailcmd" class="tsd-signature-type">BailCmd</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
+					<a name="buy" class="tsd-anchor"></a>
+					<h3>buy</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
+						<li class="tsd-signature tsd-kind-icon">buy<span class="tsd-signature-symbol">(</span>propertyId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_game_data_command_.html#buycmd" class="tsd-signature-type">BuyCmd</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/game_data/command.ts#L169">src/game_data/command.ts:169</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Buy property</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>cmd: <a href="../interfaces/_game_data_command_.command.html" class="tsd-signature-type">Command</a></h5>
+									<h5>propertyId: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>ID of property to buy</p>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_game_data_command_.html#buycmd" class="tsd-signature-type">BuyCmd</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
+					<a name="endgame" class="tsd-anchor"></a>
+					<h3>end<wbr>Game</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
+						<li class="tsd-signature tsd-kind-icon">end<wbr>Game<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_game_data_command_.html#endgamecmd" class="tsd-signature-type">EndGameCmd</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/game_data/command.ts#L136">src/game_data/command.ts:136</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Return to main menu if currently in game. Exit program entirely
+									if in the main menu</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="_game_data_command_.html#endgamecmd" class="tsd-signature-type">EndGameCmd</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
+					<a name="improve" class="tsd-anchor"></a>
+					<h3>improve</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
+						<li class="tsd-signature tsd-kind-icon">improve<span class="tsd-signature-symbol">(</span>propertyId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, amount<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_game_data_command_.html#improvecmd" class="tsd-signature-type">ImproveCmd</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/game_data/command.ts#L200">src/game_data/command.ts:200</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Improve property by amount specified. If positive, will add
+									houses / hotel, if negative will remove houses / hotel</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>propertyId: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>ID of property to improve</p>
+									</div>
+								</li>
+								<li>
+									<h5>amount: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Offset to improve by</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_game_data_command_.html#improvecmd" class="tsd-signature-type">ImproveCmd</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
+					<a name="moveplayer" class="tsd-anchor"></a>
+					<h3>move<wbr>Player</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
+						<li class="tsd-signature tsd-kind-icon">move<wbr>Player<span class="tsd-signature-symbol">(</span>steps<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_game_data_command_.html#moveplayercmd" class="tsd-signature-type">MovePlayerCmd</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/game_data/command.ts#L158">src/game_data/command.ts:158</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Move player on the board</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>steps: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Number of steps to move</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_game_data_command_.html#moveplayercmd" class="tsd-signature-type">MovePlayerCmd</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
+					<a name="nextturn" class="tsd-anchor"></a>
+					<h3>next<wbr>Turn</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
+						<li class="tsd-signature tsd-kind-icon">next<wbr>Turn<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_game_data_command_.html#nextturncmd" class="tsd-signature-type">NextTurnCmd</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/game_data/command.ts#L210">src/game_data/command.ts:210</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Proceed to next turn</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="_game_data_command_.html#nextturncmd" class="tsd-signature-type">NextTurnCmd</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
+					<a name="pass" class="tsd-anchor"></a>
+					<h3>pass</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
+						<li class="tsd-signature tsd-kind-icon">pass<span class="tsd-signature-symbol">(</span>propertyId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_game_data_command_.html#passcmd" class="tsd-signature-type">PassCmd</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/game_data/command.ts#L180">src/game_data/command.ts:180</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Pass on buying a property</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>propertyId: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>ID of property to not purchase</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_game_data_command_.html#passcmd" class="tsd-signature-type">PassCmd</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
+					<a name="pausegame" class="tsd-anchor"></a>
+					<h3>pause<wbr>Game</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
+						<li class="tsd-signature tsd-kind-icon">pause<wbr>Game<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_game_data_command_.html#pausecmd" class="tsd-signature-type">PauseCmd</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/game_data/command.ts#L143">src/game_data/command.ts:143</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Pause ongoing game</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="_game_data_command_.html#pausecmd" class="tsd-signature-type">PauseCmd</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
+					<a name="startgame" class="tsd-anchor"></a>
+					<h3>start<wbr>Game</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
+						<li class="tsd-signature tsd-kind-icon">start<wbr>Game<span class="tsd-signature-symbol">(</span>playerConfig<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_game_data_command_.playerconfig.html" class="tsd-signature-type">PlayerConfig</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_game_data_command_.html#startgamecmd" class="tsd-signature-type">StartGameCmd</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/game_data/command.ts#L125">src/game_data/command.ts:125</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Start a new game</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>playerConfig: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_game_data_command_.playerconfig.html" class="tsd-signature-type">PlayerConfig</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Configuration parameters for each player in the new game</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_game_data_command_.html#startgamecmd" class="tsd-signature-type">StartGameCmd</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
+					<a name="unpausegame" class="tsd-anchor"></a>
+					<h3>unpause<wbr>Game</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
+						<li class="tsd-signature tsd-kind-icon">unpause<wbr>Game<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_game_data_command_.html#unpausecmd" class="tsd-signature-type">UnpauseCmd</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/game_data/command.ts#L150">src/game_data/command.ts:150</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Resume ongoing game</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="_game_data_command_.html#unpausecmd" class="tsd-signature-type">UnpauseCmd</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -179,7 +445,34 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-function tsd-parent-kind-namespace">
-						<a href="_game_data_command_.commandm.html#rendercommand" class="tsd-kind-icon">render<wbr>Command</a>
+						<a href="_game_data_command_.commandm.html#bail" class="tsd-kind-icon">bail</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-namespace">
+						<a href="_game_data_command_.commandm.html#buy" class="tsd-kind-icon">buy</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-namespace">
+						<a href="_game_data_command_.commandm.html#endgame" class="tsd-kind-icon">end<wbr>Game</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-namespace">
+						<a href="_game_data_command_.commandm.html#improve" class="tsd-kind-icon">improve</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-namespace">
+						<a href="_game_data_command_.commandm.html#moveplayer" class="tsd-kind-icon">move<wbr>Player</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-namespace">
+						<a href="_game_data_command_.commandm.html#nextturn" class="tsd-kind-icon">next<wbr>Turn</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-namespace">
+						<a href="_game_data_command_.commandm.html#pass" class="tsd-kind-icon">pass</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-namespace">
+						<a href="_game_data_command_.commandm.html#pausegame" class="tsd-kind-icon">pause<wbr>Game</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-namespace">
+						<a href="_game_data_command_.commandm.html#startgame" class="tsd-kind-icon">start<wbr>Game</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-namespace">
+						<a href="_game_data_command_.commandm.html#unpausegame" class="tsd-kind-icon">unpause<wbr>Game</a>
 					</li>
 				</ul>
 			</nav>
@@ -198,14 +491,15 @@
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
 			</ul>
 			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
 				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
 			</ul>
 		</div>
 	</div>

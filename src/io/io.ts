@@ -7,7 +7,12 @@
  */
 
 import { State, StateM } from "../game_data/state"
+<<<<<<< HEAD
 import { Command, CommandM, CommandType } from "../game_data/command"
+=======
+import { Command, CommandM } from "../game_data/command"
+
+>>>>>>> fed3105... Fleshed out new Command API
 
 /**
  * IO Bus
@@ -31,9 +36,13 @@ class IO {
      * @param logSys System log flag - Default true
      * @param logCmd Game command log flag - Default true
      */
+<<<<<<< HEAD
     constructor(logSys: boolean = true, logCmd: boolean = true) {
         this.state = StateM.initialiseGameState()
 
+=======
+    constructor(logSys: boolean = true, logCmd: boolean = true) { 
+>>>>>>> fed3105... Fleshed out new Command API
         this.logCmd = logCmd
         this.logSys = logSys
 

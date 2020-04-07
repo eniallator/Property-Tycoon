@@ -23,7 +23,7 @@ export type MovePlayerCmd = Command<MovePlayerData>
 // Property purchase and management
 export type BuyCmd = Command<BuyData>
 export type PassCmd = Command<PassData>
-export type Improve = Command<ImproveData>
+export type ImproveCmd = Command<ImproveData>
 
 // Jail
 export type BailCmd = NullaryCmd
@@ -31,8 +31,10 @@ export type BailCmd = NullaryCmd
 // Next Turn
 export type NextTurnCmd = NullaryCmd
 
-// Helper type
-type NullaryCmd = Command<undefined>
+/**
+ * Helper type for commands without any data
+ */
+type NullaryCmd = Command<null>
 
 // Command Schema
 /**
@@ -145,7 +147,7 @@ namespace CommandM {
 =======
     /**
      * Start a new game
-     * @param playerConfig Array of [[PlayerConfig]]s 
+     * @param playerConfig Configuration parameters for each player in the new game
      */
     export function startGame(playerConfig: Array<PlayerConfig>): StartGameCmd {
         return {
@@ -222,7 +224,7 @@ namespace CommandM {
      * @param propertyId ID of property to improve
      * @param amount Offset to improve by
      */
-    export function improve(propertyId: number, amount: number) {
+    export function improve(propertyId: number, amount: number): ImproveCmd {
         return {
             type: CommandType.IMPROVE,
             data: { propertyId: propertyId, amount: amount }
@@ -275,4 +277,10 @@ export {
     Command,
     CommandType,
     CommandM,
+
+    StartGameData,
+    MovePlayerData,
+    BuyData,
+    PassData,
+    ImproveData,
 }
