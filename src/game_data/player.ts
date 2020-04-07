@@ -30,11 +30,6 @@ enum Token { BOOT, SMARTPHONE, GOBLET, HATSTAND, CAT, SPOON }
  */
 interface Player {
     /*
-    * Player's numerical ID
-    */
-    readonly id: 0 | 1 | 2 | 3 | 4 | 5
-
-    /*
     * Player's [[Token]]
     */
     readonly token: Token
@@ -50,9 +45,8 @@ interface Player {
 // Utility functions and types
 namespace PlayerM {
 
-    export function createPlayer(id: 0 | 1 | 2 | 3 | 4 | 5, token: Token): Player {
+    export function createPlayer(token: Token, isHuman: boolean): Player {
         return {
-            id: id,
             token: token,
             position: 0,
             cash: 0, // TODO
