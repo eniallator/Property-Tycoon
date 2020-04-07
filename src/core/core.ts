@@ -7,7 +7,7 @@
  * @packageDocumentation
  */
 
-import { Player, PlayerM } from '../game_data/player'
+import { Player, PlayerM, Token } from '../game_data/player'
 import { State, StateM, GamePhase } from '../game_data/state'
 import { ImporterM } from '../game_data/importer'
 import * as Cmd from '../game_data/command'
@@ -31,7 +31,7 @@ class Core {
 
         switch (type) {
             case Cmd.CommandType.START_GAME:
-                updates = CoreM.startGame(cmd.data as Cmd.StartGameData, state)
+                updates = CoreM.startGame(state)
                 break
             case Cmd.CommandType.PAUSE_GAME:
                 updates = CoreM.pauseGame(state)
@@ -60,13 +60,15 @@ namespace CoreM {
     /**
      * Starts a new game. (initialises all required data)
      */
-    export function startGame(data: Cmd.StartGameData, state: State): State {
+    export function startGame(state: State): State {
         // Create new players
-        let players: Array<Player> = []
-
-        data.playerConfig.forEach(
-            ({ token, isHuman }) => players.push(PlayerM.createPlayer(token, isHuman))
-        )
+        // This version hard-codes 3 players by default, see the new API for the next version
+        
+        const players: Array<Player> = [
+            PlayerM.createPlayer(Token.BOOT, true),
+            PlayerM.createPlayer(Token.CAT, true),
+            PlayerM.createPlayer(Token.GOBLET, true)
+        ]
         
         const updates = {
             gamePhase: GamePhase.PLAYER_MOVE,
@@ -83,7 +85,6 @@ namespace CoreM {
      * @param state Current state of the game
      */
     export function pauseGame(state: State): State {
-        // Deprecated behavior. GamePhase will be removed next release
         const updates = { gamePhase: GamePhase.PAUSE_MENU }
         return Util.update(state, updates)
     }
@@ -93,7 +94,6 @@ namespace CoreM {
      * @param state Current state of the game
      */
     export function unpauseGame(state: State): State {
-        // Deprecated behavior. GamePhase will be removed next release
         const updates = { gamePhase: GamePhase.PLAYER_MOVE }
         return Util.update(state, updates)
     }
