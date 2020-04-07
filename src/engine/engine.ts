@@ -27,7 +27,7 @@ class Engine {
         this.io = new IO()
 
         this.io.logInfo(LogSource.CORE, "Initializing Logic Core Subsystem")
-        this.core = new Core()
+        this.core = new Core(this.io)
 
         this.io.logInfo(LogSource.RENDERER, "Initializing Renderer Subsystem")
         this.renderer = new Renderer(this.io)

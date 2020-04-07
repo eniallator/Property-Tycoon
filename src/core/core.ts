@@ -11,6 +11,8 @@ import { Player, PlayerM, Token } from '../game_data/player'
 import { State, StateM, GamePhase } from '../game_data/state'
 import { ImporterM } from '../game_data/importer'
 import * as Cmd from '../game_data/command'
+import { IO } from '../io/io'
+
 import Util from '../util'
 
 
@@ -18,7 +20,11 @@ import Util from '../util'
  * Core class. Responsible for mapping [[GameState]] to new GameState given some input commands
  */
 class Core {
-    constructor() { }
+    io: IO
+
+    constructor(io: IO) {
+        this.io = io
+     }
 
     /**
      * Update the game states with game logic, given some input commands
