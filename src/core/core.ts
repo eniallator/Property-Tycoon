@@ -79,7 +79,7 @@ namespace CoreM {
         const updates = {
             gamePhase: GamePhase.PLAYER_MOVE,
             players: players,
-            tiles: ImporterM.getTiles,
+            tiles: ImporterM.getTiles(),
             doubleCount: 0
         }
 
