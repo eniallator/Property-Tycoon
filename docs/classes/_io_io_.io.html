@@ -73,7 +73,8 @@
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
 						<p>IO Bus
-						Responsible for both transmitting messages back and forth between engine modules, and logging both game and srctem messages</p>
+							Responsible for both transmitting messages back and forth between engine
+						modules, and logging both game and srctem messages</p>
 					</div>
 				</div>
 			</section>
@@ -99,10 +100,10 @@
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_io_io_.io.html#cmdlogs" class="tsd-kind-icon">cmd<wbr>Logs</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_io_io_.io.html#command" class="tsd-kind-icon">command</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_io_io_.io.html#commandbuffer" class="tsd-kind-icon">command<wbr>Buffer</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_io_io_.io.html#logcmd" class="tsd-kind-icon">log<wbr>Cmd</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_io_io_.io.html#logsys" class="tsd-kind-icon">log<wbr>Sys</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_io_io_.io.html#state" class="tsd-kind-icon">state</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_io_io_.io.html#statebuffer" class="tsd-kind-icon">state<wbr>Buffer</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_io_io_.io.html#syslogs" class="tsd-kind-icon">sys<wbr>Logs</a></li>
 							</ul>
 						</section>
@@ -110,13 +111,11 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_io_io_.io.html#getcommand" class="tsd-kind-icon">get<wbr>Command</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_io_io_.io.html#getstate" class="tsd-kind-icon">get<wbr>State</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_io_io_.io.html#logerror" class="tsd-kind-icon">log<wbr>Error</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_io_io_.io.html#loginfo" class="tsd-kind-icon">log<wbr>Info</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_io_io_.io.html#logsysmsg" class="tsd-kind-icon">log<wbr>Sys<wbr>Msg</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_io_io_.io.html#logwarning" class="tsd-kind-icon">log<wbr>Warning</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_io_io_.io.html#sendcommand" class="tsd-kind-icon">send<wbr>Command</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_io_io_.io.html#sendstate" class="tsd-kind-icon">send<wbr>State</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_io_io_.io.html#writecmdlogs" class="tsd-kind-icon">write<wbr>Cmd<wbr>Logs</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_io_io_.io.html#writesyslogs" class="tsd-kind-icon">write<wbr>Sys<wbr>Logs</a></li>
 							</ul>
@@ -136,7 +135,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/io/io.ts#L27">src/io/io.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/5d237e5/src/io/io.ts#L28">src/io/io.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -176,17 +175,17 @@
 					<div class="tsd-signature tsd-kind-icon">cmd<wbr>Logs<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_game_data_command_.command.html" class="tsd-signature-type">Command</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/io/io.ts#L27">src/io/io.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/5d237e5/src/io/io.ts#L28">src/io/io.ts:28</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="command" class="tsd-anchor"></a>
-					<h3>command</h3>
-					<div class="tsd-signature tsd-kind-icon">command<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_game_data_command_.command.html" class="tsd-signature-type">Command</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<a name="commandbuffer" class="tsd-anchor"></a>
+					<h3>command<wbr>Buffer</h3>
+					<div class="tsd-signature tsd-kind-icon">command<wbr>Buffer<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_game_data_command_.command.html" class="tsd-signature-type">Command</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/io/io.ts#L18">src/io/io.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/5d237e5/src/io/io.ts#L19">src/io/io.ts:19</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -196,7 +195,7 @@
 					<div class="tsd-signature tsd-kind-icon">log<wbr>Cmd<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/io/io.ts#L23">src/io/io.ts:23</a></li>
+							<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/5d237e5/src/io/io.ts#L24">src/io/io.ts:24</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -206,17 +205,17 @@
 					<div class="tsd-signature tsd-kind-icon">log<wbr>Sys<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/io/io.ts#L24">src/io/io.ts:24</a></li>
+							<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/5d237e5/src/io/io.ts#L25">src/io/io.ts:25</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="state" class="tsd-anchor"></a>
-					<h3>state</h3>
-					<div class="tsd-signature tsd-kind-icon">state<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_game_data_state_.state.html" class="tsd-signature-type">State</a></div>
+					<a name="statebuffer" class="tsd-anchor"></a>
+					<h3>state<wbr>Buffer</h3>
+					<div class="tsd-signature tsd-kind-icon">state<wbr>Buffer<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_game_data_state_.state.html" class="tsd-signature-type">State</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/io/io.ts#L19">src/io/io.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/5d237e5/src/io/io.ts#L20">src/io/io.ts:20</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -226,7 +225,7 @@
 					<div class="tsd-signature tsd-kind-icon">sys<wbr>Logs<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_io_io_.syslog.html" class="tsd-signature-type">SysLog</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/io/io.ts#L26">src/io/io.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/5d237e5/src/io/io.ts#L27">src/io/io.ts:27</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -243,37 +242,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/io/io.ts#L52">src/io/io.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/5d237e5/src/io/io.ts#L53">src/io/io.ts:53</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Read Game Command from IO Bus</p>
+									<p>Read Game Command<any> from IO Bus</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_game_data_command_.command.html" class="tsd-signature-type">Command</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getstate" class="tsd-anchor"></a>
-					<h3>get<wbr>State</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>State<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_game_data_state_.state.html" class="tsd-signature-type">State</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/io/io.ts#L68">src/io/io.ts:68</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Read Game State from IO Bus</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_game_data_state_.state.html" class="tsd-signature-type">State</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -287,7 +264,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/io/io.ts#L121">src/io/io.ts:121</a></li>
+									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/5d237e5/src/io/io.ts#L107">src/io/io.ts:107</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -321,7 +298,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/io/io.ts#L103">src/io/io.ts:103</a></li>
+									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/5d237e5/src/io/io.ts#L89">src/io/io.ts:89</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -355,7 +332,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/io/io.ts#L127">src/io/io.ts:127</a></li>
+									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/5d237e5/src/io/io.ts#L113">src/io/io.ts:113</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -384,7 +361,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/io/io.ts#L112">src/io/io.ts:112</a></li>
+									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/5d237e5/src/io/io.ts#L98">src/io/io.ts:98</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -418,12 +395,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/io/io.ts#L60">src/io/io.ts:60</a></li>
+									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/5d237e5/src/io/io.ts#L61">src/io/io.ts:61</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Push Game Command onto IO Bus</p>
+									<p>Push Game Command<any> onto IO Bus</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -431,37 +408,6 @@
 								<li>
 									<h5>command: <a href="../interfaces/_game_data_command_.command.html" class="tsd-signature-type">Command</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="sendstate" class="tsd-anchor"></a>
-					<h3>send<wbr>State</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">send<wbr>State<span class="tsd-signature-symbol">(</span>state<span class="tsd-signature-symbol">: </span><a href="../interfaces/_game_data_state_.state.html" class="tsd-signature-type">State</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/io/io.ts#L76">src/io/io.ts:76</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Push Game State onto IO Bus</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>state: <a href="../interfaces/_game_data_state_.state.html" class="tsd-signature-type">State</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Game State</p>
 									</div>
 								</li>
 							</ul>
@@ -479,7 +425,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/io/io.ts#L89">src/io/io.ts:89</a></li>
+									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/5d237e5/src/io/io.ts#L74">src/io/io.ts:74</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -496,7 +442,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/io/io.ts#L82">src/io/io.ts:82</a></li>
+									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/5d237e5/src/io/io.ts#L67">src/io/io.ts:67</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -527,6 +473,9 @@
 						<a href="../modules/_game_data_player_.html">&quot;game_<wbr>data/player&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="../modules/_game_data_response_.html">&quot;game_<wbr>data/response&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="../modules/_game_data_state_.html">&quot;game_<wbr>data/state&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -542,13 +491,28 @@
 						<a href="../modules/_renderer_game_gui_.html">&quot;renderer/game_<wbr>gui&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="../modules/_renderer_main_menu_gui_.html">&quot;renderer/main_<wbr>menu_<wbr>gui&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_renderer_player_.html">&quot;renderer/player&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_renderer_props_.html">&quot;renderer/props&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="../modules/_renderer_renderer_.html">&quot;renderer/renderer&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_renderer_roll_.html">&quot;renderer/roll&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_renderer_tile_.html">&quot;renderer/tile&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_renderer_tile_types_card_.html">&quot;renderer/tile_<wbr>types/card&quot;</a>
+						<a href="../modules/_renderer_tile_types_chance_.html">&quot;renderer/tile_<wbr>types/chance&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_renderer_tile_types_corner_.html">&quot;renderer/tile_<wbr>types/corner&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_renderer_tile_types_estate_.html">&quot;renderer/tile_<wbr>types/estate&quot;</a>
@@ -587,7 +551,7 @@
 								<a href="_io_io_.io.html#cmdlogs" class="tsd-kind-icon">cmd<wbr>Logs</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_io_io_.io.html#command" class="tsd-kind-icon">command</a>
+								<a href="_io_io_.io.html#commandbuffer" class="tsd-kind-icon">command<wbr>Buffer</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_io_io_.io.html#logcmd" class="tsd-kind-icon">log<wbr>Cmd</a>
@@ -596,16 +560,13 @@
 								<a href="_io_io_.io.html#logsys" class="tsd-kind-icon">log<wbr>Sys</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_io_io_.io.html#state" class="tsd-kind-icon">state</a>
+								<a href="_io_io_.io.html#statebuffer" class="tsd-kind-icon">state<wbr>Buffer</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_io_io_.io.html#syslogs" class="tsd-kind-icon">sys<wbr>Logs</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_io_io_.io.html#getcommand" class="tsd-kind-icon">get<wbr>Command</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_io_io_.io.html#getstate" class="tsd-kind-icon">get<wbr>State</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_io_io_.io.html#logerror" class="tsd-kind-icon">log<wbr>Error</a>
@@ -621,9 +582,6 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_io_io_.io.html#sendcommand" class="tsd-kind-icon">send<wbr>Command</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_io_io_.io.html#sendstate" class="tsd-kind-icon">send<wbr>State</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_io_io_.io.html#writecmdlogs" class="tsd-kind-icon">write<wbr>Cmd<wbr>Logs</a>

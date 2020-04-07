@@ -69,6 +69,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Useful functions for transforming nested data within <a href="../interfaces/_game_data_state_.state.html">State</a></p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
@@ -76,9 +83,9 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="_game_data_state_.statem.html#creategamestate" class="tsd-kind-icon">create<wbr>Game<wbr>State</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="_game_data_state_.statem.html#moveplayer" class="tsd-kind-icon">move<wbr>Player</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="_game_data_state_.statem.html#nextturn" class="tsd-kind-icon">next<wbr>Turn</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="_game_data_state_.statem.html#initialstate" class="tsd-kind-icon">initial<wbr>State</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="_game_data_state_.statem.html#mapactiveplayer" class="tsd-kind-icon">map<wbr>Active<wbr>Player</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="_game_data_state_.statem.html#mapplayer" class="tsd-kind-icon">map<wbr>Player</a></li>
 							</ul>
 						</section>
 					</div>
@@ -87,31 +94,60 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
-					<a name="creategamestate" class="tsd-anchor"></a>
-					<h3>create<wbr>Game<wbr>State</h3>
+					<a name="initialstate" class="tsd-anchor"></a>
+					<h3>initial<wbr>State</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Game<wbr>State<span class="tsd-signature-symbol">(</span>numTiles<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_game_data_state_.state.html" class="tsd-signature-type">State</a></li>
+						<li class="tsd-signature tsd-kind-icon">initial<wbr>State<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_game_data_state_.state.html" class="tsd-signature-type">State</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/game_data/state.ts#L56">src/game_data/state.ts:56</a></li>
+									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/5d237e5/src/game_data/state.ts#L64">src/game_data/state.ts:64</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Creates a new game state.
-									TODO:</p>
-									<ul>
-										<li>Update behaviour from sprint 1</li>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_game_data_state_.state.html" class="tsd-signature-type">State</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
+					<a name="mapactiveplayer" class="tsd-anchor"></a>
+					<h3>map<wbr>Active<wbr>Player</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
+						<li class="tsd-signature tsd-kind-icon">map<wbr>Active<wbr>Player<span class="tsd-signature-symbol">(</span>state<span class="tsd-signature-symbol">: </span><a href="../interfaces/_game_data_state_.state.html" class="tsd-signature-type">State</a>, f<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>p<span class="tsd-signature-symbol">: </span><a href="../interfaces/_game_data_player_.player.html" class="tsd-signature-type">Player</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="../interfaces/_game_data_player_.player.html" class="tsd-signature-type">Player</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_game_data_state_.state.html" class="tsd-signature-type">State</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/5d237e5/src/game_data/state.ts#L85">src/game_data/state.ts:85</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>state: <a href="../interfaces/_game_data_state_.state.html" class="tsd-signature-type">State</a></h5>
+								</li>
+								<li>
+									<h5>f: <span class="tsd-signature-symbol">(</span>p<span class="tsd-signature-symbol">: </span><a href="../interfaces/_game_data_player_.player.html" class="tsd-signature-type">Player</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="../interfaces/_game_data_player_.player.html" class="tsd-signature-type">Player</a></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>p<span class="tsd-signature-symbol">: </span><a href="../interfaces/_game_data_player_.player.html" class="tsd-signature-type">Player</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_game_data_player_.player.html" class="tsd-signature-type">Player</a></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>p: <a href="../interfaces/_game_data_player_.player.html" class="tsd-signature-type">Player</a></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <a href="../interfaces/_game_data_player_.player.html" class="tsd-signature-type">Player</a></h4>
+												</li>
+											</ul>
+										</li>
 									</ul>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> numTiles: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 40</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_game_data_state_.state.html" class="tsd-signature-type">State</a></h4>
@@ -119,67 +155,46 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
-					<a name="moveplayer" class="tsd-anchor"></a>
-					<h3>move<wbr>Player</h3>
+					<a name="mapplayer" class="tsd-anchor"></a>
+					<h3>map<wbr>Player</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
-						<li class="tsd-signature tsd-kind-icon">move<wbr>Player<span class="tsd-signature-symbol">(</span>state<span class="tsd-signature-symbol">: </span><a href="../interfaces/_game_data_state_.state.html" class="tsd-signature-type">State</a>, steps<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_game_data_state_.state.html" class="tsd-signature-type">State</a></li>
+						<li class="tsd-signature tsd-kind-icon">map<wbr>Player<span class="tsd-signature-symbol">(</span>state<span class="tsd-signature-symbol">: </span><a href="../interfaces/_game_data_state_.state.html" class="tsd-signature-type">State</a>, ix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, f<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>p<span class="tsd-signature-symbol">: </span><a href="../interfaces/_game_data_player_.player.html" class="tsd-signature-type">Player</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="../interfaces/_game_data_player_.player.html" class="tsd-signature-type">Player</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_game_data_state_.state.html" class="tsd-signature-type">State</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/game_data/state.ts#L97">src/game_data/state.ts:97</a></li>
+									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/5d237e5/src/game_data/state.ts#L75">src/game_data/state.ts:75</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Moves the current <code>activePlayer</code> <code>steps</code> steps around the board</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>state: <a href="../interfaces/_game_data_state_.state.html" class="tsd-signature-type">State</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Current game state</p>
-									</div>
 								</li>
 								<li>
-									<h5>steps: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Steps to move player</p>
-									</div>
+									<h5>ix: <span class="tsd-signature-type">number</span></h5>
 								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_game_data_state_.state.html" class="tsd-signature-type">State</a></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
-					<a name="nextturn" class="tsd-anchor"></a>
-					<h3>next<wbr>Turn</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
-						<li class="tsd-signature tsd-kind-icon">next<wbr>Turn<span class="tsd-signature-symbol">(</span>state<span class="tsd-signature-symbol">: </span><a href="../interfaces/_game_data_state_.state.html" class="tsd-signature-type">State</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_game_data_state_.state.html" class="tsd-signature-type">State</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/game_data/state.ts#L81">src/game_data/state.ts:81</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Shifts game to next turn by moving to next player</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
 								<li>
-									<h5>state: <a href="../interfaces/_game_data_state_.state.html" class="tsd-signature-type">State</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Current game state</p>
-									</div>
+									<h5>f: <span class="tsd-signature-symbol">(</span>p<span class="tsd-signature-symbol">: </span><a href="../interfaces/_game_data_player_.player.html" class="tsd-signature-type">Player</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="../interfaces/_game_data_player_.player.html" class="tsd-signature-type">Player</a></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>p<span class="tsd-signature-symbol">: </span><a href="../interfaces/_game_data_player_.player.html" class="tsd-signature-type">Player</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_game_data_player_.player.html" class="tsd-signature-type">Player</a></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>p: <a href="../interfaces/_game_data_player_.player.html" class="tsd-signature-type">Player</a></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <a href="../interfaces/_game_data_player_.player.html" class="tsd-signature-type">Player</a></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_game_data_state_.state.html" class="tsd-signature-type">State</a></h4>
@@ -194,21 +209,6 @@
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
-					<li class=" tsd-kind-module">
-						<a href="_core_core_.html">&quot;core/core&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_engine_engine_.html">&quot;engine/engine&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_game_data_command_.html">&quot;game_<wbr>data/command&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_game_data_importer_.html">&quot;game_<wbr>data/importer&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_game_data_player_.html">&quot;game_<wbr>data/player&quot;</a>
-					</li>
 					<li class="current tsd-kind-module">
 						<a href="_game_data_state_.html">&quot;game_<wbr>data/state&quot;</a>
 						<ul>
@@ -217,54 +217,18 @@
 							</li>
 						</ul>
 					</li>
-					<li class=" tsd-kind-module">
-						<a href="_game_data_tile_.html">&quot;game_<wbr>data/tile&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_io_io_.html">&quot;io/io&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_renderer_board_.html">&quot;renderer/board&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_renderer_game_gui_.html">&quot;renderer/game_<wbr>gui&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_renderer_renderer_.html">&quot;renderer/renderer&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_renderer_tile_.html">&quot;renderer/tile&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_renderer_tile_types_card_.html">&quot;renderer/tile_<wbr>types/card&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_renderer_tile_types_estate_.html">&quot;renderer/tile_<wbr>types/estate&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_renderer_tile_types_station_.html">&quot;renderer/tile_<wbr>types/station&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_renderer_tile_types_tax_.html">&quot;renderer/tile_<wbr>types/tax&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_renderer_tile_types_utility_.html">&quot;renderer/tile_<wbr>types/utility&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_util_.html">&quot;util&quot;</a>
-					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-function tsd-parent-kind-namespace">
-						<a href="_game_data_state_.statem.html#creategamestate" class="tsd-kind-icon">create<wbr>Game<wbr>State</a>
+						<a href="_game_data_state_.statem.html#initialstate" class="tsd-kind-icon">initial<wbr>State</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-namespace">
-						<a href="_game_data_state_.statem.html#moveplayer" class="tsd-kind-icon">move<wbr>Player</a>
+						<a href="_game_data_state_.statem.html#mapactiveplayer" class="tsd-kind-icon">map<wbr>Active<wbr>Player</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-namespace">
-						<a href="_game_data_state_.statem.html#nextturn" class="tsd-kind-icon">next<wbr>Turn</a>
+						<a href="_game_data_state_.statem.html#mapplayer" class="tsd-kind-icon">map<wbr>Player</a>
 					</li>
 				</ul>
 			</nav>

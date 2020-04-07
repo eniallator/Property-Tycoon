@@ -79,10 +79,15 @@
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="_game_data_tile_.tilem.html#createchancetile" class="tsd-kind-icon">create<wbr>Chance<wbr>Tile</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="_game_data_tile_.tilem.html#createcornertile" class="tsd-kind-icon">create<wbr>Corner<wbr>Tile</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="_game_data_tile_.tilem.html#createestatetile" class="tsd-kind-icon">create<wbr>Estate<wbr>Tile</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="_game_data_tile_.tilem.html#createpropertytile" class="tsd-kind-icon">create<wbr>Property<wbr>Tile</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="_game_data_tile_.tilem.html#createstationtile" class="tsd-kind-icon">create<wbr>Station<wbr>Tile</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="_game_data_tile_.tilem.html#createtaxtile" class="tsd-kind-icon">create<wbr>Tax<wbr>Tile</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="_game_data_tile_.tilem.html#createutilitytile" class="tsd-kind-icon">create<wbr>Utility<wbr>Tile</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="_game_data_tile_.tilem.html#ischance" class="tsd-kind-icon">is<wbr>Chance</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="_game_data_tile_.tilem.html#iscorner" class="tsd-kind-icon">is<wbr>Corner</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="_game_data_tile_.tilem.html#isestate" class="tsd-kind-icon">is<wbr>Estate</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="_game_data_tile_.tilem.html#isstation" class="tsd-kind-icon">is<wbr>Station</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="_game_data_tile_.tilem.html#istax" class="tsd-kind-icon">is<wbr>Tax</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="_game_data_tile_.tilem.html#isutility" class="tsd-kind-icon">is<wbr>Utility</a></li>
 							</ul>
 						</section>
 					</div>
@@ -94,13 +99,13 @@
 					<a name="createchancetile" class="tsd-anchor"></a>
 					<h3>create<wbr>Chance<wbr>Tile</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Chance<wbr>Tile<span class="tsd-signature-symbol">(</span>position<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">0</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">1</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_game_data_tile_.html#chancetile" class="tsd-signature-type">ChanceTile</a></li>
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Chance<wbr>Tile<span class="tsd-signature-symbol">(</span>position<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, type<span class="tsd-signature-symbol">: </span><a href="../enums/_game_data_tile_.chancetype.html" class="tsd-signature-type">ChanceType</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_game_data_tile_.html#chancetile" class="tsd-signature-type">ChanceTile</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/game_data/tile.ts#L132">src/game_data/tile.ts:132</a></li>
+									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/5d237e5/src/game_data/tile.ts#L145">src/game_data/tile.ts:145</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -109,7 +114,7 @@
 									<h5>position: <span class="tsd-signature-type">number</span></h5>
 								</li>
 								<li>
-									<h5>type: <span class="tsd-signature-type">0</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">1</span></h5>
+									<h5>type: <a href="../enums/_game_data_tile_.chancetype.html" class="tsd-signature-type">ChanceType</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_game_data_tile_.html#chancetile" class="tsd-signature-type">ChanceTile</a></h4>
@@ -126,7 +131,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/game_data/tile.ts#L136">src/game_data/tile.ts:136</a></li>
+									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/5d237e5/src/game_data/tile.ts#L153">src/game_data/tile.ts:153</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -152,7 +157,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/game_data/tile.ts#L148">src/game_data/tile.ts:148</a></li>
+									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/5d237e5/src/game_data/tile.ts#L173">src/game_data/tile.ts:173</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -184,35 +189,6 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
-					<a name="createpropertytile" class="tsd-anchor"></a>
-					<h3>create<wbr>Property<wbr>Tile</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Property<wbr>Tile<span class="tsd-signature-symbol">(</span>position<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, price<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_game_data_tile_.html#propertytile" class="tsd-signature-type">PropertyTile</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/game_data/tile.ts#L144">src/game_data/tile.ts:144</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>position: <span class="tsd-signature-type">number</span></h5>
-								</li>
-								<li>
-									<h5>name: <span class="tsd-signature-type">string</span></h5>
-								</li>
-								<li>
-									<h5>price: <span class="tsd-signature-type">number</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_game_data_tile_.html#propertytile" class="tsd-signature-type">PropertyTile</a></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
 					<a name="createstationtile" class="tsd-anchor"></a>
 					<h3>create<wbr>Station<wbr>Tile</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
@@ -222,7 +198,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/game_data/tile.ts#L156">src/game_data/tile.ts:156</a></li>
+									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/5d237e5/src/game_data/tile.ts#L196">src/game_data/tile.ts:196</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -254,7 +230,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/game_data/tile.ts#L140">src/game_data/tile.ts:140</a></li>
+									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/5d237e5/src/game_data/tile.ts#L161">src/game_data/tile.ts:161</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -280,7 +256,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/game_data/tile.ts#L152">src/game_data/tile.ts:152</a></li>
+									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/5d237e5/src/game_data/tile.ts#L186">src/game_data/tile.ts:186</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -302,6 +278,144 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
+					<a name="ischance" class="tsd-anchor"></a>
+					<h3>is<wbr>Chance</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Chance<span class="tsd-signature-symbol">(</span>t<span class="tsd-signature-symbol">: </span><a href="../interfaces/_game_data_tile_.tile.html" class="tsd-signature-type">Tile</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">t</span><span class="tsd-signature-symbol"> is </span><span class="tsd-signature-type">ChanceTile</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/5d237e5/src/game_data/tile.ts#L207">src/game_data/tile.ts:207</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>t: <a href="../interfaces/_game_data_tile_.tile.html" class="tsd-signature-type">Tile</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">t</span><span class="tsd-signature-symbol"> is </span><span class="tsd-signature-type">ChanceTile</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
+					<a name="iscorner" class="tsd-anchor"></a>
+					<h3>is<wbr>Corner</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Corner<span class="tsd-signature-symbol">(</span>t<span class="tsd-signature-symbol">: </span><a href="../interfaces/_game_data_tile_.tile.html" class="tsd-signature-type">Tile</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">t</span><span class="tsd-signature-symbol"> is </span><span class="tsd-signature-type">CornerTile</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/5d237e5/src/game_data/tile.ts#L211">src/game_data/tile.ts:211</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>t: <a href="../interfaces/_game_data_tile_.tile.html" class="tsd-signature-type">Tile</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">t</span><span class="tsd-signature-symbol"> is </span><span class="tsd-signature-type">CornerTile</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
+					<a name="isestate" class="tsd-anchor"></a>
+					<h3>is<wbr>Estate</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Estate<span class="tsd-signature-symbol">(</span>t<span class="tsd-signature-symbol">: </span><a href="../interfaces/_game_data_tile_.tile.html" class="tsd-signature-type">Tile</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">t</span><span class="tsd-signature-symbol"> is </span><span class="tsd-signature-type">EstateTile</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/5d237e5/src/game_data/tile.ts#L219">src/game_data/tile.ts:219</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>t: <a href="../interfaces/_game_data_tile_.tile.html" class="tsd-signature-type">Tile</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">t</span><span class="tsd-signature-symbol"> is </span><span class="tsd-signature-type">EstateTile</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
+					<a name="isstation" class="tsd-anchor"></a>
+					<h3>is<wbr>Station</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Station<span class="tsd-signature-symbol">(</span>t<span class="tsd-signature-symbol">: </span><a href="../interfaces/_game_data_tile_.tile.html" class="tsd-signature-type">Tile</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">t</span><span class="tsd-signature-symbol"> is </span><span class="tsd-signature-type">StationTile</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/5d237e5/src/game_data/tile.ts#L227">src/game_data/tile.ts:227</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>t: <a href="../interfaces/_game_data_tile_.tile.html" class="tsd-signature-type">Tile</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">t</span><span class="tsd-signature-symbol"> is </span><span class="tsd-signature-type">StationTile</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
+					<a name="istax" class="tsd-anchor"></a>
+					<h3>is<wbr>Tax</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Tax<span class="tsd-signature-symbol">(</span>t<span class="tsd-signature-symbol">: </span><a href="../interfaces/_game_data_tile_.tile.html" class="tsd-signature-type">Tile</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">t</span><span class="tsd-signature-symbol"> is </span><span class="tsd-signature-type">TaxTile</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/5d237e5/src/game_data/tile.ts#L215">src/game_data/tile.ts:215</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>t: <a href="../interfaces/_game_data_tile_.tile.html" class="tsd-signature-type">Tile</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">t</span><span class="tsd-signature-symbol"> is </span><span class="tsd-signature-type">TaxTile</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
+					<a name="isutility" class="tsd-anchor"></a>
+					<h3>is<wbr>Utility</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Utility<span class="tsd-signature-symbol">(</span>t<span class="tsd-signature-symbol">: </span><a href="../interfaces/_game_data_tile_.tile.html" class="tsd-signature-type">Tile</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">t</span><span class="tsd-signature-symbol"> is </span><span class="tsd-signature-type">UtilityTile</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/5d237e5/src/game_data/tile.ts#L223">src/game_data/tile.ts:223</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>t: <a href="../interfaces/_game_data_tile_.tile.html" class="tsd-signature-type">Tile</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">t</span><span class="tsd-signature-symbol"> is </span><span class="tsd-signature-type">UtilityTile</span></h4>
+						</li>
+					</ul>
+				</section>
 			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -310,24 +424,6 @@
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
-					<li class=" tsd-kind-module">
-						<a href="_core_core_.html">&quot;core/core&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_engine_engine_.html">&quot;engine/engine&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_game_data_command_.html">&quot;game_<wbr>data/command&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_game_data_importer_.html">&quot;game_<wbr>data/importer&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_game_data_player_.html">&quot;game_<wbr>data/player&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_game_data_state_.html">&quot;game_<wbr>data/state&quot;</a>
-					</li>
 					<li class="current tsd-kind-module">
 						<a href="_game_data_tile_.html">&quot;game_<wbr>data/tile&quot;</a>
 						<ul>
@@ -335,39 +431,6 @@
 								<a href="_game_data_tile_.tilem.html">TileM</a>
 							</li>
 						</ul>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_io_io_.html">&quot;io/io&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_renderer_board_.html">&quot;renderer/board&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_renderer_game_gui_.html">&quot;renderer/game_<wbr>gui&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_renderer_renderer_.html">&quot;renderer/renderer&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_renderer_tile_.html">&quot;renderer/tile&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_renderer_tile_types_card_.html">&quot;renderer/tile_<wbr>types/card&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_renderer_tile_types_estate_.html">&quot;renderer/tile_<wbr>types/estate&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_renderer_tile_types_station_.html">&quot;renderer/tile_<wbr>types/station&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_renderer_tile_types_tax_.html">&quot;renderer/tile_<wbr>types/tax&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_renderer_tile_types_utility_.html">&quot;renderer/tile_<wbr>types/utility&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_util_.html">&quot;util&quot;</a>
 					</li>
 				</ul>
 			</nav>
@@ -383,9 +446,6 @@
 						<a href="_game_data_tile_.tilem.html#createestatetile" class="tsd-kind-icon">create<wbr>Estate<wbr>Tile</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-namespace">
-						<a href="_game_data_tile_.tilem.html#createpropertytile" class="tsd-kind-icon">create<wbr>Property<wbr>Tile</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-namespace">
 						<a href="_game_data_tile_.tilem.html#createstationtile" class="tsd-kind-icon">create<wbr>Station<wbr>Tile</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-namespace">
@@ -393,6 +453,24 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-namespace">
 						<a href="_game_data_tile_.tilem.html#createutilitytile" class="tsd-kind-icon">create<wbr>Utility<wbr>Tile</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-namespace">
+						<a href="_game_data_tile_.tilem.html#ischance" class="tsd-kind-icon">is<wbr>Chance</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-namespace">
+						<a href="_game_data_tile_.tilem.html#iscorner" class="tsd-kind-icon">is<wbr>Corner</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-namespace">
+						<a href="_game_data_tile_.tilem.html#isestate" class="tsd-kind-icon">is<wbr>Estate</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-namespace">
+						<a href="_game_data_tile_.tilem.html#isstation" class="tsd-kind-icon">is<wbr>Station</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-namespace">
+						<a href="_game_data_tile_.tilem.html#istax" class="tsd-kind-icon">is<wbr>Tax</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-namespace">
+						<a href="_game_data_tile_.tilem.html#isutility" class="tsd-kind-icon">is<wbr>Utility</a>
 					</li>
 				</ul>
 			</nav>

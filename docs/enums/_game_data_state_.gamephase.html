@@ -75,13 +75,13 @@
 						<p>Represents current event the game is in:</p>
 						<ul>
 							<li><code>PLAYER_MOVE</code>: A player is moving around the board</li>
-							<li><code>MAIN_MENU</code>: TODO</li>
-							<li><code>PAUSE_MENU</code>: TODO</li>
+							<li><code>MAIN_MENU</code>: Main menu</li>
+							<li><code>PAUSE_MENU</code>: Game is paused</li>
+							<li><code>END_GAME</code>: Game ended</li>
 							<li><code>BUY_PROPERTY</code>: TODO</li>
 							<li><code>AUCTION</code>: TODO</li>
 							<li><code>PAY_RENT</code>: TODO</li>
 							<li><code>PROPERTY_MANAGEMENT</code>: TODO</li>
-							<li><code>END_GAME</code>: TODO</li>
 						</ul>
 					</div>
 				</div>
@@ -93,6 +93,9 @@
 						<section class="tsd-index-section ">
 							<h3>Enumeration members</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_game_data_state_.gamephase.html#end_game" class="tsd-kind-icon">END_<wbr>GAME</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_game_data_state_.gamephase.html#main_menu" class="tsd-kind-icon">MAIN_<wbr>MENU</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_game_data_state_.gamephase.html#pause_menu" class="tsd-kind-icon">PAUSE_<wbr>MENU</a></li>
 								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_game_data_state_.gamephase.html#player_move" class="tsd-kind-icon">PLAYER_<wbr>MOVE</a></li>
 							</ul>
 						</section>
@@ -102,12 +105,42 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Enumeration members</h2>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="end_game" class="tsd-anchor"></a>
+					<h3>END_<wbr>GAME</h3>
+					<div class="tsd-signature tsd-kind-icon">END_<wbr>GAME<span class="tsd-signature-symbol">:</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/5d237e5/src/game_data/state.ts#L30">src/game_data/state.ts:30</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="main_menu" class="tsd-anchor"></a>
+					<h3>MAIN_<wbr>MENU</h3>
+					<div class="tsd-signature tsd-kind-icon">MAIN_<wbr>MENU<span class="tsd-signature-symbol">:</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/5d237e5/src/game_data/state.ts#L28">src/game_data/state.ts:28</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="pause_menu" class="tsd-anchor"></a>
+					<h3>PAUSE_<wbr>MENU</h3>
+					<div class="tsd-signature tsd-kind-icon">PAUSE_<wbr>MENU<span class="tsd-signature-symbol">:</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/5d237e5/src/game_data/state.ts#L29">src/game_data/state.ts:29</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
 					<a name="player_move" class="tsd-anchor"></a>
 					<h3>PLAYER_<wbr>MOVE</h3>
 					<div class="tsd-signature tsd-kind-icon">PLAYER_<wbr>MOVE<span class="tsd-signature-symbol">:</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/8ca8880/src/game_data/state.ts#L27">src/game_data/state.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/5d237e5/src/game_data/state.ts#L27">src/game_data/state.ts:27</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -134,6 +167,9 @@
 					<li class=" tsd-kind-module">
 						<a href="../modules/_game_data_player_.html">&quot;game_<wbr>data/player&quot;</a>
 					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_game_data_response_.html">&quot;game_<wbr>data/response&quot;</a>
+					</li>
 					<li class="current tsd-kind-module">
 						<a href="../modules/_game_data_state_.html">&quot;game_<wbr>data/state&quot;</a>
 						<ul>
@@ -155,13 +191,28 @@
 						<a href="../modules/_renderer_game_gui_.html">&quot;renderer/game_<wbr>gui&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="../modules/_renderer_main_menu_gui_.html">&quot;renderer/main_<wbr>menu_<wbr>gui&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_renderer_player_.html">&quot;renderer/player&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_renderer_props_.html">&quot;renderer/props&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="../modules/_renderer_renderer_.html">&quot;renderer/renderer&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_renderer_roll_.html">&quot;renderer/roll&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_renderer_tile_.html">&quot;renderer/tile&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_renderer_tile_types_card_.html">&quot;renderer/tile_<wbr>types/card&quot;</a>
+						<a href="../modules/_renderer_tile_types_chance_.html">&quot;renderer/tile_<wbr>types/chance&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_renderer_tile_types_corner_.html">&quot;renderer/tile_<wbr>types/corner&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_renderer_tile_types_estate_.html">&quot;renderer/tile_<wbr>types/estate&quot;</a>
@@ -187,6 +238,15 @@
 					<li class="current tsd-kind-enum tsd-parent-kind-module">
 						<a href="_game_data_state_.gamephase.html" class="tsd-kind-icon">Game<wbr>Phase</a>
 						<ul>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="_game_data_state_.gamephase.html#end_game" class="tsd-kind-icon">END_<wbr>GAME</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="_game_data_state_.gamephase.html#main_menu" class="tsd-kind-icon">MAIN_<wbr>MENU</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="_game_data_state_.gamephase.html#pause_menu" class="tsd-kind-icon">PAUSE_<wbr>MENU</a>
+							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
 								<a href="_game_data_state_.gamephase.html#player_move" class="tsd-kind-icon">PLAYER_<wbr>MOVE</a>
 							</li>
