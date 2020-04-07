@@ -16,8 +16,8 @@ import { Command, CommandM } from "../game_data/command"
  * modules, and logging both game and srctem messages
  */
 class IO {
-    command: Command<any>
-    state: State
+    commandBuffer: Command<any>
+    stateBuffer: State
 
     // Logs
     // Config
@@ -32,7 +32,7 @@ class IO {
      * @param logSys System log flag - Default true
      * @param logCmd Game command log flag - Default true
      */
-    constructor(logSys: boolean = true, logCmd: boolean = true) { 
+    constructor(logSys: boolean = true, logCmd: boolean = true) {
         this.logCmd = logCmd
         this.logSys = logSys
 
@@ -51,7 +51,7 @@ class IO {
      * Read Game Command<any> from IO Bus
      */
     getCommand() {
-        return this.command
+        return this.commandBuffer
     }
 
     /**
@@ -60,24 +60,8 @@ class IO {
      */
     sendCommand(command: Command<any>) {
         this.cmdLogs.push(command)
-        this.command = command
+        this.commandBuffer = command
     }
-
-    /**
-     * Read Game State from IO Bus
-     */
-    getState() {
-        return this.state
-    }
-
-    /**
-     * Push Game State onto IO Bus
-     * @param state Game State
-     */
-    sendState(state: State) {
-        this.state = state
-    }
-
 
     // LOGGING
     writeSysLogs() {
