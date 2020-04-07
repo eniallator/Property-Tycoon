@@ -44,8 +44,13 @@ enum GamePhase {
  * - `doubleCount`: Number of doubles thrown by player
  */
 interface State {
+    /**
+     * <div style="color: red;">
+     * WARNING: GamePhase is depreceated. Use the [[Response]] API instead
+     * </div>
+     */
     gamePhase: GamePhase
-    activePlayer: 0 | 1 | 2 | 3 | 4 | 5,
+    activePlayer: number,
     players: Array<Player>
     tiles: Array<Tile>
     doubleCount: number
@@ -156,30 +161,19 @@ namespace StateM {
         return Util.update(state, updates)
     }
 
-    /**
-     * Moves the current `activePlayer` `steps` steps around the board
-     * @param state Current game state
-     * @param steps Steps to move player
-     */
-    export function movePlayer(state: State, steps: number): State {
-        const { activePlayer, players, tiles } = state
-        const currentPlayer = players[activePlayer]
-        const numTiles = tiles.length
+    // Utility functions for nested data transformation within State
+    export function mapPlayer(state: State, ix: number, f: (p: Player) => Player): State {
+        const { players } = state
+        const target = state.players[ix]
+        const newPlayer = f(target)
+        
+        players[ix] = newPlayer
 
-        const newPos: number = currentPlayer.position + steps
-        let actualPos: number
+        return Util.update(state, { players: players })
+    }
 
-        if (newPos < 0) {
-            actualPos = numTiles + (newPos % numTiles)
-        } else {
-            actualPos = newPos % numTiles
-        }
-
-        players[activePlayer] = PlayerM.move(actualPos, currentPlayer)
-
-        const updates = { players: players }
-
-        return Util.update(state, updates)
+    export function mapActivePlayer(state: State, f: (p: Player) => Player): State {
+        return mapPlayer(state, state.activePlayer, f)
     }
 }
 
