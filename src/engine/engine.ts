@@ -40,13 +40,13 @@ class Engine {
         const command = this.io.getCommand()
         const state = this.state
 
-        // Pipe game command into core to yield a new game state (if command sent)
-        const newState = command ? this.core.update(state, command) : state
+        // Pipe game command into core to yield a new game state
+        const [ newState, respBuffer ] = this.core.update(state, command)
         
         // Update renderer with responses
-        this.renderer.update(newState)
+        this.renderer.update(respBuffer, newState)
         
-        // Update engine state
+        // Update current state
         this.state = newState
 
         // Write any logs produced
