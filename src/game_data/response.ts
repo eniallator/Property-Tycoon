@@ -218,6 +218,7 @@ interface BankruptData {
 
 /**
  * Resp functional interface
+ * TODO: Document functional interface
  */
 namespace RespM {
     export function beginGame(): BeginGameResp { 

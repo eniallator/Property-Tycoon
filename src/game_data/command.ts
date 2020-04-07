@@ -1,7 +1,10 @@
 // game-command.ts
 /**
- * Game Command Schema
- * Game commands are how the Input module communicates with the Logic Core
+ * Commands relayed to the Core module
+ * 
+ * Commands represent some action the player has done on the GUI.
+ * The Core receives these actions and processes them, along with the
+ * current game state, to produce the new game state
  * 
  * authors: Michael K., Alexandru C.
  * @packageDocumentation

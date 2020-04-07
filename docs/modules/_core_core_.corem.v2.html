@@ -72,6 +72,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Response API - Currently in alpha</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
@@ -91,30 +98,40 @@
 					<a name="startgame" class="tsd-anchor"></a>
 					<h3>start<wbr>Game</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
-						<li class="tsd-signature tsd-kind-icon">start<wbr>Game<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><a href="../interfaces/_game_data_command_.startgamedata.html" class="tsd-signature-type">StartGameData</a>, state<span class="tsd-signature-symbol">: </span><a href="../interfaces/_game_data_state_.state.html" class="tsd-signature-type">State</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">start<wbr>Game<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><a href="../interfaces/_game_data_command_.startgamedata.html" class="tsd-signature-type">StartGameData</a>, state<span class="tsd-signature-symbol">: </span><a href="../interfaces/_game_data_state_.state.html" class="tsd-signature-type">State</a>, resp<span class="tsd-signature-symbol">: </span><a href="_game_data_response_.respm.html#respbuffer" class="tsd-signature-type">RespBuffer</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_game_data_state_.state.html" class="tsd-signature-type">State</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/5d237e5/src/core/core.ts#L145">src/core/core.ts:145</a></li>
+									<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/633b02b/src/core/core.ts#L159">src/core/core.ts:159</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Start a new game</p>
+									<p>Start a new game with the given configuration parameters. Returns a state
+									with all fields initialized for a new game</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>data: <a href="../interfaces/_game_data_command_.startgamedata.html" class="tsd-signature-type">StartGameData</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Configuration data</p>
+									</div>
 								</li>
 								<li>
 									<h5>state: <a href="../interfaces/_game_data_state_.state.html" class="tsd-signature-type">State</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>State to update</p>
+									</div>
+								</li>
+								<li>
+									<h5>resp: <a href="_game_data_response_.respm.html#respbuffer" class="tsd-signature-type">RespBuffer</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_game_data_state_.state.html" class="tsd-signature-type">State</a></h4>
 						</li>
 					</ul>
 				</section>
