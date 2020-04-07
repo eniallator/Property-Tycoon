@@ -33,10 +33,17 @@ class Core {
      * @param cmd Command to process and update state with respect to
      */
     update(state: State, cmd?: Cmd.Command<any>): [ State, RespM.RespBuffer ] {
-        const { type, data } = cmd
         let updates = {}
-        let respBuffer: RespM.RespBuffer = []
+        const respBuffer: RespM.RespBuffer = []
 
+        if (!cmd) {
+            // If in arcade mode, check if time is up
+            // if the game is paused, stop the counter
+            return [state, respBuffer]
+        }
+
+        const { type, data } = cmd
+        
         switch (type) {
             case Cmd.CommandType.START_GAME:
                 updates = CoreM.startGame(state)
