@@ -13,12 +13,6 @@ import Util from '../util'
 // Token
 /**
  * Players avatar when moving around the board:
- * - `BOOT`
- * - `SMARTPHONE`
- * - `GOBLET`
- * - `HATSTAND`
- * - `CAT`
- * - `SPOON`
  */
 enum Token { BOOT, SMARTPHONE, GOBLET, HATSTAND, CAT, SPOON }
 
@@ -35,7 +29,14 @@ enum Token { BOOT, SMARTPHONE, GOBLET, HATSTAND, CAT, SPOON }
  * - `outOfJailCard`: TODO
  */
 interface Player {
+    /*
+    * Player's numerical ID
+    */
     readonly id: 0 | 1 | 2 | 3 | 4 | 5
+
+    /*
+    * Player's [[Token]]
+    */
     readonly token: Token
 
     position: number // 1 - 40 (the position of the tile they're on)
