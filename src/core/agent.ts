@@ -31,7 +31,7 @@ namespace AgentM {
         const player: Player = state.players[state.activePlayer]
 
         // Come up with a command
-        let command: Command = { type: CommandType.ROLL }
+        let command: Command = { type: CommandType.ROLL, data: { dice: [1, 1] } }
 
         // Return command
         return command
