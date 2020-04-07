@@ -8,7 +8,6 @@
 
 import { Player, Token, PlayerM } from './player'
 import { Tile, TileM, Property } from './tile'
-import { ImporterM } from './importer'
 import Util from '../util'
 
 
@@ -61,6 +60,17 @@ interface State {
  * Useful functions for transforming nested data within [[State]]
  */
 namespace StateM {
+    // Initialize Game State
+    export function initialState(): State {
+        return { 
+            gamePhase: GamePhase.MAIN_MENU,
+            activePlayer: 0,
+            players: [],
+            tiles: [],
+            doubleCount: 0
+         }
+    }
+
     // Utility functions for nested data transformation within State
     export function mapPlayer(state: State, ix: number, f: (p: Player) => Player): State {
         const { players } = state
