@@ -63,14 +63,6 @@ interface Command<T> {
  * - `END_GAME`: Player (or Core?) ends the current game
  */
 enum CommandType {
-<<<<<<< HEAD
-    ROLL,
-    START_GAME,
-    PAUSE_GAME,
-    UNPAUSE_GAME,
-    END_GAME
-}
-=======
     START_GAME,
     PAUSE_GAME,
     UNPAUSE_GAME,
@@ -82,19 +74,9 @@ enum CommandType {
     IMPROVE,
     NEXT_TURN
  }
->>>>>>> 8ca8880... Finished new command API
 
 // Types of CommandData
 /**
-<<<<<<< HEAD
- * GameCommands are sent by the Input and processed by Core
- * - `type`: Type of command sent
- * - `data`: TODO: Document this field. Was made optional when working on the Main Menu by @alexandru and @niall
- */
-interface Command {
-    type: CommandType
-    data?: CommandData
-=======
  * Data required to start a new game
  */
 interface StartGameData { 
@@ -103,7 +85,6 @@ interface StartGameData {
 interface PlayerConfig {
     token: Token
     isHuman: boolean
->>>>>>> 8ca8880... Finished new command API
 }
 
 /**
@@ -141,10 +122,6 @@ interface ImproveData {
  */
 namespace CommandM {
 
-<<<<<<< HEAD
-    // TODO: @alexandru says: Document what this function does
-    export function renderCommand(cmd: Command) {
-=======
     /**
      * Start a new game
      * @param playerConfig Configuration parameters for each player in the new game
@@ -244,32 +221,12 @@ namespace CommandM {
      * @ignore
      */
     export function renderCommand(cmd: Command<any>) {
->>>>>>> 8ca8880... Finished new command API
         const { type, data } = cmd
 
         const typeStr: string = CommandType[type]
         let dataStr: string
 
-<<<<<<< HEAD
-        switch (type) {
-            case CommandType.START_GAME:
-                break;
-            case CommandType.PAUSE_GAME:
-                break;
-            case CommandType.UNPAUSE_GAME:
-                break;
-            case CommandType.END_GAME:
-                break;
-            case CommandType.ROLL:
-                dataStr = data.dice.toString()
-                break;
-        }
-
-        return `${typeStr} : ${dataStr}`
-=======
         return `${typeStr}`
->>>>>>> 8ca8880... Finished new command API
-        
     }
 }
 
