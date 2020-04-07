@@ -10,7 +10,7 @@
 import { State, StateM } from '../game_data/state'
 import * as Cmd from '../game_data/command'
 import Util from '../util'
-
+import { AgentM } from '../core/agent'
 
 /**
  * Core class. Responsible for mapping [[GameState]] to new GameState given some input commands
@@ -29,11 +29,18 @@ class Core {
             return state
         }
 
+        // TODO @alexandru
+        // TODO: What happens if a command was already given?
+        if (state.players && state.activePlayer && state.players[state.activePlayer].isAgent) {
+            cmd = AgentM.nextCommand(state)
+        }
+
         const { type, data } = cmd
         let updates = {}
 
         switch (type) {
             case Cmd.CommandType.START_GAME:
+                // updates = CoreM.startGame(cmd.data as Cmd.StartGameData) //TODO @alexandru
                 updates = CoreM.startGame()
                 break;
             case Cmd.CommandType.PAUSE_GAME:
@@ -63,6 +70,10 @@ namespace CoreM {
     export function startGame(): State {
         return StateM.createNewGameState()
     }
+    // TODO @alexandru
+    // export function startGame(data: Cmd.StartGameData): State {
+    //     return StateM.createNewGameState(data)
+    // }
 
     /**
      * Pauses the game

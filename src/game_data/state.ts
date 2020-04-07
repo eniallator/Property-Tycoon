@@ -10,6 +10,8 @@ import { Player, Token, PlayerM } from './player'
 import { Tile, TileM, Property } from './tile'
 import { ImporterM } from './importer'
 import Util from '../util'
+// import { StartGameData } from "../game_data/command" //TODO @alexandru
+
 
 
 // Game Phase
@@ -109,19 +111,17 @@ namespace StateM {
     }
 
     /**
-     * Creates a new game state.
-     * TODO: 
-     * - Update behaviour from sprint 1. TODO: @alexandru says: IS THIS STILL TODO? @michael
+     * Creates the game state for a new game
      */
-    export function createNewGameState(numTiles: number = 40): State {
+    export function createNewGameState(): State {
         const tiles: Array<Tile> = ImporterM.getTiles()
 
-        const p1: Player = PlayerM.createPlayer(0, Token.BOOT)
-        const p2: Player = PlayerM.createPlayer(1, Token.GOBLET)
-        const p3: Player = PlayerM.createPlayer(2, Token.HATSTAND)
-        const p4: Player = PlayerM.createPlayer(3, Token.SMARTPHONE)
-        const p5: Player = PlayerM.createPlayer(4, Token.SPOON)
-        const p6: Player = PlayerM.createPlayer(5, Token.CAT)
+        const p1: Player = PlayerM.createPlayer(0, true,  Token.BOOT)
+        const p2: Player = PlayerM.createPlayer(1, true,  Token.GOBLET)
+        const p3: Player = PlayerM.createPlayer(2, false, Token.HATSTAND)
+        const p4: Player = PlayerM.createPlayer(3, false, Token.SMARTPHONE)
+        const p5: Player = PlayerM.createPlayer(4, false, Token.SPOON)
+        const p6: Player = PlayerM.createPlayer(5, false, Token.CAT)
 
         const players: Array<Player> = [p1, p2, p3, p4, p5, p6]
 
@@ -132,6 +132,27 @@ namespace StateM {
             tiles: tiles
         }
     }
+    // TODO @alexandru
+    // export function createNewGameState(data: StartGameData): State {
+    //     const tiles: Array<Tile> = ImporterM.getTiles()
+
+    //     const players: Array<Player> = []
+
+    //     for (let thing in data){
+    //         PlayerM.createPlayer(thing.id, thing.isAgent, thing.token)
+    //     }
+        
+    //     if (players.length < 2 || players.length > 6){
+    //         // THROW GAME INITIALISATION ERROR
+    //     }
+
+    //     return {
+    //         gamePhase: GamePhase.PLAYER_MOVE,
+    //         activePlayer: players[0].id,
+    //         players: players,
+    //         tiles: tiles
+    //     }
+    // }
 
     /**
      * Shifts game to next turn by moving to next player

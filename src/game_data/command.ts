@@ -43,6 +43,11 @@ interface RollData {
     dice: [Die, Die]
 }
 
+// TODO @alexandru
+// interface StartGameData {
+//     players: Array<Player>
+// }
+
 // ------------
 
 namespace CommandM {
@@ -56,6 +61,7 @@ namespace CommandM {
 
         switch (type) {
             case CommandType.START_GAME:
+                // dataStr = data.players.toString() //TODO @alexandru
                 break;
             case CommandType.PAUSE_GAME:
                 break;

@@ -38,4 +38,4 @@ namespace AgentM {
     }
 }
 
-export { }
+export { AgentM }
