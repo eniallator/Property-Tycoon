@@ -11,8 +11,7 @@
  * 
  * For responses that require an active player source (such as move, or the source of rent), the
  * active player is assumed to be that present within the [[State]] at that point. We can make
- * this assumption safely since the only time this player changes is explicitly after the NEXT_TURN
- * command.
+ * this assumption safely since the only time this player changes is explicitly after a [[NextTurnCmd]].
  * 
  * From here on "Player" refers to this active player
  * 
@@ -314,6 +313,12 @@ namespace RespM {
     export function nextTurn(): NextTurnResp {
         return { type: RespType.NEXT_TURN }
     }
+
+    // Helper types
+    /**
+     * Type of buffer for responses
+     */
+    export type RespBuffer = Array<Resp<any>>
     
 }
 

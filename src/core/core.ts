@@ -11,6 +11,7 @@ import { Player, PlayerM, Token } from '../game_data/player'
 import { State, StateM, GamePhase } from '../game_data/state'
 import { ImporterM } from '../game_data/importer'
 import * as Cmd from '../game_data/command'
+import { Resp, RespM } from '../game_data/response'
 import { IO } from '../io/io'
 
 import Util from '../util'
@@ -31,9 +32,10 @@ class Core {
      * @param state Current game state to uodate
      * @param cmd Command to process and update state with respect to
      */
-    update(state: State, cmd?: Cmd.Command<any>): State {
+    update(state: State, cmd?: Cmd.Command<any>): [ State, RespM.RespBuffer ] {
         const { type, data } = cmd
         let updates = {}
+        let respBuffer: RespM.RespBuffer = []
 
         switch (type) {
             case Cmd.CommandType.START_GAME:
@@ -56,7 +58,7 @@ class Core {
             //    break;
         }
 
-        return Util.update(state, updates)
+        return [ Util.update(state, updates), respBuffer ]
     }
 }
 
@@ -135,6 +137,42 @@ namespace CoreM {
         })
 
         return newState
+     }
+
+     /**
+      * Response API - Currently in alpha
+      */
+     namespace v2 {
+         /**
+          * Start a new game with the given configuration parameters. Returns a state
+          * with all fields initialized for a new game
+          * @param data Configuration data
+          * @param state State to update
+          */
+         export function startGame(data: Cmd.StartGameData, state: State, resp: RespM.RespBuffer): State  {
+            const tiles = ImporterM.getTiles()
+
+            let players: Array<Player> = []
+            data.playerConfig.forEach(
+                ({ token, isHuman }) => players.push(PlayerM.createPlayer(token, isHuman))
+            )
+
+            // Push Begin Game response into response buffer
+            resp.push( RespM.beginGame() )
+            
+            // Update state
+            const updates = {
+                // GamePhase is deprecated in this API
+                gamePhase: GamePhase.PLAYER_MOVE,
+
+                activePlayer: 0,
+                players: players,
+                tiles: tiles,
+                doubleCount: 0
+            }
+
+            return Util.update(state, updates)
+         }
      }
 }
 
