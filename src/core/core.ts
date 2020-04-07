@@ -7,7 +7,9 @@
  * @packageDocumentation
  */
 
-import { State, StateM } from '../game_data/state'
+import { Player, PlayerM } from '../game_data/player'
+import { State, StateM, GamePhase } from '../game_data/state'
+import { ImporterM } from '../game_data/importer'
 import * as Cmd from '../game_data/command'
 import Util from '../util'
 
@@ -24,35 +26,25 @@ class Core {
      * @param cmd Command to process and update state with respect to
      */
     update(state: State, cmd?: Cmd.Command<any>): State {
-<<<<<<< HEAD
-=======
-        if (!cmd) {
-            // If in arcade mode, increment timer
-            return state
-        }
-
->>>>>>> fed3105... Fleshed out new Command API
         const { type, data } = cmd
         let updates = {}
 
         switch (type) {
-<<<<<<< HEAD
             case Cmd.CommandType.START_GAME:
-                updates = CoreM.startGame()
-                break;
+                updates = CoreM.startGame(cmd.data as Cmd.StartGameData, state)
+                break
             case Cmd.CommandType.PAUSE_GAME:
                 updates = CoreM.pauseGame(state)
-                break;
+                break
             case Cmd.CommandType.UNPAUSE_GAME:
                 updates = CoreM.unpauseGame(state)
-=======
+                break
             case Cmd.CommandType.MOVE_PLAYER:
                 updates = CoreM.move(cmd.data as Cmd.MovePlayerData, state)
->>>>>>> fed3105... Fleshed out new Command API
-                break;
+                break
             case Cmd.CommandType.END_GAME:
                 updates = CoreM.endGame(state)
-                break;
+                break
            // case Cmd.CommandType.ROLL:
                // updates = CoreM.move(cmd.data as Cmd.RollData, state)
             //    break;
@@ -68,17 +60,32 @@ namespace CoreM {
     /**
      * Starts a new game. (initialises all required data)
      */
-    export function startGame(): State {
-        return StateM.createNewGameState()
+    export function startGame(data: Cmd.StartGameData, state: State): State {
+        // Create new players
+        let players: Array<Player> = []
+
+        data.playerConfig.forEach(
+            ({ token, isHuman }) => players.push(PlayerM.createPlayer(token, isHuman))
+        )
+        
+        const updates = {
+            gamePhase: GamePhase.PLAYER_MOVE,
+            players: players,
+            tiles: ImporterM.getTiles,
+            doubleCount: 0
+        }
+
+        return Util.update(state, updates)
     }
 
     /**
      * Pauses the game
      * @param state Current state of the game
      */
-<<<<<<< HEAD
     export function pauseGame(state: State): State {
-        return StateM.pauseGame(state)
+        // Deprecated behavior. GamePhase will be removed next release
+        const updates = { gamePhase: GamePhase.PAUSE_MENU }
+        return Util.update(state, updates)
     }
 
     /**
@@ -86,7 +93,9 @@ namespace CoreM {
      * @param state Current state of the game
      */
     export function unpauseGame(state: State): State {
-        return StateM.unpauseGame(state)
+        // Deprecated behavior. GamePhase will be removed next release
+        const updates = { gamePhase: GamePhase.PLAYER_MOVE }
+        return Util.update(state, updates)
     }
 
     /**
@@ -94,22 +103,33 @@ namespace CoreM {
      * @param state Current state of the game
      */
     export function endGame(state: State): State {
-        return StateM.endGame(state)
-=======
-    export function move(data: Cmd.MovePlayerData, state: State): State {
-        const { steps } = data
-        const { activePlayer } = state
-
-        return StateM.movePlayer(state, steps)
->>>>>>> fed3105... Fleshed out new Command API
+        const updates = { gamePhase: GamePhase.END_GAME }
+        return Util.update(state, updates)
     }
-
+ 
     /**
      * Moves player on board according to dice rolled
      * @param data Data held by the roll command (value of two dice)
      * @param state Current state of the game
      */
-    // export function move(data: Cmd.MovePlayerCmd, state: State): State { }
+    export function move(data: Cmd.MovePlayerData, state: State): State {
+        const { steps } = data
+        const { tiles, players } = state
+
+        const numTiles = tiles.length
+
+        const newState = StateM.mapActivePlayer(state, player => {
+            let newPos = player.position + steps
+
+            // Account for both forwards and backwards movememnt
+            newPos = newPos < 0 ? numTiles + newPos : newPos % 40
+            player.position = newPos
+
+            return player
+        })
+
+        return newState
+     }
 }
 
 
