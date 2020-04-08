@@ -131,9 +131,9 @@ namespace CoreM {
         const { steps } = data
         const { tiles, players } = state
 
-        const numTiles = tiles.length
+        const numTiles: number = tiles.length
 
-        const newState = StateM.mapActivePlayer(state, player => {
+        const newState: State = StateM.mapActivePlayer(state, player => {
             let newPos = player.position + steps
 
             // Account for both forwards and backwards movememnt
