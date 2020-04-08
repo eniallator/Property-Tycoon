@@ -14,8 +14,8 @@ import { SendProps } from "./props"
 
 class Roll extends Component<SendProps>{
     handleClick(event: MouseEvent) {
-      const n1 = Math.floor(Math.random() * 6) + 1
-      const n2 = Math.floor(Math.random() * 6) + 1
+      const n1 = Math.ceil(Math.random() * 6)
+      const n2 = Math.ceil(Math.random() * 6)
         
       // Hi guys. I've updated this to use the new API
       // As you can see it's a lot simpler to utilize
