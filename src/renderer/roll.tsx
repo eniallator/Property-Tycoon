@@ -34,7 +34,7 @@ class Roll extends Component<IOProps>{
       }
       
       render() {
-        return <Fragment><button onClick={this.handleClick} className ="rd"> Roll Dice
+        return <Fragment><button onClick={this.handleClick.bind(this)} className ="rd"> Roll Dice
         </button> <div> num here</div> </Fragment>
         
       }
