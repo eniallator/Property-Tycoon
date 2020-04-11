@@ -9,6 +9,7 @@
 import { IO, LogSource } from '../io/io'
 import { Core } from '../core/core'
 import { Renderer } from '../renderer/renderer'
+import { State, StateM } from '../game_data/state'
 
 
 /**
@@ -20,32 +21,37 @@ class Engine {
     core: Core
     renderer: Renderer
 
+    state: State
+
     constructor() {
         this.io = new IO()
 
         this.io.logInfo(LogSource.CORE, "Initializing Logic Core Subsystem")
-        this.core = new Core()
+        this.core = new Core(this.io)
 
         this.io.logInfo(LogSource.RENDERER, "Initializing Renderer Subsystem")
         this.renderer = new Renderer(this.io)
+
+        this.state = StateM.initialState()        
     }
 
     update() {
-        // IO gets the first given command. What happens when no command was given?
+        // Retrieve required data
         const command = this.io.getCommand()
-
-        // Remember the current game state
-        const state = this.io.getState()
+        const state = this.state
 
         // Pipe game command into core to yield a new game state
-        const newState = this.core.update(state, command)
+        const [ newState, respBuffer ] = this.core.update(state, command)
+        
+        // Update renderer with responses
+        this.renderer.update(respBuffer, newState)
+        
+        // Update current state
+        this.state = newState
 
         // Write any logs produced
         this.io.writeSysLogs()
         this.io.writeCmdLogs()
-
-        // Render new game state
-        this.renderer.update(newState)
     }
 }
 
