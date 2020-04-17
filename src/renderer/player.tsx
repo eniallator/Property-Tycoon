@@ -14,8 +14,7 @@ import { Token,Player,PlayerM } from "../game_data/player";
 import "./monopoly.scss"
 
 type playerProps = {
-    id?: 0|1|2|3|4|5;
-    token?: Token
+    player: Player
 }
 const tokenToUrlMap: Record<Token, string> = {
     [Token.BOOT]: 'player',
@@ -37,7 +36,7 @@ class PlayerGUI extends Component<playerProps>{
 
     render() {
         return (
-          <div className={ tokenToUrlMap[this.props.token] } />
+          <div className={ tokenToUrlMap[this.props.player.token] } />
         )
       }
 

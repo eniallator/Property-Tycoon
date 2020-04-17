@@ -58,6 +58,7 @@ class UtilityTileComponent extends Component<UtilityTileComponentProps> {
         return (
             <div className={ `space utility ${ cfg.class }` }>
                 <div className="container">
+                {this.props.playerArray}
                     <div className="name">{ this.props.name }</div>
                     <div className={ `drawing fa ${ cfg.icon }` }></div>
                     <div className="price">Price £{ this.props.price }</div>

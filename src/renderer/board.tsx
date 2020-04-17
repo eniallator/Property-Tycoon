@@ -37,7 +37,7 @@ import "./monopoly.scss"
  * - `playerArray`: The array of players currently playing
  */
 type BoardProps = ReceiveProps & {
-    playerArray?: Array<any>
+    
 }
 
 class Board extends Component<BoardProps> {
@@ -79,6 +79,11 @@ class Board extends Component<BoardProps> {
 
         for (let i in this.props.state.tiles) {
             const tile = this.props.state.tiles[i]
+            const playerArray: Array<any> = this.props.state.players.filter(
+                (player: Player) => player.position === +i
+            ).map(
+                (player: Player) => <PlayerGUI player={ player }></PlayerGUI>
+            )
             if (TileM.isEstate(tile)) {
                 const estate: EstateTile = tile
                 tiles.push(
@@ -86,6 +91,7 @@ class Board extends Component<BoardProps> {
                         name={ estate.name }
                         price={ estate.price }
                         group={ estate.group }
+                        playerArray = {playerArray}
                     ></EstateTileComponent>
                 )
             } else if (TileM.isCorner(tile)) {
@@ -93,6 +99,8 @@ class Board extends Component<BoardProps> {
                 tiles.push(
                     <CornerTileComponent
                         cornerType={ corner.cornerType }
+                        playerArray = {playerArray}
+
                     ></CornerTileComponent>
                 )
             } else if (TileM.isChance(tile)) {
@@ -100,6 +108,8 @@ class Board extends Component<BoardProps> {
                 tiles.push(
                     <ChanceTileComponent
                         chanceType={ chance.chanceType }
+                        playerArray = {playerArray}
+
                     ></ChanceTileComponent>
                 )
             } else if (TileM.isTax(tile)) {
@@ -109,6 +119,7 @@ class Board extends Component<BoardProps> {
                     <TaxTileComponent
                         taxType={ +i < 20 ? TaxType.Income : TaxType.Luxury }
                         fee={ tax.amount }
+                        playerArray = {playerArray}
                     ></TaxTileComponent>
                 )
             } else if (TileM.isStation(tile)) {
@@ -117,6 +128,7 @@ class Board extends Component<BoardProps> {
                     <StationTileComponent
                         name={ station.name }
                         price={ station.price }
+                        playerArray = {playerArray}
                     ></StationTileComponent>
                 )
             } else if (TileM.isUtility(tile)) {
@@ -127,6 +139,7 @@ class Board extends Component<BoardProps> {
                         name={ utility.name }
                         price={ utility.price }
                         utilityType={ +i < 20 ? UtilityType.Electric : UtilityType.Water }
+                        playerArray = {playerArray}
                     ></UtilityTileComponent>
                 )
             }

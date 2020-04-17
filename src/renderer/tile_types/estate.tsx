@@ -29,6 +29,8 @@ class EstateTileComponent extends Component<EstateTileComponentProps> {
         return (
             <div className="space property">
 				<div className="container">
+                {this.props.playerArray}
+
 					<div className={"color-bar " + estateColorMap[this.props.group]}></div>
 					<div className="name">{ this.props.name }</div>
 					<div className="price">Price £{ this.props.price }</div>
