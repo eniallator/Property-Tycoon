@@ -7,15 +7,17 @@
  */
 
 import { State, StateM } from "../game_data/state"
-import { Command, CommandM, CommandType, RollData } from "../game_data/command"
+import { Command, CommandM } from "../game_data/command"
+
 
 /**
  * IO Bus
- * Responsible for both transmitting messages back and forth between engine modules, and logging both game and srctem messages
+ * Responsible for both transmitting messages back and forth between engine 
+ * modules, and logging both game and srctem messages
  */
 class IO {
-    command: Command
-    state: State
+    commandBuffer: Command<any>
+    stateBuffer: State
 
     // Logs
     // Config
@@ -23,22 +25,14 @@ class IO {
     logSys: boolean
 
     sysLogs: Array<SysLog>
-    cmdLogs: Array<Command>
+    cmdLogs: Array<Command<any>>
 
     /**
      * Initialize IO module
      * @param logSys System log flag - Default true
      * @param logCmd Game command log flag - Default true
      */
-    constructor(logSys: boolean = true, logCmd: boolean = true) { 
-        this.command = {
-            type: CommandType.ROLL,
-            data: {
-                dice: [1, 1]
-            }
-        }
-        this.state = StateM.createGameState()
-
+    constructor(logSys: boolean = true, logCmd: boolean = true) {
         this.logCmd = logCmd
         this.logSys = logSys
 
@@ -54,37 +48,21 @@ class IO {
 
     // MESSAGE PASSING
     /**
-     * Read Game Command from IO Bus
+     * Read Game Command<any> from IO Bus
      */
     getCommand() {
-        return this.command
+        return this.commandBuffer
     }
 
     /**
-     * Push Game Command onto IO Bus
+     * Push Game Command<any> onto IO Bus
      * @param command 
      */
-    sendCommand(command: Command) {
+    sendCommand(command: Command<any>) {
         this.cmdLogs.push(command)
-        this.command = command
+        this.commandBuffer = command
     }
 
-    /**
-     * Read Game State from IO Bus
-     */
-    getState() {
-        return this.state
-    }
-
-    /**
-     * Push Game State onto IO Bus
-     * @param state Game State
-     */
-    sendState(state: State) {
-        this.state = state
-    }
-
-    
     // LOGGING
     writeSysLogs() {
         while (this.sysLogs.length > 0) {
@@ -95,10 +73,11 @@ class IO {
 
     writeCmdLogs() {
         while (this.cmdLogs.length > 0) {
-            const cmd: Command = this.cmdLogs.pop()
+            const cmd: Command<any> = this.cmdLogs.pop()
             console.log(`CMD :: ${CommandM.renderCommand(cmd)}`)
         }
     }
+
 
     // -- SYSTEM LOGS
     /**
@@ -107,8 +86,8 @@ class IO {
      * @param lvl Log level
      * @param msg Message content
      */
-    logInfo(src: LogSource, msg: Msg) { 
-        this.logSysMsg(src, LogLevel.INFO, msg) 
+    logInfo(src: LogSource, msg: Msg) {
+        this.logSysMsg(src, LogLevel.INFO, msg)
     }
 
     /**
@@ -116,8 +95,8 @@ class IO {
      * @param sys Subsystem making the log
      * @param msg Message content
      */
-    logWarning(src: LogSource, msg: Msg) { 
-        this.logSysMsg(src, LogLevel.WARNING, msg) 
+    logWarning(src: LogSource, msg: Msg) {
+        this.logSysMsg(src, LogLevel.WARNING, msg)
     }
 
     /**
@@ -125,13 +104,13 @@ class IO {
      * @param sys Subsystem making the log
      * @param msg Message content
      */
-    logError(src: LogSource, msg: Msg) { 
-        this.logSysMsg(src, LogLevel.ERROR, msg) 
+    logError(src: LogSource, msg: Msg) {
+        this.logSysMsg(src, LogLevel.ERROR, msg)
     }
 
     // Logging Helpers
     // Log System Message
-    private logSysMsg(src: LogSource, lvl: LogLevel, msg: Msg) {  
+    private logSysMsg(src: LogSource, lvl: LogLevel, msg: Msg) {
         const log: SysLog = { source: src, level: lvl, msg: msg }
         this.sysLogs.unshift(log)
     }
@@ -169,4 +148,4 @@ function renderSysLog(log: SysLog): string {
 }
 
 
-export { IO, LogSource}
+export { IO, LogSource }
