@@ -11,25 +11,38 @@ import React, { Fragment, Component, MouseEvent } from "react"
 import ReactDOM from "react-dom"
 import "./monopoly.scss"
 import { SendReceiveProps } from "./props"
-import { CommandType } from "../game_data/command"
+import { CommandType, CommandM, PlayerConfig } from "../game_data/command"
+import { Token } from "../game_data/player"
 
 import "./menu.css"
 
 
+type MainMenuState = {
+    players: Array<PlayerConfig>
+}
+
 /**
  * Main menu react component
  */
-class MainMenuGUI extends Component<SendReceiveProps> {
+class MainMenuGUI extends Component<SendReceiveProps, MainMenuState> {
+    constructor(props: SendReceiveProps) {
+        super(props)
+        this.state = {
+            players: [
+                {
+                    token: Token.BOOT,
+                    isHuman: false
+                }
+            ]
+        }
+    }
+
     startGame(evt: MouseEvent) {
-        this.props.io.sendCommand({
-            type: CommandType.START_GAME
-        })
+        this.props.io.sendCommand(CommandM.startGame(this.state.players))
     }
 
     exit(evt: MouseEvent) {
-        this.props.io.sendCommand({
-            type: CommandType.END_GAME
-        })
+        this.props.io.sendCommand(CommandM.endGame())
     }
 
     render() {
@@ -39,9 +52,9 @@ class MainMenuGUI extends Component<SendReceiveProps> {
                     <div className="menu">
                         <h1>Property Tycoon</h1>
                         <ul>
-                        <li><a className="button play" onClick={ this.startGame.bind(this) }>Start Game</a></li><br/>
-                        <li><a className="button credits">Credits</a></li><br/>
-                        <li><a className="button exit" onClick={ this.exit.bind(this) }>Exit</a></li><br/>
+                            <li><a className="button play" onClick={ this.startGame.bind(this) }>Start Game</a></li><br/>
+                            <li><a className="button credits">Credits</a></li><br/>
+                            <li><a className="button exit" onClick={ this.exit.bind(this) }>Exit</a></li><br/>
                         </ul>
                     </div>
                 </div>
