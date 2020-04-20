@@ -1,7 +1,8 @@
 const path = require("path");
-
-module.exports = {
-  mode: "production",
+/*
+const baseConfig = (mode, target, folder) => ({
+  target: target,
+  mode: mode,
   context: path.join(__dirname),
   entry: {
     "game-data": ["command.ts", "player.ts", "state.ts", "tile.ts"].map(
@@ -25,8 +26,8 @@ module.exports = {
   },
 
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "[name].bundle.js",
+    path: path.resolve(__dirname, "dist", folder),
+    filename: "[name].js"
   },
 
   // Enable sourcemaps for debugging webpack's output.
@@ -86,4 +87,60 @@ module.exports = {
   },
 
   target: "electron-renderer",
-};
+});
+
+// Setup test config
+const testConfig = baseConfig("development", "node", "build")
+testConfig.entry = {
+  "command": "./src/game_data/command.ts",
+  "response": "./src/game_data/response.ts",
+  "player": "./src/game_data/player.ts",
+  "tile": "./src/game_data/tile.ts",
+  "state": "./src/game_data/state.ts"
+}
+*/
+
+module.exports = {
+  target: "electron-renderer",
+  mode: "production",
+  context: path.join(__dirname),
+
+  entry: "./build/engine/engine.js",
+
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: "engine.bundle.js"
+  },
+
+  module: {
+    rules: [
+      {
+        // SASS
+        test: /\.s[ac]ss$/,
+        use: ["style-loader", "css-loader", "sass-loader"]
+      },
+      {
+        // CSS
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"]
+      },
+      {
+        // Images
+        test: /\.(png|svg|jpg|gif)$/,
+        loader: "file-loader"
+      },
+      {
+        // Source maps
+        enforce: "pre",
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "source-map-loader"
+      }
+    ]
+  },
+
+  externals: {
+    react: "React",
+    "react-dom": "ReactDOM"
+  }
+}
