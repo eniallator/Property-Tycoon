@@ -51,7 +51,9 @@ class IO {
      * Read Game Command<any> from IO Bus
      */
     getCommand() {
-        return this.commandBuffer
+        const cmd = this.commandBuffer
+        this.commandBuffer = null
+        return cmd
     }
 
     /**
