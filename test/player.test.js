@@ -26,7 +26,7 @@ test('Initialize a new player', () => {
     expect(p.inJail).toBeFalsy()
 
     // Check special cards
-    // TODO
+    // No
 })
 
 // Player movement
