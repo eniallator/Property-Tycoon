@@ -49,7 +49,7 @@ namespace PlayerM {
         return {
             token: token,
             position: 0,
-            cash: initialCash, // TODO
+            cash: initialCash,
             properties: new Set<Property>(),
             inJail: false,
             outOfJailCard: '' // TODO
