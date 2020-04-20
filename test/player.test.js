@@ -3,22 +3,21 @@
  */
 
 
-const { Player, Token, PlayerM } = require('../dist/core')
+const { Player, Token, PlayerM } = require('../build/game_data/player')
+
 
 // Player initialization
 test('Initialize a new player', () => {
     const id = 0
     const token = Token.BOOT
-    const p = PlayerM.createPlayer(id, token)
-
-    // Check id = id
-    expect(p.id).toEqual(id)
+    const isHuman = true
+    const p = PlayerM.createPlayer(token, isHuman)
 
     // Check Position = 0
     expect(p.position).toEqual(0)
 
     // Check Cash = ???
-    // TODO
+    expect(p.cash).toEqual(1500)
 
     // Check no properties owned
     expect(p.properties).toEqual(new Set())
