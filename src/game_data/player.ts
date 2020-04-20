@@ -45,11 +45,11 @@ interface Player {
 // Utility functions and types
 namespace PlayerM {
 
-    export function createPlayer(token: Token, isHuman: boolean): Player {
+    export function createPlayer(token: Token, isHuman: boolean, initialCash: number = 1500): Player {
         return {
             token: token,
             position: 0,
-            cash: 0, // TODO
+            cash: initialCash, // TODO
             properties: new Set<Property>(),
             inJail: false,
             outOfJailCard: '' // TODO
