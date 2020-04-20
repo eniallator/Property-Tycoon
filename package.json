@@ -8,17 +8,12 @@
     "pre-build": "trash build/",
     "post-build": "cpy \"src/renderer/*.!(ts|tsx)\" build/renderer",
     "build": "npm run pre-build && tsc && npm run post-build",
-    
     "pre-bundle": "trash dist/",
     "bundle": "npm run pre-bundle && webpack && cpy src/main/* dist/",
-    
     "release": "npm run build && npm run bundle",
-    
     "build-docs": "typedoc --out docs src",
-
     "test": "jest",
     "start": "electron dist/main.js"
-
   },
   "author": "Scrambld",
   "license": "MIT",
