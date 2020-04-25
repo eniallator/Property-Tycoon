@@ -9,8 +9,8 @@
 
 import React, { Fragment, Component } from "react"
 import ReactDOM from "react-dom"
-import { Token,Player,PlayerM } from "../game_data/player";
-import {PlayerGUI} from "../renderer/player";
+import { Player } from "../game_data/player";
+import { PlayerGUI } from "../renderer/player";
 
 import {
     StationTile,
@@ -19,7 +19,8 @@ import {
     TaxTile,
     CornerTile,
     ChanceTile,
-    TileM
+    TileM,
+    Tile
 } from "../game_data/tile"
 import { ReceiveProps } from './props'
 
@@ -37,7 +38,85 @@ import "./monopoly.scss"
  * Board react component
  */
 class Board extends Component<ReceiveProps> {
-    render () {
+    /**
+     * Creates a specific tile component from a given tile object
+     * @param index Index of the tile
+     * @param tile Tile object itself
+     * @param playerArray Players currently playing
+     */
+    tileFactory(index: number, tile: Tile, playerArray: Array<any>): any {
+        if (TileM.isEstate(tile)) {
+            const estate: EstateTile = tile
+            return (
+                <EstateTileComponent
+                    name={ estate.name }
+                    price={ estate.price }
+                    group={ estate.group }
+                    playerArray = { playerArray }
+                ></EstateTileComponent>
+            )
+        } else if (TileM.isCorner(tile)) {
+            const corner: CornerTile = tile
+            return (
+                <CornerTileComponent
+                    cornerType={ corner.cornerType }
+                    playerArray = { playerArray }
+                ></CornerTileComponent>
+            )
+        } else if (TileM.isChance(tile)) {
+            const chance: ChanceTile = tile
+            return (
+                <ChanceTileComponent
+                    chanceType={ chance.chanceType }
+                    playerArray = { playerArray }
+                ></ChanceTileComponent>
+            )
+        } else if (TileM.isTax(tile)) {
+            const tax: TaxTile = tile
+            // Income tax type appears before halfway point whereas luxury appears after
+            return (
+                <TaxTileComponent
+                    taxType={ +index < 20 ? TaxType.Income : TaxType.Luxury }
+                    fee={ tax.amount }
+                    playerArray = { playerArray }
+                ></TaxTileComponent>
+            )
+        } else if (TileM.isStation(tile)) {
+            const station: StationTile = tile
+            return (
+                <StationTileComponent
+                    name={ station.name }
+                    price={ station.price }
+                    playerArray = { playerArray }
+                ></StationTileComponent>
+            )
+        } else if (TileM.isUtility(tile)) {
+            const utility: UtilityTile = tile
+            // Electric utility type appears before halfway point whereas water appears after
+            return (
+                <UtilityTileComponent
+                    name={ utility.name }
+                    price={ utility.price }
+                    utilityType={ +index < 20 ? UtilityType.Electric : UtilityType.Water }
+                    playerArray = { playerArray }
+                ></UtilityTileComponent>
+            )
+        }
+    }
+
+    /**
+     * Gets all players at a specific board position
+     * @param i Position to get players at
+     */
+    getPlayersAtPos(i: number): Array<any> {
+        return this.props.state.players.filter(
+            (player: Player) => player.position === i
+        ).map(
+            (player: Player) => <PlayerGUI player={ player }></PlayerGUI>
+        )
+    }
+
+    render() {
         const centerComponents: any = (
             <div className="center">
                 <div className="pot-luck-deck">
@@ -51,75 +130,12 @@ class Board extends Component<ReceiveProps> {
                 </div>
             </div>
         )
-        const tiles: Array<any> = []
 
-        for (let i in this.props.state.tiles) {
-            const tile = this.props.state.tiles[i]
-            const playerArray: Array<any> = this.props.state.players.filter(
-                (player: Player) => player.position === +i
-            ).map(
-                (player: Player) => <PlayerGUI player={ player }></PlayerGUI>
+        const tiles: Array<any> = this.props.state.tiles.map(
+            (tile: Tile, i: number) => this.tileFactory(
+                i, tile, this.getPlayersAtPos(i)
             )
-            if (TileM.isEstate(tile)) {
-                const estate: EstateTile = tile
-                tiles.push(
-                    <EstateTileComponent
-                        name={ estate.name }
-                        price={ estate.price }
-                        group={ estate.group }
-                        playerArray = {playerArray}
-                    ></EstateTileComponent>
-                )
-            } else if (TileM.isCorner(tile)) {
-                const corner: CornerTile = tile
-                tiles.push(
-                    <CornerTileComponent
-                        cornerType={ corner.cornerType }
-                        playerArray = {playerArray}
-
-                    ></CornerTileComponent>
-                )
-            } else if (TileM.isChance(tile)) {
-                const chance: ChanceTile = tile
-                tiles.push(
-                    <ChanceTileComponent
-                        chanceType={ chance.chanceType }
-                        playerArray = {playerArray}
-
-                    ></ChanceTileComponent>
-                )
-            } else if (TileM.isTax(tile)) {
-                const tax: TaxTile = tile
-                // Income tax type appears before halfway point whereas luxury appears after
-                tiles.push(
-                    <TaxTileComponent
-                        taxType={ +i < 20 ? TaxType.Income : TaxType.Luxury }
-                        fee={ tax.amount }
-                        playerArray = {playerArray}
-                    ></TaxTileComponent>
-                )
-            } else if (TileM.isStation(tile)) {
-                const station: StationTile = tile
-                tiles.push(
-                    <StationTileComponent
-                        name={ station.name }
-                        price={ station.price }
-                        playerArray = {playerArray}
-                    ></StationTileComponent>
-                )
-            } else if (TileM.isUtility(tile)) {
-                const utility: UtilityTile = tile
-                // Electric utility type appears before halfway point whereas water appears after
-                tiles.push(
-                    <UtilityTileComponent
-                        name={ utility.name }
-                        price={ utility.price }
-                        utilityType={ +i < 20 ? UtilityType.Electric : UtilityType.Water }
-                        playerArray = {playerArray}
-                    ></UtilityTileComponent>
-                )
-            }
-        }
+        )
 
         return (
             <div className="table">
