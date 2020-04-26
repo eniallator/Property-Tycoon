@@ -18,7 +18,8 @@ import "./menu.css"
 
 
 type MainMenuState = {
-    players: Array<PlayerConfig>
+    players: Array<PlayerConfig>,
+    cfgModalOn: boolean
 }
 
 /**
@@ -33,12 +34,21 @@ class MainMenuGUI extends Component<SendReceiveProps, MainMenuState> {
                     token: Token.BOOT,
                     isHuman: false
                 }
-            ]
+            ],
+            cfgModalOn: false
         }
     }
 
     startGame(evt: MouseEvent) {
         this.props.io.sendCommand(CommandM.startGame(this.state.players))
+    }
+
+    openPlayerCfgModal(evt: MouseEvent) {
+        this.setState({...this.state, cfgModalOn: true})
+    }
+
+    closePlayerCfgModal(evt: MouseEvent) {
+        this.setState({...this.state, cfgModalOn: false})
     }
 
     exit(evt: MouseEvent) {
@@ -48,20 +58,40 @@ class MainMenuGUI extends Component<SendReceiveProps, MainMenuState> {
     render() {
         return (
             <div className="wrapper">
+                <div className="modal-player-cfg"
+                    style={{"display": this.state.cfgModalOn ? "block" : "none"}}>
+                    <div className="modal-content-player-cfg">
+                        <h2 style={{display: "inline-block"}}>Player Config</h2>
+                        <a onClick={ this.closePlayerCfgModal.bind(this) }>
+                            <span className="modal-close-player-cfg">&times;</span>
+                        </a>
+                        <div className="player-options-container">
+                            <div className="player-option">
+                                <a className="player-option-remove"><span>&times;</span></a>
+                                <span className="player-ai-text">AI</span>
+                                <img className="player-option-dim" src="../placeholder.png"/>
+                            </div>
+                            <div className="player-option">
+                                <a className="player-option-remove"><span>&times;</span></a>
+                                <img className="player-option-dim" src="../placeholder.png"/>
+                            </div>
+                            <div className="player-option player-option-add">
+                                <span className="player-option-dim player-add-text">+</span>
+                            </div>
+                        </div>
+                        <a className="button play" onClick={ this.startGame.bind(this) }>Start Game</a>
+                    </div>
+                </div>
                 <div className="main">
                     <div className="menu">
                         <h1>Property Tycoon</h1>
                         <ul>
-                            <li><a className="button play" onClick={ this.startGame.bind(this) }>Start Game</a></li><br/>
+                            <li><a className="button play" onClick={ this.openPlayerCfgModal.bind(this) }>Play</a></li><br/>
                             <li><a className="button credits">Credits</a></li><br/>
                             <li><a className="button exit" onClick={ this.exit.bind(this) }>Exit</a></li><br/>
                         </ul>
                     </div>
                 </div>
-                <canvas id="canvas" width="800" height="480">
-                    <p>Your browser does not support the required functionality to play Property Tycoon!</p>
-                    <p>Please ensure your browser is updated or use <a href="www.google.com/chrome">Google Chrome</a> to play.</p>
-                </canvas>
             </div>
         )
     }
