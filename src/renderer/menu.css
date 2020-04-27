@@ -82,6 +82,15 @@ a:hover {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
+.hidden {
+  display: none !important;
+}
+
+.modal-heading {
+  display: inline-block;
+  text-transform: capitalize;
+}
+
 .modal-content-player-cfg {
   background-color: #fefefe;
   margin: 15% auto;
@@ -103,10 +112,8 @@ a:hover {
 
 .player-options-container {
   display: flex;
-}
-
-.player-option-add {
-  background-color: #28a745 !important;
+  min-height: 44px;
+  text-transform: capitalize;
 }
 
 .player-add-text {
@@ -122,6 +129,7 @@ a:hover {
 }
 
 .player-option {
+  width: 44px;
   margin: 0px 10px;
   color: #212529;
   background-color: #f1f1f1;
@@ -136,6 +144,34 @@ a:hover {
   line-height: 1.5;
   border-radius: 0.25rem;
   position: relative;
+  flex-direction: column;
+}
+
+.player-option-add {
+  height: 44px;
+  background-color: #28a745 !important;
+  position: relative;
+}
+
+.add-player-dropdown {
+  position: absolute;
+  background-color: #f1f1f1;
+  width: 108px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.add-player-dropdown-option {
+  color: black;
+  text-decoration: none;
+  padding: 3px;
+  display: block;
+  height: 36px;
+}
+.add-player-dropdown-option:hover {
+  background-color: #ddd;
 }
 
 .player-option-remove {
@@ -165,10 +201,9 @@ a:hover {
   left: 0px;
   font-weight: 400;
   font-size: 10px;
-  color: #003bff;
-}
-
-.boot {
-  margin-bottom: -10px;
-  background-image: url(../../placeholder.png);
+  background-color: #007bff;
+  color: white;
+  border-radius: 3px;
+  height: 13px;
+  width: 14px;
 }
