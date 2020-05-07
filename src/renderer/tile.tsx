@@ -18,7 +18,10 @@ type TileProps = {
     playerArray?: Array<any>
     hasPlayer?: boolean
 }
-
+// Tile class
+/**
+ * - Tile renders players on a tile
+ */
 class Tile extends Component<TileProps, {}> {
 
     

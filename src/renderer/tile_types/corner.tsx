@@ -1,3 +1,4 @@
+// corner.tsx
 /**
  * Corner type tile component
  * 
@@ -15,15 +16,16 @@ import { CornerType } from "../../game_data/tile"
 
 
 /**
- * Utility tile props:
- * - `name`: Name of the utility
- * - `price`: Price of the utility
- * - `utilityType`: Type of utility
+ * Props for the corner component
+ * - `cornerType`: Which corner type it is
  */
 type CornerTileComponentProps = TileProps & {
     cornerType: CornerType
 }
 
+/**
+ * Corner tile react component
+ */
 class CornerTileComponent extends Component<CornerTileComponentProps> {
     render() {
         switch (this.props.cornerType) {
@@ -82,4 +84,3 @@ class CornerTileComponent extends Component<CornerTileComponentProps> {
 }
 
 export { CornerTileComponent }
-

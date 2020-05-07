@@ -1,3 +1,4 @@
+// utility.tsx
 /**
  * Utility type tile component
  * 
@@ -23,6 +24,11 @@ enum UtilityType {
     Water
 }
 
+/**
+ * Config format for utility types
+ * - `class`: Outer div css class
+ * - `icon`: Which font awesome icon to use
+ */
 interface UtilityTypeConfig {
     class: string,
     icon: string
@@ -52,6 +58,9 @@ type UtilityTileComponentProps = TileProps & {
     utilityType: UtilityType
 }
 
+/**
+ * Utility tile react component
+ */
 class UtilityTileComponent extends Component<UtilityTileComponentProps> {
     render() {
         const cfg: UtilityTypeConfig = UtilityConfig[this.props.utilityType]

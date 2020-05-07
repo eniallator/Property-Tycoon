@@ -1,14 +1,31 @@
+// station.tsx
+/**
+ * Station type tile component
+ * 
+ * authors: Niall C.C
+ * @packageDocumentation
+ */
+
+
 import React, { Fragment, Component } from "react"
 import ReactDOM from "react-dom"
 import { TileProps } from "../tile"
 
 import "../monopoly.scss"
 
+/**
+ * Props for the station tiles
+ * - `name`: Name of the station
+ * - `price`: Price of the station
+ */
 type StationTileComponentProps = TileProps & {
     name: string,
     price: number
 }
 
+/**
+ * Station tile react component
+ */
 class StationTileComponent extends Component<StationTileComponentProps> {
     render() {
         return (

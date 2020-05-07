@@ -1,3 +1,4 @@
+// main_menu_gui.tsx
 /**
  * Renders everything needed for playing the game
  * 
@@ -15,6 +16,9 @@ import { CommandType } from "../game_data/command"
 import "./menu.css"
 
 
+/**
+ * Main menu react component
+ */
 class MainMenuGUI extends Component<SendReceiveProps> {
     startGame(evt: MouseEvent) {
         this.props.io.sendCommand({

@@ -16,6 +16,11 @@ import "./monopoly.scss"
 type playerProps = {
     player: Player
 }
+// Token Mapping
+/**
+ * - Each player has there own indvidual token
+ * - Mapped to class here
+ */
 const tokenToUrlMap: Record<Token, string> = {
     [Token.BOOT]: 'player',
     [Token.CAT] : 'player',
@@ -24,7 +29,10 @@ const tokenToUrlMap: Record<Token, string> = {
     [Token.SMARTPHONE]:'player',
     [Token.SPOON]:'player'
   }
-
+// PlayerGUI class
+/**
+ * - Token is rendered through the playerGUI class
+ */
 class PlayerGUI extends Component<playerProps>{
     
 

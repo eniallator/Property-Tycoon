@@ -1,3 +1,4 @@
+// game_gui.tsx
 /**
  * Renders everything needed for playing the game
  * 
@@ -16,14 +17,14 @@ import {Player} from "../game_data/player";
 
 
 import { SendReceiveProps } from './props'
-
+// GameGUI
+/**
+ * - Renders the current state of the board.
+ */
 
 class GameGUI extends Component<SendReceiveProps> {
     render() {
 
-      //  const playerArray: Array<any> = this.props.state.players.map(
-          //  (player: Player) => <PlayerGUI player={ player }></PlayerGUI>
-      //  )
         return (
             <div className="table">
                 <Board state={ this.props.state }></Board>

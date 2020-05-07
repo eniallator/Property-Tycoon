@@ -1,3 +1,4 @@
+// tax.tsx
 /**
  * Tax type tile component
  * 
@@ -23,13 +24,21 @@ enum TaxType {
     Luxury
 }
 
+/**
+ * Config format for tax types
+ * - `name`: Name of the chance type
+ * - `class`: Outer div css class
+ * - `icon`: which font awesome icon to use
+ */
 interface TaxTypeConfig {
     name: string,
     class: string,
     icon: string
 }
 
-// The default config interface for tax types
+/**
+ * The default config interface for tax types
+ */
 const TaxConfig: Record<TaxType, TaxTypeConfig> = {
     [TaxType.Income]: {
         name: "Income Tax",
@@ -45,7 +54,6 @@ const TaxConfig: Record<TaxType, TaxTypeConfig> = {
 
 /**
  * Tax tile props:
- * - `name`: Name of the tax tile
  * - `fee`: Amount charged for landing on tile
  * - `taxType`: Type of tax
  */
@@ -54,6 +62,9 @@ type TaxTileComponentProps = TileProps & {
     taxType: TaxType
 }
 
+/**
+ * Tax tile react component
+ */
 class TaxTileComponent extends Component<TaxTileComponentProps> {
     render() {
         const cfg: TaxTypeConfig = TaxConfig[this.props.taxType]

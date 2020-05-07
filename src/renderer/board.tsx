@@ -1,3 +1,4 @@
+// board.tsx
 /**
  * Main game board component
  * 
@@ -33,34 +34,9 @@ import "./monopoly.scss"
 
 
 /**
- * Board props:
- * - `playerArray`: The array of players currently playing
+ * Board react component
  */
-type BoardProps = ReceiveProps & {
-    
-}
-
-class Board extends Component<BoardProps> {
-    getColor (tilePosition: number): string {
-        const colorOrder: Array<string> = [
-            "brown",
-            "light-blue",
-            "purple",
-            "orange",
-            "red",
-            "yellow",
-            "green",
-            "dark-blue"
-        ]
-        return colorOrder[Math.floor(tilePosition / 4.5)]
-    }
-
-   // movePlayer(playerID: number, places:number){
-        // Take in a player ID then essentially move the player into the new position on a tile, by the places
-        // call render again in order to re-render the tokens on the board
-
-    //}
-
+class Board extends Component<ReceiveProps> {
     render () {
         const centerComponents: any = (
             <div className="center">
