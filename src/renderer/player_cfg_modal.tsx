@@ -1,3 +1,12 @@
+// player_cfg_modal.tsx
+/**
+ * The player config modal
+ *
+ * authors: Niall C.C
+ * @packageDocumentation
+ */
+
+
 import React, { Component, MouseEvent, RefObject } from "react"
 import ReactDOM from "react-dom"
 import { CommandM, PlayerConfig } from "../game_data/command"
@@ -6,17 +15,31 @@ import { PlayerCfgDropdown } from './player_cfg_dropdown'
 
 import "./menu.css"
 
+/**
+ * Props for the modal component
+ * - `start`: The method to call when the start game button is pressed
+ * - `active`: Overrides the modal's active state attribute
+ */
 type ModalProps = {
     start: Function,
     active?: boolean
 }
 
+/**
+ * State for the modal component
+ * - `active`: Determines if the modal is visible
+ * - `players`: Keeps track of the currently configured players
+ * - `dropdown`: Reference to the dropdown object
+ */
 type ModalState = {
     active: boolean,
     players: Array<PlayerConfig>,
     dropdown: RefObject<PlayerCfgDropdown>
 }
 
+/**
+ * Maps a Token enum to an image path
+ */
 const tokenImageMap: Record<Token, string> = {
     [Token.CAT]: "../placeholder.png",
     [Token.BOOT]: "../placeholder.png",
@@ -26,6 +49,9 @@ const tokenImageMap: Record<Token, string> = {
     [Token.SMARTPHONE]: "../placeholder.png"
 }
 
+/**
+ * Player config modal react component
+ */
 class PlayerCfgModal extends Component<ModalProps, ModalState> {
     constructor(props: ModalProps) {
         super(props)
@@ -36,14 +62,25 @@ class PlayerCfgModal extends Component<ModalProps, ModalState> {
         }
     }
 
-    open(evt: MouseEvent) {
+    /**
+     * Sets the modal active state to true
+     */
+    open(evt?: MouseEvent) {
         this.setState({...this.state, active: true})
     }
 
-    close(evt: MouseEvent) {
+    /**
+     * Sets the modal active state to false
+     */
+    close(evt?: MouseEvent) {
         this.setState({...this.state, active: false})
     }
 
+    /**
+     * Adds a player to the player list that defaults as not an AI
+     *
+     * @param token Chosen token
+     */
     addPlayer(token: Token) {
         this.state.players.push({
             token: token,
@@ -51,14 +88,29 @@ class PlayerCfgModal extends Component<ModalProps, ModalState> {
         })
     }
 
+    /**
+     * Removes a player from the currently configured players
+     *
+     * @param i Index of player to remove
+     */
     removePlayer(i: number) {
         this.state.players.splice(i, 1)
     }
 
+    /**
+     * Toggles the AI attribute of a player
+     *
+     * @param i Index of player
+     */
     toggleAI(i: number) {
         this.state.players[i].isHuman = !this.state.players[i].isHuman
     }
 
+    /**
+     * Creates the player config components
+     *
+     * @returns An array showing the currently configured players
+     */
     createPlayerOptions(): Array<any> {
         const options: Array<any> = []
         const remainingTokens: Set<Token> = new Set()

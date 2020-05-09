@@ -1,8 +1,25 @@
+// player_cfg_dropdown.tsx
+/**
+ * The player config dropdown that shows tokens
+ *
+ * authors: Niall C.C
+ * @packageDocumentation
+ */
+
+
 import React, { Component, RefObject } from "react";
 import { Token } from "../game_data/player"
 
 import "./menu.css"
 
+
+/**
+ * Props for the dropdown component
+ * - `onClick`: Function called when an option is clicked
+ * - `remainingTokens`: Tokens to show in the dropdown
+ * - `tokenImageMap`: Token to image path map
+ * - `active`: Overrides the dropdown's active state attribute
+ */
 type DropdownProps = {
     onClick: Function,
     remainingTokens: Set<Token>,
@@ -10,11 +27,19 @@ type DropdownProps = {
     active?: boolean
 }
 
+/**
+ * State for the dropdown component
+ * - `active`: Determines if the dropdown is visible
+ * - `wrapperRef`: The outer div for the dropdown
+ */
 type DropdownState = {
     active: boolean,
     wrapperRef?: HTMLDivElement
 }
 
+/**
+ * Player config dropdown react component
+ */
 class PlayerCfgDropdown extends Component<DropdownProps, DropdownState> {
     constructor(props: DropdownProps) {
         super(props)
@@ -34,16 +59,27 @@ class PlayerCfgDropdown extends Component<DropdownProps, DropdownState> {
         document.removeEventListener("mousedown", this.close)
     }
 
+    /**
+     * Sets the dropdown active state to true
+     */
     open(evt?: MouseEvent) {
         this.setState({...this.state, active: true})
     }
 
+    /**
+     * Sets the dropdown active state to false
+     */
     close(evt?: MouseEvent) {
         if (this.state.wrapperRef && !this.state.wrapperRef.contains(evt.target as Node)) {
             this.setState({...this.state, active: false})
         }
     }
 
+    /**
+     * Sets the wrapperRef state to the passed node
+     *
+     * @param node The div reference
+     */
     setWrapperRef(node: HTMLDivElement) {
         this.setState({...this.state, wrapperRef: node})
     }

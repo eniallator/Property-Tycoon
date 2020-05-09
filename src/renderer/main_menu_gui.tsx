@@ -16,6 +16,10 @@ import { PlayerCfgModal } from "./player_cfg_modal"
 
 import "./menu.css"
 
+/**
+ * State for the main menu
+ * - `modal`: The reference to the config modal
+ */
 type MainMenuState = {
     modal: RefObject<PlayerCfgModal>
 }
@@ -31,15 +35,26 @@ class MainMenuGUI extends Component<SendReceiveProps, MainMenuState> {
         }
     }
 
+    /**
+     * Sends a start game command
+     *
+     * @param players The player configuration
+     */
     startGame(players: Array<PlayerConfig>) {
         this.props.io.sendCommand(CommandM.startGame(players))
     }
 
-    config(evt: MouseEvent) {
-        this.state.modal.current.open(evt)
+    /**
+     * Opens the config modal
+     */
+    config(evt?: MouseEvent) {
+        this.state.modal.current.open()
     }
 
-    exit(evt: MouseEvent) {
+    /**
+     * Exits the game
+     */
+    exit(evt?: MouseEvent) {
         this.props.io.sendCommand(CommandM.endGame())
     }
 
