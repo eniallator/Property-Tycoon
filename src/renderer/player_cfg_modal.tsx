@@ -11,7 +11,8 @@ import React, { Component, MouseEvent, RefObject } from "react"
 import ReactDOM from "react-dom"
 import { CommandM, PlayerConfig } from "../game_data/command"
 import { Token } from "../game_data/player"
-import { PlayerCfgDropdown } from './player_cfg_dropdown'
+import { PlayerCfgDropdown } from "./player_cfg_dropdown"
+import { tokenImageMap } from "./assets"
 
 import "./menu.css"
 
@@ -35,18 +36,6 @@ type ModalState = {
     active: boolean,
     players: Array<PlayerConfig>,
     dropdown: RefObject<PlayerCfgDropdown>
-}
-
-/**
- * Maps a Token enum to an image path
- */
-const tokenImageMap: Record<Token, string> = {
-    [Token.CAT]: "../placeholder.png",
-    [Token.BOOT]: "../placeholder.png",
-    [Token.SPOON]: "../placeholder.png",
-    [Token.GOBLET]: "../placeholder.png",
-    [Token.HATSTAND]: "../placeholder.png",
-    [Token.SMARTPHONE]: "../placeholder.png"
 }
 
 /**
@@ -145,7 +134,6 @@ class PlayerCfgModal extends Component<ModalProps, ModalState> {
                         ref={ this.state.dropdown }
                         onClick={ this.addPlayer.bind(this) }
                         remainingTokens={ remainingTokens }
-                        tokenImageMap={ tokenImageMap }
                     ></PlayerCfgDropdown>
                 </div>
             )

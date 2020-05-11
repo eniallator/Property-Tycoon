@@ -8,55 +8,30 @@
 
 import React, { Fragment, Component,MouseEvent } from "react";
 import ReactDOM from "react-dom";
-import { IO } from '../io/io';
-import { Token,Player,PlayerM } from "../game_data/player";
+import { Player } from "../game_data/player";
+import { tokenImageMap } from "./assets"
 
 import "./monopoly.scss"
+
 
 type playerProps = {
     player: Player
 }
-// Token Mapping
-/**
- * - Each player has there own indvidual token
- * - Mapped to class here
- */
-const tokenToUrlMap: Record<Token, string> = {
-    [Token.BOOT]: 'player',
-    [Token.CAT] : 'player',
-    [Token.GOBLET]: 'player',
-    [Token.HATSTAND]:'player',
-    [Token.SMARTPHONE]:'player',
-    [Token.SPOON]:'player'
-  }
+
 // PlayerGUI class
 /**
  * - Token is rendered through the playerGUI class
  */
 class PlayerGUI extends Component<playerProps>{
-    
-
     constructor(props: playerProps) {
         super(props)
-    }        
-
-    
+    }
 
     render() {
         return (
-          <div className={ tokenToUrlMap[this.props.player.token] } />
+            <img className="player" src={ tokenImageMap[this.props.player.token] } />
         )
-      }
-
     }
+}
 
-    
-
-    export {PlayerGUI}
-
-
-
-
-
-
-
+export { PlayerGUI }

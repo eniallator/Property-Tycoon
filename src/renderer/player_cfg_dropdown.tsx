@@ -9,6 +9,7 @@
 
 import React, { Component, RefObject } from "react";
 import { Token } from "../game_data/player"
+import { tokenImageMap } from "./assets"
 
 import "./menu.css"
 
@@ -17,13 +18,11 @@ import "./menu.css"
  * Props for the dropdown component
  * - `onClick`: Function called when an option is clicked
  * - `remainingTokens`: Tokens to show in the dropdown
- * - `tokenImageMap`: Token to image path map
  * - `active`: Overrides the dropdown's active state attribute
  */
 type DropdownProps = {
     onClick: Function,
     remainingTokens: Set<Token>,
-    tokenImageMap: Record<Token, string>,
     active?: boolean
 }
 
@@ -90,7 +89,7 @@ class PlayerCfgDropdown extends Component<DropdownProps, DropdownState> {
         for (let token of this.props.remainingTokens) {
             tokenComponents.push(
                 <a className="add-player-dropdown-option" onClick={ () => this.props.onClick(token) }>
-                    <img className="player-option-dim" src={ this.props.tokenImageMap[token] }/>
+                    <img className="player-option-dim" src={ tokenImageMap[token] }/>
                 </a>
             )
         }
