@@ -32,8 +32,10 @@ class CornerTileComponent extends Component<CornerTileComponentProps> {
             case CornerType.GO: return (
                 <div className="space corner go">
                     <div className="container">
-                        <div className="players">
-                            { this.props.playerArray }
+                        <div className="fit-outer">
+                            <div className="players">
+                                { this.props.playerArray }
+                            </div>
                         </div>
                         <div className="instructions">Collect £200.00 salary as you pass</div>
                         <div className="go-word">go</div>
@@ -46,8 +48,10 @@ class CornerTileComponent extends Component<CornerTileComponentProps> {
                     <div className="just">Just</div>
                     <div className="drawing">
                         <div className="container">
-                            <div className="players">
-                                { this.props.playerArray }
+                            <div className="fit-outer">
+                                <div className="players">
+                                    { this.props.playerArray }
+                                </div>
                             </div>
                             <div className="name">In</div>
                             <div className="window">
@@ -65,8 +69,10 @@ class CornerTileComponent extends Component<CornerTileComponentProps> {
             case CornerType.PARKING: return (
                 <div className="space corner free-parking">
                     <div className="container">
-                        <div className="players">
-                            { this.props.playerArray }
+                        <div className="fit-outer">
+                            <div className="players">
+                                { this.props.playerArray }
+                            </div>
                         </div>
                         <div className="name">Free</div>
                         <i className="drawing fa fa-car"></i>
@@ -77,8 +83,10 @@ class CornerTileComponent extends Component<CornerTileComponentProps> {
             case CornerType.GO_TO_JAIL: return (
                 <div className="space corner go-to-jail">
                     <div className="container">
-                        <div className="players">
-                            { this.props.playerArray }
+                        <div className="fit-outer">
+                            <div className="players">
+                                { this.props.playerArray }
+                            </div>
                         </div>
                         <div className="name">Go To</div>
                         <i className="drawing fa fa-gavel"></i>

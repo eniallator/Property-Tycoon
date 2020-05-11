@@ -236,6 +236,12 @@ h1, h2, h3, h4, h5, h6 {
 		border-bottom: 2px solid $black;
 	}
 
+	.without-color-bar {
+		position: relative;
+		height: 100%;
+		width: 100%;
+	}
+
 	.name {
 		padding-bottom: 50px;
 	}
@@ -505,14 +511,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .players {
-    position: absolute;
-    display: flex;
     flex-wrap: wrap;
     margin: auto;
     width: inherit;
-    height: inherit;
+    height: fit-content;
     justify-content: center;
-    align-items: center;
+	align-items: center;
+	padding: 5px;
+}
+
+.fit-outer {
+	position: absolute;
+	width: inherit;
+	height: inherit;
+	display: flex;
 }
 
 .player { 

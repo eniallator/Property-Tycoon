@@ -61,8 +61,10 @@ class ChanceTileComponent extends Component<ChanceTileProps> {
         return (
             <div className={ `space ${ cfg.class }`}>
                 <div className="container">
-                    <div className="players">
-                        { this.props.playerArray }
+                    <div className="fit-outer">
+                        <div className="players">
+                            { this.props.playerArray }
+                        </div>
                     </div>
                     <div className="name">{ cfg.name }</div>
                     <i className={`drawing fa ${ cfg.icon }` }></i>
