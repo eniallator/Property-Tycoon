@@ -237,7 +237,8 @@ export {
     Command,
     CommandType,
     CommandM,
-
+    
+    PlayerConfig,
     StartGameData,
     MovePlayerData,
     BuyData,
