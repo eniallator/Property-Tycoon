@@ -96,8 +96,10 @@ class PlayerCfgDropdown extends Component<DropdownProps, DropdownState> {
 
         const hidden: string = this.state.active ? "" : " hidden"
         return (
-            <div ref={ this.setWrapperRef } className={ "add-player-dropdown" + hidden }>
-                { tokenComponents }
+            <div ref={ this.setWrapperRef } className={ "add-player-dropdown-outer" + hidden }>
+                <div className="add-player-dropdown">
+                    { tokenComponents }
+                </div>
             </div>
         )
     }
