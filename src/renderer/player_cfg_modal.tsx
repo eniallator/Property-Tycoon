@@ -31,11 +31,13 @@ type ModalProps = {
  * - `active`: Determines if the modal is visible
  * - `players`: Keeps track of the currently configured players
  * - `dropdown`: Reference to the dropdown object
+ * - `startGameError`: If starting the game wasn't successful
  */
 type ModalState = {
     active: boolean,
     players: Array<PlayerConfig>,
-    dropdown: RefObject<PlayerCfgDropdown>
+    dropdown: RefObject<PlayerCfgDropdown>,
+    startGameError: boolean
 }
 
 /**
@@ -47,7 +49,8 @@ class PlayerCfgModal extends Component<ModalProps, ModalState> {
         this.state = {
             active: this.props.active || false,
             players: [],
-            dropdown: React.createRef()
+            dropdown: React.createRef(),
+            startGameError: false
         }
     }
 
@@ -62,7 +65,7 @@ class PlayerCfgModal extends Component<ModalProps, ModalState> {
      * Sets the modal active state to false
      */
     close(evt?: MouseEvent) {
-        this.setState({...this.state, active: false})
+        this.setState({...this.state, active: false, startGameError: false})
     }
 
     /**
@@ -142,6 +145,14 @@ class PlayerCfgModal extends Component<ModalProps, ModalState> {
         return options
     }
 
+    startGame() {
+        const success = this.props.start(this.state.players)
+        this.setState({
+            ...this.state,
+            startGameError: !success
+        })
+    }
+
     render() {
         const hidden: string = this.state.active ? "" : " hidden"
 
@@ -155,7 +166,14 @@ class PlayerCfgModal extends Component<ModalProps, ModalState> {
                     <div className="player-options-container">
                         { this.createPlayerOptions() }
                     </div>
-                    <a className="button play" onClick={ () => this.props.start(this.state.players) }>Start Game</a>
+                    <div>
+                        <a className="button play" onClick={ this.startGame.bind(this) }>Start Game</a>
+                        {
+                            this.state.startGameError
+                            ? <span className="start-game-error">Game must have at least 2 players</span>
+                            : ""
+                        }
+                    </div>
                 </div>
             </div>
         )
