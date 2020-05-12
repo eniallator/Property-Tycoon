@@ -14,7 +14,12 @@ import { RespM } from "../game_data/response"
 import { GameGUI } from "./game_gui"
 import { MainMenuGUI } from "./main_menu_gui"
 import { remote } from "electron"
-
+// Renderer Class
+/**
+ * - Responsible for rendering all phases of the game inc Main Menu, and the game itself
+ * - By deafault renders the whole board
+ * - Main menu phase allows for game selection. 
+ */
 class Renderer {
     io: IO
 

@@ -18,7 +18,10 @@ type TileProps = {
     playerArray?: Array<any>
     hasPlayer?: boolean
 }
-
+// Tile class
+/**
+ * - Tile renders players on a tile
+ */
 class Tile extends Component<TileProps, {}> {
 
     
@@ -26,7 +29,6 @@ class Tile extends Component<TileProps, {}> {
     constructor(props: TileProps) {
         super(props)
         
-        this.props.playerArray.push(<PlayerGUI token = {Token.BOOT} id = {0} ></PlayerGUI>)
     }
 
     render() {

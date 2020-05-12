@@ -46,7 +46,7 @@ class Core {
         
         switch (type) {
             case Cmd.CommandType.START_GAME:
-                updates = CoreM.startGame(state)
+                updates = CoreM.startGame(cmd.data.playerConfig as Array<Cmd.PlayerConfig>, state)
                 break
             case Cmd.CommandType.PAUSE_GAME:
                 updates = CoreM.pauseGame(state)
@@ -75,15 +75,9 @@ namespace CoreM {
     /**
      * Starts a new game. (initialises all required data)
      */
-    export function startGame(state: State): State {
+    export function startGame(playerConfigs: Array<Cmd.PlayerConfig>, state: State): State {
         // Create new players
-        // This version hard-codes 3 players by default, see the new API for the next version
-        
-        const players: Array<Player> = [
-            PlayerM.createPlayer(Token.BOOT, true),
-            PlayerM.createPlayer(Token.CAT, true),
-            PlayerM.createPlayer(Token.GOBLET, true)
-        ]
+        const players = playerConfigs.map(playerConfig => PlayerM.createPlayer(playerConfig.token, playerConfig.isHuman))
         
         const updates = {
             gamePhase: GamePhase.PLAYER_MOVE,
@@ -131,9 +125,9 @@ namespace CoreM {
         const { steps } = data
         const { tiles, players } = state
 
-        const numTiles = tiles.length
+        const numTiles: number = tiles.length
 
-        const newState = StateM.mapActivePlayer(state, player => {
+        const newState: State = StateM.mapActivePlayer(state, player => {
             let newPos = player.position + steps
 
             // Account for both forwards and backwards movememnt
