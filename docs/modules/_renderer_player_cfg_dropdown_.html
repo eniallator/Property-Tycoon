@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;renderer/player&quot; | property-tycoon</title>
+	<title>&quot;renderer/player_cfg_dropdown&quot; | property-tycoon</title>
 	<meta name="description" content="Documentation for property-tycoon">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_renderer_player_.html">&quot;renderer/player&quot;</a>
+					<a href="_renderer_player_cfg_dropdown_.html">&quot;renderer/player_cfg_dropdown&quot;</a>
 				</li>
 			</ul>
-			<h1>Module &quot;renderer/player&quot;</h1>
+			<h1>Module &quot;renderer/player_cfg_dropdown&quot;</h1>
 		</div>
 	</div>
 </header>
@@ -69,9 +69,9 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Player -</p>
+						<p>The player config dropdown that shows tokens</p>
 					</div>
-					<p>authors: Michael K., Alexandru C., Niall C.C., Joe F.</p>
+					<p>authors: Niall C.C</p>
 				</div>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -81,13 +81,14 @@
 						<section class="tsd-index-section ">
 							<h3>Classes</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter"><a href="../classes/_renderer_player_.playergui.html" class="tsd-kind-icon">PlayerGUI</a></li>
+								<li class="tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter"><a href="../classes/_renderer_player_cfg_dropdown_.playercfgdropdown.html" class="tsd-kind-icon">Player<wbr>Cfg<wbr>Dropdown</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-not-exported">
 							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported"><a href="_renderer_player_.html#playerprops" class="tsd-kind-icon">player<wbr>Props</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported"><a href="_renderer_player_cfg_dropdown_.html#dropdownprops" class="tsd-kind-icon">Dropdown<wbr>Props</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported"><a href="_renderer_player_cfg_dropdown_.html#dropdownstate" class="tsd-kind-icon">Dropdown<wbr>State</a></li>
 							</ul>
 						</section>
 					</div>
@@ -96,19 +97,65 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
 				<h2>Type aliases</h2>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported">
-					<a name="playerprops" class="tsd-anchor"></a>
-					<h3>player<wbr>Props</h3>
-					<div class="tsd-signature tsd-kind-icon">player<wbr>Props<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>player<span class="tsd-signature-symbol">: </span><a href="../interfaces/_game_data_player_.player.html" class="tsd-signature-type">Player</a><span class="tsd-signature-symbol"> }</span></div>
+					<a name="dropdownprops" class="tsd-anchor"></a>
+					<h3>Dropdown<wbr>Props</h3>
+					<div class="tsd-signature tsd-kind-icon">Dropdown<wbr>Props<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>active<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>onClick<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol">; </span>remainingTokens<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Set</span><span class="tsd-signature-symbol">&lt;</span><a href="../enums/_game_data_player_.token.html" class="tsd-signature-type">Token</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/6581b8b/src/renderer/player.tsx#L17">src/renderer/player.tsx:17</a></li>
+							<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/6581b8b/src/renderer/player_cfg_dropdown.tsx#L23">src/renderer/player_cfg_dropdown.tsx:23</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Props for the dropdown component</p>
+							<ul>
+								<li><code>onClick</code>: Function called when an option is clicked</li>
+								<li><code>remainingTokens</code>: Tokens to show in the dropdown</li>
+								<li><code>active</code>: Overrides the dropdown&#39;s active state attribute</li>
+							</ul>
+						</div>
+					</div>
 					<div class="tsd-type-declaration">
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter">
-								<h5>player<span class="tsd-signature-symbol">: </span><a href="../interfaces/_game_data_player_.player.html" class="tsd-signature-type">Player</a></h5>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> active<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>on<wbr>Click<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>remaining<wbr>Tokens<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Set</span><span class="tsd-signature-symbol">&lt;</span><a href="../enums/_game_data_player_.token.html" class="tsd-signature-type">Token</a><span class="tsd-signature-symbol">&gt;</span></h5>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported">
+					<a name="dropdownstate" class="tsd-anchor"></a>
+					<h3>Dropdown<wbr>State</h3>
+					<div class="tsd-signature tsd-kind-icon">Dropdown<wbr>State<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>active<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>wrapperRef<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">HTMLDivElement</span><span class="tsd-signature-symbol"> }</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/eniallator/Property-Tycoon/blob/6581b8b/src/renderer/player_cfg_dropdown.tsx#L34">src/renderer/player_cfg_dropdown.tsx:34</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>State for the dropdown component</p>
+							<ul>
+								<li><code>active</code>: Determines if the dropdown is visible</li>
+								<li><code>wrapperRef</code>: The outer div for the dropdown</li>
+							</ul>
+						</div>
+					</div>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter">
+								<h5>active<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> wrapper<wbr>Ref<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">HTMLDivElement</span></h5>
 							</li>
 						</ul>
 					</div>
@@ -122,17 +169,20 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-module">
-						<a href="_renderer_player_.html">&quot;renderer/player&quot;</a>
+						<a href="_renderer_player_cfg_dropdown_.html">&quot;renderer/player_<wbr>cfg_<wbr>dropdown&quot;</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="../classes/_renderer_player_.playergui.html" class="tsd-kind-icon">PlayerGUI</a>
+						<a href="../classes/_renderer_player_cfg_dropdown_.playercfgdropdown.html" class="tsd-kind-icon">Player<wbr>Cfg<wbr>Dropdown</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported">
-						<a href="_renderer_player_.html#playerprops" class="tsd-kind-icon">player<wbr>Props</a>
+						<a href="_renderer_player_cfg_dropdown_.html#dropdownprops" class="tsd-kind-icon">Dropdown<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-is-not-exported">
+						<a href="_renderer_player_cfg_dropdown_.html#dropdownstate" class="tsd-kind-icon">Dropdown<wbr>State</a>
 					</li>
 				</ul>
 			</nav>
