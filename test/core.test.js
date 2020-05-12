@@ -3,7 +3,9 @@
  */
 
  
-const { Core, CoreM } = require("../build/core/")
+const { Core, CoreM } = require("../build/core/core")
 
 
-// Nothing... for now
+test("Dummy Unit Test", () => {
+    console.log("Schlorb")
+})
