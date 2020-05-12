@@ -73,7 +73,7 @@ namespace StateM {
 
     // Utility functions for nested data transformation within State
     export function mapPlayer(state: State, ix: number, f: (p: Player) => Player): State {
-        const { players } = state
+        const players = [...state.players]
         const target = state.players[ix]
         const newPlayer = f(target)
         

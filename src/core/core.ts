@@ -76,8 +76,17 @@ namespace CoreM {
      * Starts a new game. (initialises all required data)
      */
     export function startGame(playerConfigs: Array<Cmd.PlayerConfig>, state: State): State {
+        let config = [ ...playerConfigs ]
+
+        // Ignore duplicate tokens
+        let seen = {}
+        config = config.filter(x => {
+            let token = x.token.toString()
+            return seen.hasOwnProperty(token) ? false : ( seen[token] = true )
+        })
+
         // Create new players
-        const players = playerConfigs.map(playerConfig => PlayerM.createPlayer(playerConfig.token, playerConfig.isHuman))
+        const players = config.map(playerConfig => PlayerM.createPlayer(playerConfig.token, playerConfig.isHuman))
         
         const updates = {
             gamePhase: GamePhase.PLAYER_MOVE,
@@ -178,4 +187,4 @@ namespace CoreM {
 }
 
 
-export { Core }
+export { Core, CoreM }
