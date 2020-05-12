@@ -26,13 +26,13 @@ test('Initialize a new player', () => {
     expect(p.inJail).toBeFalsy()
 
     // Check special cards
-    // No
+    expect(p.outOfJailCard).toBeFalsy()
 })
 
 // Player movement
 test('Move player to new position', () => {
     const pos = 3
-    const p = PlayerM.createPlayer(0, Token.BOOT)
+    const p = PlayerM.createPlayer(Token.CAT, true)
 
     // Move 3 steps
     const p1 = PlayerM.move(pos, p)
