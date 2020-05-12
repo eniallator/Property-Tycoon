@@ -63,8 +63,10 @@ class Core {
                 break
             case Cmd.CommandType.NEXT_TURN:
                 updates = CoreM.nextTurn(state)
+                break
             case Cmd.CommandType.BUY:
                 updates = CoreM.buy(cmd.data.propertyId as number, state)
+                break
         //    case Cmd.CommandType.ROLL:
         //        updates = CoreM.move(cmd.data as Cmd.RollData, state)
         //        break;

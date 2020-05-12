@@ -122,21 +122,23 @@ class Board extends Component<ReceiveProps> {
         }
 
         return (
-            <div className="board">
-                { centerComponents }
-                { tiles[0] }
-                { tiles.slice(1, 10).reverse() }
-                { tiles[10] }
-                <div className="row vertical-row left-row">
-                    { tiles.slice(11, 20).reverse() }
-                </div>
-                { tiles[20] }
-                <div className="row horizontal-row top-row">
-                    { tiles.slice(21, 30) }
-                </div>
-                { tiles[30] }
-                <div className="row vertical-row right-row">
-                    { tiles.slice(31, 40) }
+            <div className="table">
+                <div className="board">
+                    { centerComponents }
+                    { tiles[0] }
+                    { tiles.slice(1, 10).reverse() }
+                    { tiles[10] }
+                    <div className="row vertical-row left-row">
+                        { tiles.slice(11, 20).reverse() }
+                    </div>
+                    { tiles[20] }
+                    <div className="row horizontal-row top-row">
+                        { tiles.slice(21, 30) }
+                    </div>
+                    { tiles[30] }
+                    <div className="row vertical-row right-row">
+                        { tiles.slice(31, 40) }
+                    </div>
                 </div>
             </div>
         ) 

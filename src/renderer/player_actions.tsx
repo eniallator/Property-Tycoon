@@ -44,9 +44,9 @@ class PlayerActions extends Component<SendReceiveProps> {
     render() {
         return (
             <div className="actions-outer-div">
-                <button className="actions-btn" onClick={ this.roll.bind(this) }>Roll Dice</button>
-                <button className="actions-btn" onClick={ this.nextTurn.bind(this) }>Next Turn</button>
-                <button className="actions-btn" onClick={ this.buyProperty.bind(this) }>Buy Property</button>
+                <button onClick={ this.roll.bind(this) }>Roll Dice</button>
+                <button onClick={ this.buyProperty.bind(this) }>Buy Property</button>
+                <button onClick={ this.nextTurn.bind(this) }>Next Turn</button>
             </div>
         )
     }

@@ -538,7 +538,7 @@ h1, h2, h3, h4, h5, h6 {
 	justify-content: center;
 }
 
-.actions-btn{
+.actions-outer-div button{
 	background-color: red;
 	border: none;
 	color: white;
@@ -557,4 +557,38 @@ h1, h2, h3, h4, h5, h6 {
 	color: #dc3545;
 	text-transform: none;
 	font-size: 14px;
+}
+
+.game-display-panes {
+	display: flex;
+	justify-content: center;
+}
+
+.game-display-panes:not(:first-child) {
+	margin-left: 10px;
+}
+
+.player-info-pane {
+	padding: 50px 50px 50px 0;
+}
+
+.player-info {
+    background-color: #f1f1f1;
+	width: fit-content;
+	padding: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-wrap: wrap;
+}
+.player-info:not(:first-child) {
+	margin-top: 10px;
+}
+
+.flex-column {
+	display: flex;
+	flex-direction: column;
+}
+
+.player-info-selected {
+	background-color: #28a745;
 }
