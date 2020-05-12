@@ -12,7 +12,7 @@
     "bundle": "npm run pre-bundle && webpack && cpy src/main/* dist/",
     "release": "npm run build && npm run bundle",
     "build-docs": "typedoc --out docs src",
-    "test": "jest",
+    "test": "jest --coverage",
     "start": "electron dist/main.js"
   },
   "author": "Scrambld",
