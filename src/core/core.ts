@@ -15,6 +15,7 @@ import { Resp, RespM } from '../game_data/response'
 import { IO } from '../io/io'
 
 import Util from '../util'
+import { Property, TileM } from '../game_data/tile'
 
 
 /**
@@ -60,9 +61,13 @@ class Core {
             case Cmd.CommandType.END_GAME:
                 updates = CoreM.endGame(state)
                 break
-           // case Cmd.CommandType.ROLL:
-               // updates = CoreM.move(cmd.data as Cmd.RollData, state)
-            //    break;
+            case Cmd.CommandType.NEXT_TURN:
+                updates = CoreM.nextTurn(state)
+            case Cmd.CommandType.BUY:
+                updates = CoreM.buy(cmd.data.propertyId as number, state)
+        //    case Cmd.CommandType.ROLL:
+        //        updates = CoreM.move(cmd.data as Cmd.RollData, state)
+        //        break;
         }
 
         return [ Util.update(state, updates), respBuffer ]
@@ -140,17 +145,52 @@ namespace CoreM {
         return newState
      }
 
-     /**
-      * Response API - Currently in alpha
-      */
-     namespace v2 {
-         /**
-          * Start a new game with the given configuration parameters. Returns a state
-          * with all fields initialized for a new game
-          * @param data Configuration data
-          * @param state State to update
-          */
-         export function startGame(data: Cmd.StartGameData, state: State, resp: RespM.RespBuffer): State  {
+    /**
+     * Makes the next player the active player
+     * @param state Current state of the game
+     */
+    export function nextTurn(state: State): State {
+        const next = (state.activePlayer + 1) % state.players.length
+        return Util.update(state, { activePlayer: next })
+    }
+
+    /**
+     * Buys the current property for the current active player if they can buy it
+     * @param position Position of the tile to buy
+     * @param state current state of the game
+     */
+    export function buy(position: number, state: State): State {
+        const tileToBuy = state.tiles[position]
+        const property: Property = TileM.castToProperty(tileToBuy)
+
+        if (
+            property === undefined
+            || state.players[state.activePlayer].cash < property.price
+            || state.players.some(player => player.properties.has(property))
+            ) {
+            return state
+        }
+        const newState: State = StateM.mapActivePlayer(state, player => {
+            player.cash -= property.price
+            player.properties.add(property)
+
+            return player
+        })
+
+        return newState
+    }
+
+    /**
+     * Response API - Currently in alpha
+     */
+    namespace v2 {
+        /**
+         * Start a new game with the given configuration parameters. Returns a state
+         * with all fields initialized for a new game
+         * @param data Configuration data
+         * @param state State to update
+         */
+        export function startGame(data: Cmd.StartGameData, state: State, resp: RespM.RespBuffer): State  {
             const tiles = ImporterM.getTiles()
 
             let players: Array<Player> = []
@@ -160,7 +200,7 @@ namespace CoreM {
 
             // Push Begin Game response into response buffer
             resp.push( RespM.beginGame() )
-            
+
             // Update state
             const updates = {
                 // GamePhase is deprecated in this API
@@ -173,8 +213,8 @@ namespace CoreM {
             }
 
             return Util.update(state, updates)
-         }
-     }
+        }
+    }
 }
 
 

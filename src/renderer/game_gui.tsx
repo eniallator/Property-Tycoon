@@ -10,10 +10,9 @@
 import React, { Fragment, Component } from "react"
 import ReactDOM from "react-dom"
 import { Board } from "./board"
+import { PlayerActions } from "./player-actions"
+
 import "./monopoly.scss"
-import { Roll } from "./roll"
-import {PlayerGUI} from "../renderer/player";
-import {Player} from "../game_data/player";
 
 
 import { SendReceiveProps } from './props'
@@ -28,7 +27,7 @@ class GameGUI extends Component<SendReceiveProps> {
         return (
             <div className="table">
                 <Board state={ this.props.state }></Board>
-                <Roll io={this.props.io} > </Roll>
+                <PlayerActions io={ this.props.io } state={ this.props.state }></PlayerActions>
             </div>
         )
     }

@@ -227,6 +227,17 @@ namespace TileM {
     export function isStation(t: Tile): t is StationTile {
         return t.tileType == TileType.STATION
     }
+
+    export function isProperty(t: Tile): boolean {
+        return isStation(t) || isEstate(t) || isUtility(t)
+    }
+
+
+    export function castToProperty(t: Tile): Property {
+        if (isStation(t) || isEstate(t) || isUtility(t)) {
+            return t
+        }
+    }
 }
 
 export {
