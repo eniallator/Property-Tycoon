@@ -35,7 +35,7 @@ ul {
   padding: 0px;
 }
 
-h1 {
+.main-title {
   background-image: linear-gradient(to bottom, #ff5858 0%, #bd0000 100%);
   margin-top: 9px;
   color: whitesmoke;

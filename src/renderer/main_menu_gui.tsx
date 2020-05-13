@@ -68,7 +68,7 @@ class MainMenuGUI extends Component<SendReceiveProps, MainMenuState> {
                 <PlayerCfgModal ref={ this.state.modal } start={ this.startGame.bind(this) }></PlayerCfgModal>
                 <div className="main">
                     <div className="menu">
-                        <h1>Property Tycoon</h1>
+                        <h1 className="main-title">Property Tycoon</h1>
                         <ul className="menu-list">
                             <li><a className="button play" onClick={ this.config.bind(this) }>Play</a></li><br/>
                             <li><a className="button credits">Credits</a></li><br/>

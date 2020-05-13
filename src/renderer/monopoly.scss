@@ -539,19 +539,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .actions-outer-div button{
-	background-color: #ff4d4d;
+	background-image: linear-gradient(to bottom, #52975c 0%, #286130 100%);
 	border: none;
 	color: white;
 	padding: 15px 32px;
 	text-decoration: none;
 	display: inline-block;
 	font-size: 16px;
+	font-weight: 600;
 	margin: 4px 2px;
 	transition: 0.3s;
 	cursor: pointer;
+	border-radius: 4px;
 }
 .actions-outer-div button:hover {
-	background-color: #db4242;
+	background-image: linear-gradient(to bottom, #447c4c 0%, #204d26 100%);
 }
 
 .start-game-error {
