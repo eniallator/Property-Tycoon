@@ -36,34 +36,45 @@ ul {
 }
 
 h1 {
+  background-image: linear-gradient(to bottom, #ff5858 0%, #bd0000 100%);
+  margin-top: 9px;
   color: whitesmoke;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000;
   text-align: center;
+  border: 2px solid black;
+  padding: 3px 5px 1px 5px;
+  font-weight: 500;
 }
-.button {
-  display: block;
-  position: relative;
-  width: 150px;
-  margin: auto;
-  height: 30px;
-  line-height: 30px;
-  border: 1px solid #aa2666;
-  color: white;
-  font-weight: bold;
-  text-align: center;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-    1px 1px 0 #000;
-  background-color: #fb1886;
-  background-image: -webkit-linear-gradient(bottom, #fb1886 0%, #b30d5d 100%);
-  background-image: linear-gradient(to bottom, #fb1886 0%, #b30d5d 100%);
 
-  border-radius: 5px;
+.menu {
+  width: fit-content;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-list {
+  padding: 15px;
+}
+
+.button {
+  background-image: linear-gradient(to bottom, #52975c 0%, #286130 100%);
+  border: none;
+  color: white;
+  padding: 10px 0;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 4px 2px;
+  transition: 0.3s;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 4px;
 }
 .button:hover {
-  background-color: #b30d5d;
-  background-image: -webkit-linear-gradient(bottom, #b30d5d 0%, #fb1886 100%);
-  background-image: linear-gradient(to bottom, #b30d5d 0%, #fb1886 100%);
+  background-image: linear-gradient(to bottom, #447c4c 0%, #204d26 100%);
 }
 
 a:hover {
@@ -92,11 +103,12 @@ a:hover {
 }
 
 .modal-content-player-cfg {
-  background-color: #fefefe;
+  background-color: #eee;
   margin: 15% auto;
   padding: 20px;
-  border: 1px solid #888;
   width: 500px;
+  border: 2px solid #888;
+  border-radius: 4px;
 }
 
 .modal-close-player-cfg {
@@ -114,26 +126,23 @@ a:hover {
   display: flex;
   min-height: 44px;
   text-transform: capitalize;
+  margin: 13px 0 12px;
 }
 
 .player-add-text {
-  color: #ddd;
+  color: #fff;
   float: right;
-  margin-top: -23px;
+  margin-top: -24px;
   font-size: 52px;
   font-weight: bold;
 }
-.player-add-text:hover {
-  color: #aaa;
-  text-decoration: none;
-}
 
 .player-option {
+  background-image: radial-gradient(#fff, #ccc);
+  border: 1px solid #bbb;
   width: 44px;
   margin: 0px 10px;
   color: #212529;
-  background-color: #f1f1f1;
-  border: 1px solid #f1f1f1;
   display: inline-flex;
   font-weight: 400;
   text-align: center;
@@ -148,9 +157,14 @@ a:hover {
 }
 
 .player-option-add {
-  height: 44px;
-  background-color: #28a745 !important;
+  background-image: linear-gradient(to bottom, #52975c 0%, #286130 100%);
   position: relative;
+  height: 44px;
+  border: none;
+}
+.player-option-add:hover {
+  background-image: linear-gradient(to bottom, #447c4c 0%, #204d26 100%);
+  cursor: pointer;
 }
 
 .add-player-dropdown-outer {
@@ -210,4 +224,15 @@ a:hover {
   border-radius: 3px;
   height: 13px;
   width: 14px;
+}
+
+.start-game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.start-game .button {
+  width: unset;
+  padding: 10px 20px;
 }

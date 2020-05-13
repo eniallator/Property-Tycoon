@@ -539,7 +539,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .actions-outer-div button{
-	background-color: red;
+	background-color: #ff4d4d;
 	border: none;
 	color: white;
 	padding: 15px 32px;
@@ -548,10 +548,11 @@ h1, h2, h3, h4, h5, h6 {
 	font-size: 16px;
 	margin: 4px 2px;
 	transition: 0.3s;
-	opacity: 0.7;
 	cursor: pointer;
 }
-.actions-btn:hover {opacity: 1}
+.actions-outer-div button:hover {
+	background-color: #db4242;
+}
 
 .start-game-error {
 	color: #dc3545;

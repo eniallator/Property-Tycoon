@@ -69,7 +69,7 @@ class MainMenuGUI extends Component<SendReceiveProps, MainMenuState> {
                 <div className="main">
                     <div className="menu">
                         <h1>Property Tycoon</h1>
-                        <ul>
+                        <ul className="menu-list">
                             <li><a className="button play" onClick={ this.config.bind(this) }>Play</a></li><br/>
                             <li><a className="button credits">Credits</a></li><br/>
                             <li><a className="button exit" onClick={ this.exit.bind(this) }>Exit</a></li><br/>

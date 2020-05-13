@@ -128,11 +128,11 @@ class PlayerCfgModal extends Component<ModalProps, ModalState> {
 
         if (remainingTokens.size > 0) {
             options.push(
-                <div className="player-option player-option-add">
-                    <span
-                        className="player-option-dim player-add-text"
-                        onClick={ () => this.state.dropdown.current.open() }
-                    >+</span>
+                <div
+                    className="player-option player-option-add"
+                    onClick={ () => this.state.dropdown.current.open() }
+                    >
+                    <span className="player-option-dim player-add-text">+</span>
                     <PlayerCfgDropdown
                         ref={ this.state.dropdown }
                         onClick={ this.addPlayer.bind(this) }
@@ -166,8 +166,8 @@ class PlayerCfgModal extends Component<ModalProps, ModalState> {
                     <div className="player-options-container">
                         { this.createPlayerOptions() }
                     </div>
-                    <div>
-                        <a className="button play" onClick={ this.startGame.bind(this) }>Start Game</a>
+                    <div className="start-game">
+                        <a className="button" onClick={ this.startGame.bind(this) }>Start Game</a>
                         {
                             this.state.startGameError
                             ? <span className="start-game-error">Game must have at least 2 players</span>
