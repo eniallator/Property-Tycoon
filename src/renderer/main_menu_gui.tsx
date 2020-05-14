@@ -18,7 +18,7 @@ import "./menu.css"
 
 /**
  * State for the main menu
- * - `modal`: The reference to the config modal
+ * - `modal`: Reference to the config modal
  */
 type MainMenuState = {
     modal: RefObject<PlayerCfgModal>
@@ -41,7 +41,11 @@ class MainMenuGUI extends Component<SendReceiveProps, MainMenuState> {
      * @param players The player configuration
      */
     startGame(players: Array<PlayerConfig>) {
-        this.props.io.sendCommand(CommandM.startGame(players))
+        if (players.length > 1) {
+            this.props.io.sendCommand(CommandM.startGame(players))
+            return true
+        }
+        return false
     }
 
     /**
