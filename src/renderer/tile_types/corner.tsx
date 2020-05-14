@@ -48,11 +48,6 @@ class CornerTileComponent extends Component<CornerTileComponentProps> {
                     <div className="just">Just</div>
                     <div className="drawing">
                         <div className="container">
-                            <div className="fit-outer">
-                                <div className="players">
-                                    { this.props.playerArray }
-                                </div>
-                            </div>
                             <div className="name">In</div>
                             <div className="window">
                                 <div className="bar"></div>
@@ -61,6 +56,11 @@ class CornerTileComponent extends Component<CornerTileComponentProps> {
                                 <i className="person fa fa-frown-o"></i>
                             </div>
                             <div className="name">Jail</div>
+                            <div className="fit-outer">
+                                <div className="players">
+                                    { this.props.playerArray }
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div className="visiting">Visiting</div>
