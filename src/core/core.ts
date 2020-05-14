@@ -138,7 +138,11 @@ namespace CoreM {
             let newPos = player.position + steps
 
             // Account for both forwards and backwards movememnt
-            newPos = newPos < 0 ? numTiles + newPos : newPos % 40
+            newPos = newPos < 0 ? numTiles + newPos : newPos
+            if (newPos >= numTiles) {
+                player.cash += 200
+                newPos %= numTiles
+            }
             player.position = newPos
 
             return player
@@ -165,17 +169,15 @@ namespace CoreM {
         const tileToBuy = state.tiles[position]
         const property: Property = TileM.castToProperty(tileToBuy)
 
-        if (
-            property === undefined
-            || state.players[state.activePlayer].cash < property.price
-            || state.players.some(player => player.properties.has(property))
-            ) {
-            return state
-        }
         const newState: State = StateM.mapActivePlayer(state, player => {
-            player.cash -= property.price
-            player.properties.add(property)
-
+            if (
+                property !== undefined
+                && player.cash >= property.price
+                && !state.players.some(player => player.properties.has(property))
+                ) {
+                player.cash -= property.price
+                player.properties.add(property)
+            }
             return player
         })
 
