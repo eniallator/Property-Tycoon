@@ -3,22 +3,21 @@
  */
 
 
-const { Player, Token, PlayerM } = require('../dist/core')
+const { Player, Token, PlayerM } = require('../build/game_data/player')
+
 
 // Player initialization
 test('Initialize a new player', () => {
     const id = 0
     const token = Token.BOOT
-    const p = PlayerM.createPlayer(id, token)
-
-    // Check id = id
-    expect(p.id).toEqual(id)
+    const isHuman = true
+    const p = PlayerM.createPlayer(token, isHuman)
 
     // Check Position = 0
     expect(p.position).toEqual(0)
 
     // Check Cash = ???
-    // TODO
+    expect(p.cash).toEqual(1500)
 
     // Check no properties owned
     expect(p.properties).toEqual(new Set())
@@ -27,13 +26,13 @@ test('Initialize a new player', () => {
     expect(p.inJail).toBeFalsy()
 
     // Check special cards
-    // TODO
+    expect(p.outOfJailCard).toBeFalsy()
 })
 
 // Player movement
 test('Move player to new position', () => {
     const pos = 3
-    const p = PlayerM.createPlayer(0, Token.BOOT)
+    const p = PlayerM.createPlayer(Token.CAT, true)
 
     // Move 3 steps
     const p1 = PlayerM.move(pos, p)
